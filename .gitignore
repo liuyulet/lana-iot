@@ -1,9 +1,12 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-**/src/main/**/target/
-**/src/test/**/target/
-**/target/**
+.git
+logs
+#*.gitignore
+rebel.xml
+/target/
+log.path_IS_UNDEFINED
+.DS_Store
+offline_user.md
+spy.log
 
 ### STS ###
 .apt_generated
@@ -12,24 +15,22 @@ target/
 .project
 .settings
 .springBeans
-.sts4-cache
 
 ### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
-*.class
-
 ### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+nbproject/private/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-.idea/
-### VS Code ###
-.vscode/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+generatorConfig.xml
+
+### nacos ###
+third-party/nacos/derby.log
+third-party/nacos/data/
+third-party/nacos/work/
