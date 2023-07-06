@@ -7,7 +7,9 @@
     <artifactId>lana-iot</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>lana-iot</name>
+    <packaging>pom</packaging>
     <description>lana-iot</description>
+
     <properties>
         <spring-boot.version>2.7.12</spring-boot.version>
         <spring-cloud.version>2021.0.7</spring-cloud.version>
@@ -27,6 +29,16 @@
         <knife4j.ui.version>3.0.3</knife4j.ui.version>
         <xxl-job.version>2.4.0</xxl-job.version>
     </properties>
+
+
+    <modules>
+        <module>lana-cloud</module>
+        <module>lana-common</module>
+        <module>lana-hardware</module>
+        <module>lana-serves</module>
+    </modules>
+
+
     <dependencyManagement>
         <dependencies>
             <!-- spring boot 依赖 -->
