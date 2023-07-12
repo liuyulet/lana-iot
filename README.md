@@ -9,7 +9,8 @@
 ├── lana-common
         └── lana-log                          --- 日志
         └── lana-encrypt                      --- 加密  
-        └── lana-sms                          --- 短信  
+        └── lana-sms                          --- 短信
+        └── lana-other                        --- 第三方平台  
         └── lana-swagger                      --- 接口文档 
         └── lana-openfeign                    --- 服务调用
         └── lana-netty                        --- 通信
