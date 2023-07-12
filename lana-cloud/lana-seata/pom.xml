@@ -2,25 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>com.lana.iot</groupId>
-        <artifactId>lana-iot</artifactId>
+        <artifactId>lana-cloud</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
+    <artifactId>lana-seata</artifactId>
+    <description>lana-分布式事务</description>
+    <packaging>jar</packaging>
 
 
-    <artifactId>lana-cloud</artifactId>
-    <description>lana-平台微服务模块</description>
-    <packaging>pom</packaging>
-
-
-    <modules>
-        <module>lana-gateway</module>
-        <module>lana-monitor</module>
-        <module>lana-seata</module>
-        <module>lana-sentinel</module>
-        <module>lana-xxl-job</module>
-    </modules>
 
 </project>

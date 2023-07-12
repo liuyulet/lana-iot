@@ -1,0 +1,13 @@
+package com.example.lanagateway;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class LanaGatewayApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}

@@ -4,23 +4,14 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.lana.iot</groupId>
-        <artifactId>lana-iot</artifactId>
+        <artifactId>lana-cloud</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
+    <artifactId>lana-monitor</artifactId>
+    <description>lana-服务监控</description>
+    <packaging>jar</packaging>
 
 
-    <artifactId>lana-cloud</artifactId>
-    <description>lana-平台微服务模块</description>
-    <packaging>pom</packaging>
-
-
-    <modules>
-        <module>lana-gateway</module>
-        <module>lana-monitor</module>
-        <module>lana-seata</module>
-        <module>lana-sentinel</module>
-        <module>lana-xxl-job</module>
-    </modules>
 
 </project>
