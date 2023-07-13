@@ -4,12 +4,20 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.lana.iot</groupId>
-        <artifactId>lana-cloud</artifactId>
+        <artifactId>lana-iot</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>lana-gateway</artifactId>
-    <description>lana-API网关</description>
-    <packaging>jar</packaging>
+    <artifactId>lana-communication</artifactId>
+    <description>lana-通讯消息</description>
+    <packaging>pom</packaging>
 
+
+    <modules>
+        <module>lana-mq</module>
+        <module>lana-kafka</module>
+        <module>lana-coap</module>
+        <module>lana-mqtt</module>
+        <module>lana-netty</module>
+    </modules>
 </project>

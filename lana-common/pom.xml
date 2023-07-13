@@ -12,6 +12,19 @@
     <description>lana-通用模块</description>
     <packaging>pom</packaging>
 
-
+    <modules>
+        <module>lana-log</module>
+        <module>lana-encrypt</module>
+        <module>lana-sms</module>
+        <module>lana-other</module>
+        <module>lana-swagger</module>
+        <module>lana-openfeign</module>
+        <module>lana-clickhouse</module>
+        <module>lana-tdengine</module>
+        <module>lana-redis</module>
+        <module>lana-mongodb</module>
+        <module>lana-minio</module>
+        <module>lana-es</module>
+    </modules>
 
 </project>

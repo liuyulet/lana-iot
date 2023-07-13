@@ -12,5 +12,8 @@
 	<description>lana-平台设备模块</description>
 	<packaging>pom</packaging>
 
+	<modules>
+		<module>lana-tslmodel</module>
+	</modules>
 
 </project>

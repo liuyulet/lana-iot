@@ -16,7 +16,6 @@
 
 
     <modules>
-        <module>lana-gateway</module>
         <module>lana-monitor</module>
         <module>lana-seata</module>
         <module>lana-sentinel</module>
