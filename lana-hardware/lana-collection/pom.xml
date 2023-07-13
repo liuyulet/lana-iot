@@ -9,7 +9,7 @@
     </parent>
 
 
-    <artifactId>lana-simulator</artifactId>
+    <artifactId>lana-collection</artifactId>
     <description>lana-模拟器</description>
     <packaging>jar</packaging>
 
