@@ -10,7 +10,7 @@
 
 
     <artifactId>lana-collection</artifactId>
-    <description>lana-模拟器</description>
+    <description>lana-设备数采</description>
     <packaging>jar</packaging>
 
 </project>
