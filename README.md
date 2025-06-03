@@ -1,10 +1,10 @@
 # lana 轻量级物联网设备管理平台
 
-### 项目文档：
+## 1、项目文档：
 
-[文档](https://liuyulet.github.io/)
+使用该项目：  [项目文档](https://liuyulet.github.io/)
 
-## 1、项目背景
+## 2、项目背景
 ~~~
 项目背景
 机缘巧合，有很多小物件想自己去diy，但是没有找到合适的平台管理平台，所以自己动手搞了一个。
@@ -22,7 +22,7 @@
 1. 完成物联网平台的整体开发，简单部署与使用。
 2. 人生很短，做一些自己喜欢做的事情吧。
 ~~~
-## 2、项目所使用的技术栈
+## 3、项目所使用的技术栈
 
 后端程序学习并参考了： [ruoyi](https://gitee.com/y_project/RuoYi)
 
@@ -38,7 +38,7 @@
 ### 在此感谢各位大佬们、前辈们的开源！为我点燃了前进的航路！
 
 
-# 图片一览
+## 4、项目图片展示
 ![shouye.PNG](doc%2Fimg%2Fshouye.PNG)
 ![shouye2.PNG](doc%2Fimg%2Fshouye2.PNG)
 ![people.PNG](doc%2Fimg%2Fpeople.PNG)
