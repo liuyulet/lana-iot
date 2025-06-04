@@ -3,6 +3,7 @@ package com.lana.device.dao;
 import com.lana.base.mybatis.dao.BaseDao;
 import com.lana.device.entity.DeviceProductModeEntity;
 import com.lana.device.entity.vo.result.DeviceProductModeResult;
+import com.lana.device.entity.vo.save.DeviceProductModeListSave;
 import com.lana.device.entity.vo.save.DeviceProductModeSave;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -20,7 +21,7 @@ public interface DeviceProductModeDao extends BaseDao<DeviceProductModeEntity> {
 
     List<DeviceProductModeResult> getProductModePage(Long id);
 
-    void saveDeviceGroup(@Param("saveVO") DeviceProductModeSave saveVO);
+    void saveDeviceGroup(@Param("productTypeId") Long productTypeId, @Param("DeviceProductModeList")List<DeviceProductModeListSave> deviceProductModeList);
 
     void deleteDeviceGroup(@Param("productTypeId") Long productTypeId);
 }

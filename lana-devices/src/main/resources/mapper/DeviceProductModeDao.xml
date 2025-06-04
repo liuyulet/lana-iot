@@ -7,21 +7,17 @@
             mode_name,
             mode_signs,
             mode_data_type,
-            mode_data_source,
-            mode_control_att,
             mode_remark,
             product_type_id
         )
         values
-        <foreach collection="saveVO.deviceProductModeListSave" item="item" separator=",">
+        <foreach collection="DeviceProductModeList" item="item" separator=",">
             (
                 #{item.modeName},
                 #{item.modeSigns},
                 #{item.modeDataType},
-                #{item.modeDataSource},
-                #{item.modeControlAtt},
                 #{item.modeRemark},
-                #{saveVO.productTypeId}
+                #{productTypeId}
             )
         </foreach>
     </insert>

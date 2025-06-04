@@ -31,14 +31,17 @@ public class DeviceProductModeServiceImpl extends BaseServiceImpl<DeviceProductM
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void saveDeviceGroup(DeviceProductModeSave saveVO) {
+
         if(saveVO.getDeviceProductModeListSave().size()>0){
             //todo 后续再优化吧
             //删除
-            baseMapper.deleteDeviceGroup(saveVO.getProductTypeId());
-            baseMapper.saveDeviceGroup(saveVO);
+            List<DeviceProductModeResult> deviceProductModeList = baseMapper.getProductModePage(saveVO.getProductTypeId());
+            if(!deviceProductModeList.isEmpty()){
+                baseMapper.deleteDeviceGroup(saveVO.getProductTypeId());
+            }
+            baseMapper.saveDeviceGroup(saveVO.getProductTypeId(),saveVO.getDeviceProductModeListSave());
         }else {
             baseMapper.deleteDeviceGroup(saveVO.getProductTypeId());
         }
-
     }
 }
