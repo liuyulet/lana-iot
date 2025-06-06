@@ -11,7 +11,7 @@
  Target Server Version : 80033 (8.0.33)
  File Encoding         : 65001
 
- Date: 29/05/2025 18:06:05
+ Date: 06/06/2025 15:06:34
 */
 
 SET NAMES utf8mb4;
@@ -94,7 +94,8 @@ CREATE TABLE `QRTZ_FIRED_TRIGGERS`  (
 -- ----------------------------
 -- Records of QRTZ_FIRED_TRIGGERS
 -- ----------------------------
-INSERT INTO `QRTZ_FIRED_TRIGGERS` VALUES ('LanaScheduler', 'NON_CLUSTERED1748512819902', 'Trigger_device_deviceDataSave', '1748511457883', 'NON_CLUSTERED', 1748513161757, 1748513180000, 5, 'ACQUIRED', NULL, NULL, '0', '0');
+INSERT INTO `QRTZ_FIRED_TRIGGERS` VALUES ('LanaScheduler', 'NON_CLUSTERED1749031803482', 'Trigger_log_logsDataSave', '1748511357883', 'NON_CLUSTERED', 1749193580927, 1749193600000, 5, 'ACQUIRED', NULL, NULL, '0', '0');
+INSERT INTO `QRTZ_FIRED_TRIGGERS` VALUES ('LanaScheduler', 'NON_CLUSTERED1749186566091', 'Trigger_device_deviceDataSave', '1748511457883', 'NON_CLUSTERED', 1749193580760, 1749193600000, 5, 'ACQUIRED', NULL, NULL, '0', '0');
 
 -- ----------------------------
 -- Table structure for QRTZ_JOB_DETAILS
@@ -243,9 +244,9 @@ CREATE TABLE `QRTZ_TRIGGERS`  (
 -- ----------------------------
 -- Records of QRTZ_TRIGGERS
 -- ----------------------------
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_device_deviceDataSave', '1748511457883', 'deviceDataSave', '1748511457883', NULL, 1748513180000, 1748513160000, 5, 'ACQUIRED', 'CRON', 1748512626000, 0, NULL, 0, '');
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_log_logsDataSave', '1748511357883', 'logsDataSave', '1748511357883', NULL, 1748513180000, 1748513160000, 5, 'WAITING', 'CRON', 1748512687000, 0, NULL, 0, '');
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_开始3', '1748512720741', '开始3', '1748512720741', NULL, 1748516400000, 1748512800000, 5, 'WAITING', 'CRON', 1748512721000, 0, NULL, 0, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_device_deviceDataSave', '1748511457883', 'deviceDataSave', '1748511457883', NULL, 1749193600000, 1749193580000, 5, 'ACQUIRED', 'CRON', 1748512626000, 0, NULL, 0, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_log_logsDataSave', '1748511357883', 'logsDataSave', '1748511357883', NULL, 1749193600000, 1749193580000, 5, 'ACQUIRED', 'CRON', 1748512687000, 0, NULL, 0, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_开始3', '1748512720741', '开始3', '1748512720741', NULL, 1749196800000, 1749193200000, 5, 'WAITING', 'CRON', 1748512721000, 0, NULL, 0, '');
 
 -- ----------------------------
 -- Table structure for device_abutment
@@ -258,7 +259,7 @@ CREATE TABLE `device_abutment`  (
   `device_type` int NULL DEFAULT NULL COMMENT '设备接入的方式，1直链设备，2边缘计算设备，3边缘计算子设备',
   `edge_id` bigint NULL DEFAULT NULL COMMENT '如果是边缘子设备，则这里就是关联的边缘计算产品实例的id；如果是边缘计算，这里就是边缘计算的id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '接入管理' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 52 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '接入管理' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of device_abutment
@@ -266,6 +267,7 @@ CREATE TABLE `device_abutment`  (
 INSERT INTO `device_abutment` VALUES (46, 1, 2, 3, 1);
 INSERT INTO `device_abutment` VALUES (47, 1, 3, 1, NULL);
 INSERT INTO `device_abutment` VALUES (50, 1, 1, 2, 10);
+INSERT INTO `device_abutment` VALUES (51, 1, 10, 1, NULL);
 
 -- ----------------------------
 -- Table structure for device_control_data
@@ -289,7 +291,7 @@ CREATE TABLE `device_control_data`  (
   `creator_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '创建人，格式：[姓名:账号]',
   `updater_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '修改人，格式：[姓名:账号]',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备功能表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备功能表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of device_control_data
@@ -307,6 +309,9 @@ INSERT INTO `device_control_data` VALUES (20, 38, 2, '采集功能', '采集', '
 INSERT INTO `device_control_data` VALUES (21, 37, 2, '采集功能', '采集', 'getDeviceData ', 'int', '整数', '1', 0, 1, '2025-05-12 17:20:40', NULL, NULL, '[超级管理员:admin]', NULL);
 INSERT INTO `device_control_data` VALUES (22, 37, 1, '控制功能', '开', 'disjunctor', 'int', '整数', '1', 0, 1, '2025-05-12 17:21:05', NULL, NULL, '[超级管理员:admin]', NULL);
 INSERT INTO `device_control_data` VALUES (23, 37, 1, '控制功能', '关', 'disjunctor', 'int', '整数', '0', 0, 1, '2025-05-12 17:21:14', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (24, 40, 2, '采集功能', '采集数据', 'check', 'int', '整数', '1', 0, 1, '2025-06-04 21:07:02', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (25, 40, 1, '控制功能', '开启设备', 'onoff', 'int', '整数', '1', 0, 1, '2025-06-04 21:07:22', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (26, 40, 1, '控制功能', '关闭设备', 'onoff', 'int', '整数', '0', 0, 1, '2025-06-04 21:08:10', NULL, NULL, '[超级管理员:admin]', NULL);
 
 -- ----------------------------
 -- Table structure for device_edges_item
@@ -357,7 +362,7 @@ CREATE TABLE `device_group`  (
   `creator_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '创建人，格式：[姓名:账号]',
   `updater_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '修改人，格式：[姓名:账号]',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备分组表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备分组表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of device_group
@@ -366,6 +371,7 @@ INSERT INTO `device_group` VALUES (2, '下班回家组', 1, 1, '下班后，打�
 INSERT INTO `device_group` VALUES (3, '上班离家组', 2, 1, '上班出门，关闭灯光', 0, 1, '2024-08-07 10:03:00', 1, '2024-11-12 22:08:31', '[超级管理员:admin]', '[超级管理员:admin]');
 INSERT INTO `device_group` VALUES (4, '上班离家组', 1, 1, '上班出门', 1, 1, '2024-08-07 10:03:01', 1, '2024-08-07 10:03:01', '[超级管理员:admin]', '[超级管理员:admin]');
 INSERT INTO `device_group` VALUES (5, '周末休息组', 3, 1, '周末休闲娱乐组', 1, 1, '2024-08-07 10:04:19', 1, '2024-10-19 21:41:36', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_group` VALUES (6, '温度过高组', 3, 1, '温度过高', 0, 1, '2025-06-04 21:24:51', 1, '2025-06-04 21:25:24', '[超级管理员:admin]', '[超级管理员:admin]');
 
 -- ----------------------------
 -- Table structure for device_item
@@ -388,16 +394,17 @@ CREATE TABLE `device_item`  (
   `creator_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '创建人，格式：[姓名:账号]',
   `updater_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '修改人，格式：[姓名:账号]',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 41 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of device_item
 -- ----------------------------
-INSERT INTO `device_item` VALUES (32, 'http://8.139.4.114:9000/dev/20250225/4a1afd2c8b934e24224e9cffd35eeea_63766.png', '空气检测设备', 'sd00001', 1, '测试', 2, '1,2', 0, 1, '2024-08-22 17:08:23', 1, '2025-02-25 17:42:49', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_item` VALUES (36, 'http://121.5.79.252:9000/dev/20240914/2d6aa7e497a059df30d635667b1ec998_58755.jpeg', '空气站', 'sadas', 0, '撒旦撒', 2, '1,2', 0, 1, '2024-09-14 16:19:36', 1, '2024-09-14 16:19:36', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_item` VALUES (37, 'http://121.5.79.252:9000/dev/20241024/1_54155.png', '加湿器', 'jiashiq', 1, '测试测试', 2, '1,2', 0, 1, '2024-10-24 15:02:54', 1, '2024-10-24 21:30:30', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_item` VALUES (32, 'http://8.139.4.114:9000/dev/20250225/4a1afd2c8b934e24224e9cffd35eeea_63766.png', '空气检测设备', 'sd00001', 1, '测试', 1, '1', 0, 1, '2024-08-22 17:08:23', 1, '2025-06-04 17:48:03', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_item` VALUES (36, 'http://8.139.4.114:9000/dev/20250604/DPlayer (1)_69598.png', '空气站', 'sadas', 1, '撒旦撒', 10, '1,10', 0, 1, '2024-09-14 16:19:36', 1, '2025-06-04 19:21:49', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_item` VALUES (37, 'http://121.5.79.252:9000/dev/20241024/1_54155.png', '加湿器', 'jiashiq', 1, '测试测试', 1, '1', 0, 1, '2024-10-24 15:02:54', 1, '2025-06-04 17:48:19', '[超级管理员:admin]', '[超级管理员:admin]');
 INSERT INTO `device_item` VALUES (38, 'http://121.5.79.252:9000/dev/20241025/2_57394.png', '灯光控制器', 'dg', 1, '边缘计算灯光控制器', 4, '4', 0, 1, '2024-10-25 15:57:15', 1, '2024-10-25 15:57:15', '[超级管理员:admin]', '[超级管理员:admin]');
 INSERT INTO `device_item` VALUES (39, 'http://121.5.79.252:9000/dev/20241122/1_49054.png', '1', '1', 1, '1', 7, '4,7', 1, 1, '2024-11-22 13:37:42', 1, '2024-11-22 13:37:50', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_item` VALUES (40, 'http://8.139.4.114:9000/dev/20250604/DPlayer_70059.png', '新空气站', 'sn90011', 1, '新空气站', 10, '1,10', 0, 1, '2025-06-04 19:29:28', NULL, NULL, '[超级管理员:admin]', NULL);
 
 -- ----------------------------
 -- Table structure for device_item_group
@@ -408,13 +415,15 @@ CREATE TABLE `device_item_group`  (
   `device_group_id` bigint NULL DEFAULT NULL COMMENT '设备分组表id',
   `device_item_id` bigint NULL DEFAULT NULL COMMENT '设备实例表id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备分组关联表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备分组关联表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of device_item_group
 -- ----------------------------
 INSERT INTO `device_item_group` VALUES (36, 2, 32);
 INSERT INTO `device_item_group` VALUES (37, 3, 36);
+INSERT INTO `device_item_group` VALUES (38, 6, 40);
+INSERT INTO `device_item_group` VALUES (39, 6, 38);
 
 -- ----------------------------
 -- Table structure for device_mode
@@ -431,7 +440,7 @@ CREATE TABLE `device_mode`  (
   `device_item_id` bigint NULL DEFAULT NULL COMMENT '设备id',
   `defult_value` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '冗余字段，预留给后面的功能',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 347 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备物模型' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 357 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备物模型' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of device_mode
@@ -452,6 +461,12 @@ INSERT INTO `device_mode` VALUES (343, '温度', 'wd', 'float', 1, NULL, '温度
 INSERT INTO `device_mode` VALUES (344, '湿度', 'sd', 'float', 1, NULL, '湿度', 37, NULL);
 INSERT INTO `device_mode` VALUES (345, 'PM2.0', 'pm25', 'float', 1, NULL, '灰尘', 37, NULL);
 INSERT INTO `device_mode` VALUES (346, '开关', 'disjunctor', 'int', 0, NULL, NULL, 37, NULL);
+INSERT INTO `device_mode` VALUES (351, 'pm2.5', 'pm25', 'float', 1, 0, 'μm', 40, NULL);
+INSERT INTO `device_mode` VALUES (352, 'pm100', 'pm100', 'float', 1, 0, 'μm', 40, NULL);
+INSERT INTO `device_mode` VALUES (353, '湿度', 'humidity', 'float', 1, 0, '%RH', 40, NULL);
+INSERT INTO `device_mode` VALUES (354, '温度', 'temperature', 'float', 1, 0, '°C', 40, NULL);
+INSERT INTO `device_mode` VALUES (355, '检测', 'check', 'int', 0, NULL, NULL, 40, NULL);
+INSERT INTO `device_mode` VALUES (356, '开关', 'onoff', 'int', 0, NULL, NULL, 40, NULL);
 
 -- ----------------------------
 -- Table structure for device_product_mode
@@ -465,7 +480,7 @@ CREATE TABLE `device_product_mode`  (
   `mode_remark` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '补充说明',
   `product_type_id` bigint NULL DEFAULT NULL COMMENT '产品类型id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '产品物模型' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '产品物模型' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of device_product_mode
@@ -475,6 +490,10 @@ INSERT INTO `device_product_mode` VALUES (5, '测试属性2', 'test2', 'double',
 INSERT INTO `device_product_mode` VALUES (6, '温度', 'wd', 'float', '温度', 2);
 INSERT INTO `device_product_mode` VALUES (7, '湿度', 'sd', 'float', '湿度', 2);
 INSERT INTO `device_product_mode` VALUES (8, 'PM2.0', 'pm2', 'float', '灰尘', 2);
+INSERT INTO `device_product_mode` VALUES (9, 'pm2.5', 'pm25', 'float', 'μm', 10);
+INSERT INTO `device_product_mode` VALUES (10, 'pm100', 'pm100', 'float', 'μm', 10);
+INSERT INTO `device_product_mode` VALUES (11, '湿度', 'humidity', 'float', '%RH', 10);
+INSERT INTO `device_product_mode` VALUES (12, '温度', 'temperature', 'float', '°C', 10);
 
 -- ----------------------------
 -- Table structure for device_product_type
@@ -495,7 +514,7 @@ CREATE TABLE `device_product_type`  (
   `creator_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '创建人，格式：[姓名:账号]',
   `updater_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '修改人，格式：[姓名:账号]',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '产品管理' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '产品管理' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of device_product_type
@@ -509,6 +528,7 @@ INSERT INTO `device_product_type` VALUES (6, 4, '路灯', 1, 1, '', 0, 1, '2024-
 INSERT INTO `device_product_type` VALUES (7, 4, '警示灯', 1, 1, '', 0, 1, '2024-10-25 15:37:36', 1, '2024-10-25 15:37:36', '[超级管理员:admin]', '[超级管理员:admin]');
 INSERT INTO `device_product_type` VALUES (8, NULL, '智慧农业', 1, 1, NULL, 0, 1, '2025-05-16 21:57:37', NULL, NULL, '[超级管理员:admin]', NULL);
 INSERT INTO `device_product_type` VALUES (9, 8, '自动灌溉设备', 1, 1, NULL, 0, 1, '2025-05-16 21:57:59', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_product_type` VALUES (10, 1, '空气检测', 1, 1, NULL, 0, 1, '2025-06-04 17:49:15', NULL, NULL, '[超级管理员:admin]', NULL);
 
 -- ----------------------------
 -- Table structure for protocols_http
@@ -598,7 +618,7 @@ CREATE TABLE `protocols_mqtt`  (
 -- ----------------------------
 -- Records of protocols_mqtt
 -- ----------------------------
-INSERT INTO `protocols_mqtt` VALUES (1, '0.0.0.0', 'Mqtt-broker(测试环境不开放端口)', 1, '1883', '8083', 1, 'MqttNB!%#...', 'MqttNB!%#...', 0, 1, 'MqttNB!%#...', 'MqttNB!%#...', 0, '', '', 'none', '', '', 1, '0', 0, 1, '2025-05-29 18:00:21', 1, '2025-05-29 18:00:21', '系统初始化', '系统初始化');
+INSERT INTO `protocols_mqtt` VALUES (1, '0.0.0.0', 'Mqtt-broker(测试环境不开放端口)', 1, '1883', '8083', 1, 'MqttNB!%#...', 'MqttNB!%#...', 0, 1, 'MqttNB!%#...', 'MqttNB!%#...', 0, '', '', 'none', '', '', 1, '0', 0, 1, '2025-06-06 13:09:27', 1, '2025-06-06 13:09:27', '系统初始化', '系统初始化');
 INSERT INTO `protocols_mqtt` VALUES (2, '12am.cn', '其他emqx代理', 2, '1884', '8084', 1, 'admin', 'admin1234!@#$', 0, NULL, '', '', 0, '', '', 'NONE', '', '', 0, '0', 1, 1, '2024-12-03 16:51:28', 1, '2024-09-04 18:21:41', '[超级管理员:admin]', '[超级管理员:admin]');
 
 -- ----------------------------
@@ -648,9 +668,9 @@ CREATE TABLE `rules_item`  (
 -- ----------------------------
 -- Records of rules_item
 -- ----------------------------
-INSERT INTO `rules_item` VALUES (1, '测试监听', 3, 'let m = seq.list();\r\nif ((deviceId == 36 && wd > 46) && (deviceId == 36 && sd > 54)) {\r\nlet hit = seq.map();\r\nseq.put(hit, \"actionMap\", \"actionMap1748413869626\");\r\nseq.put(hit, \"message\", \"命中条件：空气站 的 温度 > 46 与 空气站 的 湿度 > 54\");\r\nseq.add(m, hit);\r\n}\r\nif(deviceId == 36){\r\n    if(pm25 < 33){\r\n    let hit = seq.map();\r\n    seq.put(hit, \"actionMap\", \"actionMap1748413869758\");\r\n    seq.put(hit, \"message\", \"命中条件：空气站 的 PM25 < 33\");\r\n    seq.add(m, hit);\r\n    }\r\n}\r\nif(deviceId == 36){\r\n    if(sd < 37){\r\n    let hit = seq.map();\r\n    seq.put(hit, \"actionMap\", \"actionMap1748413869758\");\r\n    seq.put(hit, \"message\", \"命中条件：空气站 的 湿度 < 37\");\r\n    seq.add(m, hit);\r\n    }\r\n}\r\nreturn m;\r\n', 'D:\\iot\\lana\\lana-rules\\src\\main\\resources\\script\\1.av', '规则规则规则', 1, 4, 0, 1, '2024-09-24 14:46:53', 1, '2025-05-08 13:33:22', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `rules_item` VALUES (3, '测试定时', 3, 'let m = seq.list();\r\nif ((deviceId == 32 && wd > 45) && (deviceId == 32 && sd > 55)) {\r\nlet hit = seq.map();\r\nseq.put(hit, \"actionMap\", \"actionMap1748512722383\");\r\nseq.put(hit, \"message\", \"命中条件：空气检测设备 的 温度 > 45 与 空气检测设备 的 湿度 > 55\");\r\nseq.add(m, hit);\r\n}\r\nif(deviceId == 36){\r\n    if(wd == 34){\r\n    let hit = seq.map();\r\n    seq.put(hit, \"actionMap\", \"actionMap1748512722787\");\r\n    seq.put(hit, \"message\", \"命中条件：空气站 的 温度 == 34\");\r\n    seq.add(m, hit);\r\n    }\r\n}\r\nif(deviceId == 36){\r\n    if(sd > 43){\r\n    let hit = seq.map();\r\n    seq.put(hit, \"actionMap\", \"actionMap1748512722787\");\r\n    seq.put(hit, \"message\", \"命中条件：空气站 的 湿度 > 43\");\r\n    seq.add(m, hit);\r\n    }\r\n}\r\nreturn m;\r\n', 'D:\\iot\\lana\\lana-rules\\src\\main\\resources\\script\\3.av', '规则规则规则', 1, 4, 0, 1, '2024-09-25 14:46:30', 1, '2025-05-08 13:33:29', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `rules_item` VALUES (14, '测试动作', 3, 'let m = seq.list();\r\nreturn m;\r\n', 'D:\\iot\\lana\\lana-rules\\src\\main\\resources\\script\\14.av', '直接触发动作', 1, 1, 0, 1, '2025-05-24 14:50:05', 1, '2025-05-24 14:50:24', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `rules_item` VALUES (1, '测试监听', 3, 'let m = seq.list();\r\nif ((deviceId == 36 && wd > 46) && (deviceId == 36 && sd > 54)) {\r\nlet hit = seq.map();\r\nseq.put(hit, \"actionMap\", \"actionMap1748413869626\");\r\nseq.put(hit, \"message\", \"命中条件：空气站 的 温度 > 46 与 空气站 的 湿度 > 54\");\r\nseq.add(m, hit);\r\n}\r\nif(deviceId == 36){\r\n    if(pm25 < 33){\r\n    let hit = seq.map();\r\n    seq.put(hit, \"actionMap\", \"actionMap1748413869758\");\r\n    seq.put(hit, \"message\", \"命中条件：空气站 的 PM25 < 33\");\r\n    seq.add(m, hit);\r\n    }\r\n}\r\nif(deviceId == 36){\r\n    if(sd < 37){\r\n    let hit = seq.map();\r\n    seq.put(hit, \"actionMap\", \"actionMap1748413869758\");\r\n    seq.put(hit, \"message\", \"命中条件：空气站 的 湿度 < 37\");\r\n    seq.add(m, hit);\r\n    }\r\n}\r\nreturn m;\r\n', NULL, '规则规则规则', 1, 4, 0, 1, '2024-09-24 14:46:53', 1, '2025-05-08 13:33:22', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `rules_item` VALUES (3, '测试定时', 3, 'let m = seq.list();\r\nif ((deviceId == 32 && wd > 45) && (deviceId == 32 && sd > 55)) {\r\nlet hit = seq.map();\r\nseq.put(hit, \"actionMap\", \"actionMap1748512722383\");\r\nseq.put(hit, \"message\", \"命中条件：空气检测设备 的 温度 > 45 与 空气检测设备 的 湿度 > 55\");\r\nseq.add(m, hit);\r\n}\r\nif(deviceId == 36){\r\n    if(wd == 34){\r\n    let hit = seq.map();\r\n    seq.put(hit, \"actionMap\", \"actionMap1748512722787\");\r\n    seq.put(hit, \"message\", \"命中条件：空气站 的 温度 == 34\");\r\n    seq.add(m, hit);\r\n    }\r\n}\r\nif(deviceId == 36){\r\n    if(sd > 43){\r\n    let hit = seq.map();\r\n    seq.put(hit, \"actionMap\", \"actionMap1748512722787\");\r\n    seq.put(hit, \"message\", \"命中条件：空气站 的 湿度 > 43\");\r\n    seq.add(m, hit);\r\n    }\r\n}\r\nreturn m;\r\n', NULL, '规则规则规则', 1, 4, 0, 1, '2024-09-25 14:46:30', 1, '2025-05-08 13:33:29', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `rules_item` VALUES (14, '测试动作', 3, 'let m = seq.list();\r\nreturn m;\r\n', NULL, '直接触发动作', 1, 1, 0, 1, '2025-05-24 14:50:05', 1, '2025-05-24 14:50:24', '[超级管理员:admin]', '[超级管理员:admin]');
 
 -- ----------------------------
 -- Table structure for rules_item_node
@@ -1235,7 +1255,7 @@ CREATE TABLE `sys_user_token`  (
 -- ----------------------------
 -- Records of sys_user_token
 -- ----------------------------
-INSERT INTO `sys_user_token` VALUES (1, 1, 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0ODUxMDg1NSwiZXhwIjoxNzQ4NTEwODk5fQ.p1LI5KK7JsO12IdWJAAD3tcdnva3ryOuHOSBh5pzWTE', '2025-05-30 05:27:36', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0ODUxMDg1NSwiZXhwIjoxNzQ4NTEyMDY1fQ.kCtNcBNG8FNOSH6jDBtDWXfEBCvcU_pnUqO6PnuTNF8', '2025-06-12 17:27:36', '2024-01-10 14:40:57');
-INSERT INTO `sys_user_token` VALUES (2, 2, 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYW5hIiwiaWF0IjoxNzQ4NDMzNjU1LCJleHAiOjE3NDg0MzM2OTh9.D4KQC3nxHPL28HdkYgYFTUeMASoujPfGSN2HVH253EY', '2025-05-29 08:00:55', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYW5hIiwiaWF0IjoxNzQ4NDMzNjU1LCJleHAiOjE3NDg0MzQ4NjR9.ycdsMOlZMk85cjIJjQzyLxyNyrmqgvs45-4db9mayMc', '2025-06-11 20:00:55', '2024-01-10 15:38:18');
+INSERT INTO `sys_user_token` VALUES (1, 1, 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0OTAzNTcwMywiZXhwIjoxNzQ5MDM1NzQ2fQ.VYsqITvOq1Q_UyVY8oM0wL7kbJ3unCkgbk0QczeHAvw', '2025-06-05 07:15:03', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0OTAzNTcwMywiZXhwIjoxNzQ5MDM2OTEyfQ.hVzDg5kue5xu68T-moAqraeDwPHe5wtlTEuvJfY9F6Y', '2025-06-18 19:15:03', '2024-01-10 14:40:57');
+INSERT INTO `sys_user_token` VALUES (2, 2, 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYW5hIiwiaWF0IjoxNzQ5MDU0NTU2LCJleHAiOjE3NDkwNTQ1OTl9.IYgJsql1N93NZaKBnQ1vNBN-1aBAJcYnjRFnYISV87k', '2025-06-05 12:29:17', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYW5hIiwiaWF0IjoxNzQ5MDU0NTU2LCJleHAiOjE3NDkwNTU3NjZ9.6thiRdiBGAd3X3q0mpNqwTqQkAlwr2wT3J6aU91vJek', '2025-06-19 00:29:17', '2024-01-10 15:38:18');
 
 SET FOREIGN_KEY_CHECKS = 1;
