@@ -26,13 +26,19 @@ public class StatusListener {
     @EventListener
     public void online(MqttClientOnlineEvent event) {
 
-        deviceStatusDao.updataStatus(Long.valueOf(event.getClientId().substring(2)),1);
+        if( event.getClientId() != null && event.getClientId().startsWith("sb")){
+            log.info("设备上线：{}",event.getClientId());
+            deviceStatusDao.updataStatus(Long.valueOf(event.getClientId().substring(2)),1);
+        }
+
     }
 
     @EventListener
     public void offline(MqttClientOfflineEvent event) {
-
-        deviceStatusDao.updataStatus(Long.valueOf(event.getClientId().substring(2)),0);
+        if( event.getClientId() != null && event.getClientId().startsWith("sb")){
+            log.info("设备下线：{}",event.getClientId());
+            deviceStatusDao.updataStatus(Long.valueOf(event.getClientId().substring(2)),0);
+        }
     }
 
 }
