@@ -11,7 +11,7 @@
  Target Server Version : 80033 (8.0.33)
  File Encoding         : 65001
 
- Date: 06/06/2025 09:39:28
+ Date: 06/06/2025 15:06:34
 */
 
 SET NAMES utf8mb4;
@@ -94,7 +94,8 @@ CREATE TABLE `QRTZ_FIRED_TRIGGERS`  (
 -- ----------------------------
 -- Records of QRTZ_FIRED_TRIGGERS
 -- ----------------------------
-INSERT INTO `QRTZ_FIRED_TRIGGERS` VALUES ('LanaScheduler', 'NON_CLUSTERED1749031801237', 'Trigger_device_deviceDataSave', '1748511457883', 'NON_CLUSTERED', 1749173962133, 1749173980000, 5, 'ACQUIRED', NULL, NULL, '0', '0');
+INSERT INTO `QRTZ_FIRED_TRIGGERS` VALUES ('LanaScheduler', 'NON_CLUSTERED1749031803482', 'Trigger_log_logsDataSave', '1748511357883', 'NON_CLUSTERED', 1749193580927, 1749193600000, 5, 'ACQUIRED', NULL, NULL, '0', '0');
+INSERT INTO `QRTZ_FIRED_TRIGGERS` VALUES ('LanaScheduler', 'NON_CLUSTERED1749186566091', 'Trigger_device_deviceDataSave', '1748511457883', 'NON_CLUSTERED', 1749193580760, 1749193600000, 5, 'ACQUIRED', NULL, NULL, '0', '0');
 
 -- ----------------------------
 -- Table structure for QRTZ_JOB_DETAILS
@@ -243,9 +244,9 @@ CREATE TABLE `QRTZ_TRIGGERS`  (
 -- ----------------------------
 -- Records of QRTZ_TRIGGERS
 -- ----------------------------
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_device_deviceDataSave', '1748511457883', 'deviceDataSave', '1748511457883', NULL, 1749173980000, 1749173960000, 5, 'ACQUIRED', 'CRON', 1748512626000, 0, NULL, 0, '');
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_log_logsDataSave', '1748511357883', 'logsDataSave', '1748511357883', NULL, 1749173980000, 1749173960000, 5, 'WAITING', 'CRON', 1748512687000, 0, NULL, 0, '');
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_开始3', '1748512720741', '开始3', '1748512720741', NULL, 1749175200000, 1749171600000, 5, 'WAITING', 'CRON', 1748512721000, 0, NULL, 0, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_device_deviceDataSave', '1748511457883', 'deviceDataSave', '1748511457883', NULL, 1749193600000, 1749193580000, 5, 'ACQUIRED', 'CRON', 1748512626000, 0, NULL, 0, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_log_logsDataSave', '1748511357883', 'logsDataSave', '1748511357883', NULL, 1749193600000, 1749193580000, 5, 'ACQUIRED', 'CRON', 1748512687000, 0, NULL, 0, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_开始3', '1748512720741', '开始3', '1748512720741', NULL, 1749196800000, 1749193200000, 5, 'WAITING', 'CRON', 1748512721000, 0, NULL, 0, '');
 
 -- ----------------------------
 -- Table structure for device_abutment
@@ -617,7 +618,7 @@ CREATE TABLE `protocols_mqtt`  (
 -- ----------------------------
 -- Records of protocols_mqtt
 -- ----------------------------
-INSERT INTO `protocols_mqtt` VALUES (1, '0.0.0.0', 'Mqtt-broker(测试环境不开放端口)', 1, '1883', '8083', 1, 'MqttNB!%#...', 'MqttNB!%#...', 0, 1, 'MqttNB!%#...', 'MqttNB!%#...', 0, '', '', 'none', '', '', 1, '0', 0, 1, '2025-06-04 18:26:56', 1, '2025-06-04 18:26:56', '系统初始化', '系统初始化');
+INSERT INTO `protocols_mqtt` VALUES (1, '0.0.0.0', 'Mqtt-broker(测试环境不开放端口)', 1, '1883', '8083', 1, 'MqttNB!%#...', 'MqttNB!%#...', 0, 1, 'MqttNB!%#...', 'MqttNB!%#...', 0, '', '', 'none', '', '', 1, '0', 0, 1, '2025-06-06 13:09:27', 1, '2025-06-06 13:09:27', '系统初始化', '系统初始化');
 INSERT INTO `protocols_mqtt` VALUES (2, '12am.cn', '其他emqx代理', 2, '1884', '8084', 1, 'admin', 'admin1234!@#$', 0, NULL, '', '', 0, '', '', 'NONE', '', '', 0, '0', 1, 1, '2024-12-03 16:51:28', 1, '2024-09-04 18:21:41', '[超级管理员:admin]', '[超级管理员:admin]');
 
 -- ----------------------------

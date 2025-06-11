@@ -27,18 +27,17 @@ public class IgnoreUrlsConfig {
         list.add("/sys/auth/send/code");
         //文件
         list.add("/upload/**");
-        //list.add("/rules/quartz/**");
         //springboot程序监控器
         //list.add("/actuator/**");
         list.add("/v3/api-docs/**");
         list.add("/webjars/**");
 
         //swagger在线文档，使用的话放开下面的注解
-/*      list.add("/swagger/**");
+        list.add("/swagger/**");
         list.add("/swagger-resources/**");
         list.add("/swagger-ui.html");
         list.add("/swagger-ui/**");
-        list.add("/doc.html");*/
+        list.add("/doc.html");
         return list;
     }
 }
