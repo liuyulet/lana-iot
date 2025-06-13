@@ -125,6 +125,9 @@
         GROUP BY
             device_item_id
     </select>
+    <select id="getMqttBroker" resultType="com.lana.abutment.mqtthandle.entity.vo.result.ProtocolsMqttResult">
+        select * from protocols_mqtt where mqtt_type = 1 and deleted = 0
+    </select>
 
     <!--    <select id="getTdengineTable" resultType="java.lang.Boolean">
             SELECT table_name FROM information_schema.ins_tables WHERE db_name = 'lana' AND table_name = 'airdetectionName'

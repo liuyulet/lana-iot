@@ -263,32 +263,41 @@ public class AbutmentInitializer {
                         Expression exp = AviatorEvaluator.getInstance().compileScript(String.valueOf(rulesItemEntity1.getAsPath()), true);//编译脚本文件
                         CaffeineCacheManager.set("AviatorScript", rulesItemEntity1.getId() + GeneralPrefixEnum.AVIATORSCRIPT_SUFFIX.getValue(), exp, 0, TimeUnit.MINUTES);
                     } else if (Files.isDirectory(pathFile.getParent())) {
-                        String targetDirectory = null;
-                        if (aviatorPath == null || aviatorPath.isEmpty()) {
-                            String userDir = System.getProperty("user.dir");
-                            String scriptPath = Paths.get(userDir, "lana-rules", "src", "main", "resources", "script").toString();
-                            targetDirectory = scriptPath;
-                        } else {
-                            targetDirectory = aviatorPath;
-                        }
-                        String fileName = rulesItemEntity1.getId() + GeneralPrefixEnum.AVIATORSCRIPT_SUFFIX.getValue();
-                        Path filePath = Paths.get(targetDirectory, fileName);
-                        // 创建目录（如果不存在）
-                        Files.createDirectories(filePath.getParent());
-                        // 创建文件并写入内容
-                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath.toString()))) {
-                            writer.write(rulesItemEntity1.getAsContent());
-                            System.out.println("文件创建并写入成功");
-                        }
-                        rulesItemEntity1.setAsPath(filePath.toString());
-                        rulesItemDao.updateById(rulesItemEntity1);
-                        log.info("Aviatorscript:RULES{} 初始化成功", rulesItemEntity1.getId() + GeneralPrefixEnum.AVIATORSCRIPT_SUFFIX.getValue());
+                        addFile(rulesItemEntity1);
                     }
+                }else {
+                    addFile(rulesItemEntity1);
                 }
             }
         } catch (Exception e) {
             throw new LanaException("文件创建或写入失败");
         }
     }
+    /**
+     * 添加文件
+     */
+    public void addFile(RulesItemEntity rulesItemEntity1) throws Exception{
+        String targetDirectory = null;
+        if (aviatorPath == null || aviatorPath.isEmpty()) {
+            String userDir = System.getProperty("user.dir");
+            String scriptPath = Paths.get(userDir, "lana-rules", "src", "main", "resources", "script").toString();
+            targetDirectory = scriptPath;
+        } else {
+            targetDirectory = aviatorPath;
+        }
+        String fileName = rulesItemEntity1.getId() + GeneralPrefixEnum.AVIATORSCRIPT_SUFFIX.getValue();
+        Path filePath = Paths.get(targetDirectory, fileName);
+        // 创建目录（如果不存在）
+        Files.createDirectories(filePath.getParent());
+        // 创建文件并写入内容
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath.toString()))) {
+            writer.write(rulesItemEntity1.getAsContent());
+            System.out.println("文件创建并写入成功");
+        }
+        rulesItemEntity1.setAsPath(filePath.toString());
+        rulesItemDao.updateRulesItemById(rulesItemEntity1.getId(),  rulesItemEntity1.getAsPath());
 
+
+        log.info("Aviatorscript:RULES{} 初始化成功", rulesItemEntity1.getId() + GeneralPrefixEnum.AVIATORSCRIPT_SUFFIX.getValue());
+    }
 }

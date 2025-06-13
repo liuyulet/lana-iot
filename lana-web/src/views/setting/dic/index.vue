@@ -49,7 +49,7 @@
 							<el-tag v-if="scope.row.yx==0" type="danger">停用</el-tag>
 						</template>
 					</el-table-column>
-					<el-table-column label="操作" fixed="right" align="right" width="120">
+					<el-table-column label="操作" fixed="right" align="center" width="120">
 						<template #default="scope">
 							<el-button-group>
 								<el-button text type="primary" size="small" v-auth="'sys:dic:update'"  @click="table_edit(scope.row, scope.$index)">编辑</el-button>

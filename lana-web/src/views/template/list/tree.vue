@@ -31,7 +31,7 @@
 					<el-table-column label="邮箱" prop="email" width="250"></el-table-column>
 					<el-table-column label="评分" prop="num" width="150"></el-table-column>
 					<el-table-column label="注册时间" prop="datetime" width="150" sortable></el-table-column>
-					<el-table-column label="操作" fixed="right" align="right" width="160">
+					<el-table-column label="操作" fixed="right" align="center" width="160">
 						<template #default>
 							<el-button-group>
 								<el-button text type="primary" size="small">查看</el-button>

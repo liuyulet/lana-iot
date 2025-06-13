@@ -1,11 +1,7 @@
 <template>
-	<div class="mb-2 ml-4" >
-		<el-radio-group v-model="deviceData.actionType" >
-			<el-radio :label="1">实时数据</el-radio>
-			<el-radio :label="2">历史数据</el-radio>
-		</el-radio-group>
-	</div>
-	<el-table :data="deviceData.deviceForm" stripe  v-loading="loading" v-show="deviceData.actionType == 1">
+
+	<!--实时数据-->
+	<el-table :data="deviceData.deviceForm" stripe  v-loading="loading" >
 		<el-table-column label="#" type="index" width="150"></el-table-column>
 		<el-table-column label="属性名称"  width="250">
 			<template #default="scope">
@@ -19,11 +15,12 @@
 			</template>
 		</el-table-column>
 
-		<el-table-column label="实时数据"  width="250">
+		<el-table-column label="实时数据" width="250">
 			<template #default="scope">
-				<span><text style="color: #0b94ef">{{ scope.row.id }}</text></span>
+				<span style="color: #0b94ef">{{ scope.row.currentValue }}</span>
 			</template>
 		</el-table-column>
+
 		<el-table-column label="属性单位"  width="250">
 			<template #default="scope">
 				<span>{{ scope.row.modeRemark }}</span>
@@ -31,9 +28,13 @@
 		</el-table-column>
 		<el-table-column min-width="1"></el-table-column>
 	</el-table>
+	<!--历史数据-->
 </template>
 
-<script>export default {
+<script>
+import mqtt from 'mqtt';
+
+export default {
 	name: 'deviceDataTab',
 	props: {
 		deviceItemId: Number,
@@ -43,15 +44,23 @@
 			loading: false,
 			testDatas: 123,
 			deviceData: {
-				actionType:1,
-				deviceForm:[]
+				deviceForm:[],
+				websocketPort:  '',
+				username:  '',
+				password: '',
+				mqttIP: ''
 			}
 		}
 	},
 
 	mounted() {
 		this.getDeviceMode(this.deviceItemId);
+		this.getMqttBroker();
+		setTimeout(() => {
+			this.connectMQTT();
+		}, 2000)
 	},
+
 
 	// todo mqtt监听数据，实时显示在实时数据中
 
@@ -60,12 +69,85 @@
 			this.loading = true;
 			var res = await this.$API.device.deviceItem.getDeviceMode.get({"id":deviceItemId});
 			if (res.code === 200) {
-				this.deviceData.deviceForm = res.data;
+				// 初始化 currentValue
+				this.deviceData.deviceForm = res.data.map(item => ({
+					...item,
+					currentValue: ''
+				}));
 			} else {
 				this.$alert(res.msg, "提示", { type: 'error' });
 			}
 			this.loading = false;
 		},
+
+		async getMqttBroker(){
+			this.loading = true;
+			var res = await this.$API.abutment.mqttClient.getMqttBroker.get();
+			if (res.code === 200) {
+				this.username = res.data.username;
+				this.password = res.data.password;
+				this.websocketPort = res.data.websocketPort;
+			} else {
+				this.$alert(res.msg, "提示", { type: 'error' });
+			}
+			this.loading = false;
+		},
+
+		//创建mqtt连接
+		connectMQTT() {
+			console.log('appAPI:', process.env.VUE_APP_API_BASEURL);
+			const url = new URL(process.env.VUE_APP_API_BASEURL);
+			console.log('url:', url);
+			const hostWithPort = url.hostname;
+			console.log('hostWithPort:', hostWithPort);
+			const topic = `/SB${this.deviceItemId}`; // 订阅主题
+			const brokerUrl = `ws://${hostWithPort}:${this.websocketPort}`; // 订阅主题
+			console.log('brokerUrl:', brokerUrl);
+			// 连接 MQTT 服务器（请替换为你的地址）
+			const client = mqtt.connect(brokerUrl, {
+				username: this.username,
+				password: this.password,
+				clean: true,        // 清除会话
+				connectTimeout: 4000,
+				clientId: 'web-client-' + Math.random().toString(16).substring(2, 8)
+			});
+
+			client.on('connect', () => {
+				console.log('MQTT 已连接');
+				console.log('topic：'+topic);
+				client.subscribe(topic, err => {
+					if (!err) {
+						this.$message.success("已订阅主题")
+						console.log(`已订阅主题: ${topic}`);
+					}
+				});
+			});
+
+			client.on('message', (receivedTopic, message) => {
+				if (receivedTopic === topic) {
+					try {
+						const payload = JSON.parse(message.toString());
+						this.updateCurrentValues(payload); // 更新表格数据
+					} catch (e) {
+						console.error('解析 MQTT 消息失败:', e);
+					}
+				}
+			});
+
+			this.mqttClient = client;
+		},
+
+
+		//测试展示
+		updateCurrentValues(data) {
+			console.log('Updating with data:', data);
+			this.deviceData.deviceForm.forEach(item => {
+				if (Object.prototype.hasOwnProperty.call(data, item.modeSigns)) {
+					item.currentValue = data[item.modeSigns];
+				}
+			});
+		},
+
 	}
 }
 </script>

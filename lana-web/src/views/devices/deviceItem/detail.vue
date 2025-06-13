@@ -15,7 +15,7 @@
 				<DeviceServeTab  v-if="activeTab === 'deviceService' && deviceItemId !== null" :device-item-id="deviceItemId" />
 			</el-tab-pane>
 
-			<el-tab-pane label="设备数据" name="deviceData">
+			<el-tab-pane label="设备实时数据" name="deviceData">
 				<DeviceDataTab  v-if="activeTab === 'deviceData' && deviceItemId !== null" :device-item-id="deviceItemId" />
 			</el-tab-pane>
 		</el-tabs>

@@ -49,6 +49,12 @@ public class ProtocolsMqttServiceImpl extends BaseServiceImpl<ProtocolsMqttDao, 
         List<RuleProtocolsMqttResult> page = baseMapper.getMqttGroupList(query);
         return page;
     }
+
+    @Override
+    public ProtocolsMqttResult getMqttBroker() {
+        return baseMapper.getMqttBroker();
+    }
+
     @Override
     public void saveProtocolsMqttSave(ProtocolsMqttSave saveVO) {
 

@@ -42,7 +42,6 @@ public class MqttClientController {
         return LanaResult.ok();
     }
 
-
     @GetMapping("/getClients")
     @Operation(summary = "查询客户端信息")
     @OptLog(type = OperateTypeEnum.COMMAND)

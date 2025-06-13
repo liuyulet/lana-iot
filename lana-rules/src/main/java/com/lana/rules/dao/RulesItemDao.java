@@ -42,4 +42,6 @@ public interface RulesItemDao extends BaseDao<RulesItemEntity> {
     List<RulesActionInstancEntity> getActionMapData();
 
     List<RulesActionInstancEntity> getUnconditionalCache();
+
+    void updateRulesItemById(@Param("id") Long id,@Param("asPath") String asPath);
 }

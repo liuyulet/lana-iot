@@ -11,7 +11,7 @@
 				<el-table-column label="标识" prop="code" width="150"></el-table-column>
 				<el-table-column label="表格名称" prop="name" width="250"></el-table-column>
 
-				<el-table-column label="操作" fixed="right" align="right" width="120">
+				<el-table-column label="操作" fixed="right" align="center" width="120">
 					<template #default="scope">
 						<el-button-group>
 							<el-button text type="primary" size="small" @click="table_edit(scope.row, scope.$index)">编辑</el-button>

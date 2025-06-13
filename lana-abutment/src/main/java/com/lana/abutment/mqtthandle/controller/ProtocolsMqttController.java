@@ -44,6 +44,14 @@ public class ProtocolsMqttController {
         return LanaResult.ok(lanaPage);
     }
 
+    @GetMapping("/getMqttBroker")
+    @Operation(summary = "获取mqtt信息")
+    @OptLog(type = OperateTypeEnum.QUERY)
+    public LanaResult<ProtocolsMqttResult> getMqttBroker() {
+        ProtocolsMqttResult lanaPage = protocolsMqttService.getMqttBroker();
+        return LanaResult.ok(lanaPage);
+    }
+
     @GetMapping("/list")
     @Operation(summary = "情景联动协议查询")
     @OptLog(type = OperateTypeEnum.QUERY)

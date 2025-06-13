@@ -120,6 +120,13 @@ export default {
 				return await http.get(this.url, params);
 			}
 		},
+		getDeviceHistroy: {
+			url: `${config.API_URL}/devices/deviceModeHistroy/list`,
+			name: "获取设备历史数据",
+			get: async function(params){
+				return await http.get(this.url, params);
+			}
+		},
 
 		getContoleList: {
 			url: `${config.API_URL}/devices/deviceMode/contoleList`,

@@ -28,7 +28,7 @@
 				<% column.forEach(function(item, index){ %>
 				<el-table-column label="<%= item.label %>" prop="<%= item.prop %>" width="<%= item.width %>"></el-table-column>
 				<% })%>
-				<el-table-column label="操作" fixed="right" align="right" width="140">
+				<el-table-column label="操作" fixed="right" align="center" width="140">
 					<template #default="scope">
 						<el-button type="text" size="small" @click="table_show(scope.row, scope.$index)">查看</el-button>
 						<el-button type="text" size="small" @click="table_edit(scope.row, scope.$index)">编辑</el-button>

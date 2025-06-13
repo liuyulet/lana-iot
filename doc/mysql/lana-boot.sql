@@ -11,7 +11,7 @@
  Target Server Version : 80033 (8.0.33)
  File Encoding         : 65001
 
- Date: 06/06/2025 15:06:34
+ Date: 13/06/2025 10:30:28
 */
 
 SET NAMES utf8mb4;
@@ -94,8 +94,8 @@ CREATE TABLE `QRTZ_FIRED_TRIGGERS`  (
 -- ----------------------------
 -- Records of QRTZ_FIRED_TRIGGERS
 -- ----------------------------
-INSERT INTO `QRTZ_FIRED_TRIGGERS` VALUES ('LanaScheduler', 'NON_CLUSTERED1749031803482', 'Trigger_log_logsDataSave', '1748511357883', 'NON_CLUSTERED', 1749193580927, 1749193600000, 5, 'ACQUIRED', NULL, NULL, '0', '0');
-INSERT INTO `QRTZ_FIRED_TRIGGERS` VALUES ('LanaScheduler', 'NON_CLUSTERED1749186566091', 'Trigger_device_deviceDataSave', '1748511457883', 'NON_CLUSTERED', 1749193580760, 1749193600000, 5, 'ACQUIRED', NULL, NULL, '0', '0');
+INSERT INTO `QRTZ_FIRED_TRIGGERS` VALUES ('LanaScheduler', 'NON_CLUSTERED1749031833451', 'Trigger_device_deviceDataSave', '1748511457883', 'NON_CLUSTERED', 1749781821009, 1749781840000, 5, 'ACQUIRED', NULL, NULL, '0', '0');
+INSERT INTO `QRTZ_FIRED_TRIGGERS` VALUES ('LanaScheduler', 'NON_CLUSTERED1749781335060', 'Trigger_log_logsDataSave', '1748511357883', 'NON_CLUSTERED', 1749781620723, 1749781640000, 5, 'ACQUIRED', NULL, NULL, '0', '0');
 
 -- ----------------------------
 -- Table structure for QRTZ_JOB_DETAILS
@@ -244,9 +244,9 @@ CREATE TABLE `QRTZ_TRIGGERS`  (
 -- ----------------------------
 -- Records of QRTZ_TRIGGERS
 -- ----------------------------
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_device_deviceDataSave', '1748511457883', 'deviceDataSave', '1748511457883', NULL, 1749193600000, 1749193580000, 5, 'ACQUIRED', 'CRON', 1748512626000, 0, NULL, 0, '');
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_log_logsDataSave', '1748511357883', 'logsDataSave', '1748511357883', NULL, 1749193600000, 1749193580000, 5, 'ACQUIRED', 'CRON', 1748512687000, 0, NULL, 0, '');
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_开始3', '1748512720741', '开始3', '1748512720741', NULL, 1749196800000, 1749193200000, 5, 'WAITING', 'CRON', 1748512721000, 0, NULL, 0, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_device_deviceDataSave', '1748511457883', 'deviceDataSave', '1748511457883', NULL, 1749781840000, 1749781820000, 5, 'ACQUIRED', 'CRON', 1748512626000, 0, NULL, 0, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_log_logsDataSave', '1748511357883', 'logsDataSave', '1748511357883', NULL, 1749781640000, 1749781620000, 5, 'ACQUIRED', 'CRON', 1748512687000, 0, NULL, 0, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_开始3', '1748512720741', '开始3', '1748512720741', NULL, 1749783600000, 1749780000000, 5, 'WAITING', 'CRON', 1748512721000, 0, NULL, 0, '');
 
 -- ----------------------------
 -- Table structure for device_abutment
@@ -399,7 +399,7 @@ CREATE TABLE `device_item`  (
 -- ----------------------------
 -- Records of device_item
 -- ----------------------------
-INSERT INTO `device_item` VALUES (32, 'http://8.139.4.114:9000/dev/20250225/4a1afd2c8b934e24224e9cffd35eeea_63766.png', '空气检测设备', 'sd00001', 1, '测试', 1, '1', 0, 1, '2024-08-22 17:08:23', 1, '2025-06-04 17:48:03', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_item` VALUES (32, 'http://8.139.4.114:9000/dev/20250225/4a1afd2c8b934e24224e9cffd35eeea_63766.png', '空气检测设备', 'sd00001', 0, '测试', 1, '1', 0, 1, '2024-08-22 17:08:23', 1, '2025-06-04 17:48:03', '[超级管理员:admin]', '[超级管理员:admin]');
 INSERT INTO `device_item` VALUES (36, 'http://8.139.4.114:9000/dev/20250604/DPlayer (1)_69598.png', '空气站', 'sadas', 1, '撒旦撒', 10, '1,10', 0, 1, '2024-09-14 16:19:36', 1, '2025-06-04 19:21:49', '[超级管理员:admin]', '[超级管理员:admin]');
 INSERT INTO `device_item` VALUES (37, 'http://121.5.79.252:9000/dev/20241024/1_54155.png', '加湿器', 'jiashiq', 1, '测试测试', 1, '1', 0, 1, '2024-10-24 15:02:54', 1, '2025-06-04 17:48:19', '[超级管理员:admin]', '[超级管理员:admin]');
 INSERT INTO `device_item` VALUES (38, 'http://121.5.79.252:9000/dev/20241025/2_57394.png', '灯光控制器', 'dg', 1, '边缘计算灯光控制器', 4, '4', 0, 1, '2024-10-25 15:57:15', 1, '2024-10-25 15:57:15', '[超级管理员:admin]', '[超级管理员:admin]');
@@ -618,7 +618,7 @@ CREATE TABLE `protocols_mqtt`  (
 -- ----------------------------
 -- Records of protocols_mqtt
 -- ----------------------------
-INSERT INTO `protocols_mqtt` VALUES (1, '0.0.0.0', 'Mqtt-broker(测试环境不开放端口)', 1, '1883', '8083', 1, 'MqttNB!%#...', 'MqttNB!%#...', 0, 1, 'MqttNB!%#...', 'MqttNB!%#...', 0, '', '', 'none', '', '', 1, '0', 0, 1, '2025-06-06 13:09:27', 1, '2025-06-06 13:09:27', '系统初始化', '系统初始化');
+INSERT INTO `protocols_mqtt` VALUES (1, '0.0.0.0', 'Mqtt-broker(测试环境不开放端口)', 1, '1883', '8083', 1, 'MqttNB!%#...', 'MqttNB!%#...', 1, 1, 'MqttNB!%#...', 'MqttNB!%#...', 0, '', '', 'none', '', '', 1, '0', 0, 1, '2025-06-13 10:22:16', 1, '2025-06-13 10:22:16', '系统初始化', '系统初始化');
 INSERT INTO `protocols_mqtt` VALUES (2, '12am.cn', '其他emqx代理', 2, '1884', '8084', 1, 'admin', 'admin1234!@#$', 0, NULL, '', '', 0, '', '', 'NONE', '', '', 0, '0', 1, 1, '2024-12-03 16:51:28', 1, '2024-09-04 18:21:41', '[超级管理员:admin]', '[超级管理员:admin]');
 
 -- ----------------------------
@@ -969,7 +969,7 @@ INSERT INTO `sys_menus` VALUES (91, 90, 'abutment:deviceComm', '/abutment/commun
 INSERT INTO `sys_menus` VALUES (92, 90, 'abutment:protocols', '/abutment/protocols', 'abutment/protocols', NULL, NULL, NULL, 2, 1, '[超级管理员:admin]', 0, '接入协议', NULL, NULL, 'el-icon-link', 'menu', NULL, NULL, NULL, NULL, NULL, '2024-07-26 15:34:22', 1, '2024-07-26 17:24:31', '[超级管理员:admin]');
 INSERT INTO `sys_menus` VALUES (93, 90, 'abutment:edges', '/abutment/edges', 'abutment/edges', NULL, NULL, NULL, 1, 1, '[超级管理员:admin]', 1, '边缘计算实例', NULL, NULL, 'el-icon-connection', 'menu', NULL, NULL, NULL, NULL, NULL, '2024-07-26 15:34:22', 1, '2024-07-26 17:24:40', '[超级管理员:admin]');
 INSERT INTO `sys_menus` VALUES (94, 86, 'devices:productType', '/devices/productType', 'devices/productType', NULL, NULL, NULL, 1, 1, '[超级管理员:admin]', 0, '产品管理', NULL, NULL, 'el-icon-copy-document', 'menu', NULL, NULL, NULL, NULL, NULL, '2024-07-26 15:34:22', 1, '2024-07-26 15:51:35', '[超级管理员:admin]');
-INSERT INTO `sys_menus` VALUES (95, 90, 'abutment:pushData', '/abutment/pushData', 'abutment/pushData', NULL, NULL, NULL, 4, 1, '[超级管理员:admin]', 0, '客户端管理', NULL, NULL, 'el-icon-connection', 'menu', NULL, NULL, NULL, NULL, NULL, '2024-07-26 15:34:22', 1, '2025-04-10 17:47:59', '[超级管理员:admin]');
+INSERT INTO `sys_menus` VALUES (95, 90, 'abutment:client', '/abutment/client', 'abutment/client', NULL, NULL, NULL, 4, 1, '[超级管理员:admin]', 0, '客户端管理', NULL, NULL, 'el-icon-connection', 'menu', NULL, NULL, NULL, NULL, NULL, '2024-07-26 15:34:22', 1, '2025-06-12 10:41:01', '[超级管理员:admin]');
 INSERT INTO `sys_menus` VALUES (96, NULL, 'warnings', '/warnings', 'warnings', NULL, NULL, NULL, 6, 1, '[超级管理员:admin]', 0, '预警信息', NULL, NULL, 'el-icon-warning', 'menu', NULL, NULL, NULL, NULL, NULL, '2024-07-26 14:32:31', 1, '2024-07-30 11:49:45', '[超级管理员:admin]');
 INSERT INTO `sys_menus` VALUES (97, 96, 'warnings:settings', '/warnings/settings', 'warnings/settings', NULL, NULL, NULL, 1, 1, '[超级管理员:admin]', 1, '预警设置', NULL, NULL, 'el-icon-warning', 'menu', NULL, NULL, NULL, NULL, NULL, '2024-07-26 15:34:22', 1, '2024-07-30 11:49:56', '[超级管理员:admin]');
 INSERT INTO `sys_menus` VALUES (98, 96, 'warnings:messages', '/warnings/messages', 'warnings/messages', NULL, NULL, NULL, 2, 1, '[超级管理员:admin]', 0, '预警消息记录', NULL, NULL, 'el-icon-message', 'menu', NULL, NULL, NULL, NULL, NULL, '2024-07-26 15:34:22', 1, '2025-04-11 15:23:09', '[超级管理员:admin]');
@@ -1255,7 +1255,7 @@ CREATE TABLE `sys_user_token`  (
 -- ----------------------------
 -- Records of sys_user_token
 -- ----------------------------
-INSERT INTO `sys_user_token` VALUES (1, 1, 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0OTAzNTcwMywiZXhwIjoxNzQ5MDM1NzQ2fQ.VYsqITvOq1Q_UyVY8oM0wL7kbJ3unCkgbk0QczeHAvw', '2025-06-05 07:15:03', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0OTAzNTcwMywiZXhwIjoxNzQ5MDM2OTEyfQ.hVzDg5kue5xu68T-moAqraeDwPHe5wtlTEuvJfY9F6Y', '2025-06-18 19:15:03', '2024-01-10 14:40:57');
-INSERT INTO `sys_user_token` VALUES (2, 2, 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYW5hIiwiaWF0IjoxNzQ5MDU0NTU2LCJleHAiOjE3NDkwNTQ1OTl9.IYgJsql1N93NZaKBnQ1vNBN-1aBAJcYnjRFnYISV87k', '2025-06-05 12:29:17', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYW5hIiwiaWF0IjoxNzQ5MDU0NTU2LCJleHAiOjE3NDkwNTU3NjZ9.6thiRdiBGAd3X3q0mpNqwTqQkAlwr2wT3J6aU91vJek', '2025-06-19 00:29:17', '2024-01-10 15:38:18');
+INSERT INTO `sys_user_token` VALUES (1, 1, 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0OTc3NTE5NywiZXhwIjoxNzQ5Nzc1MjQwfQ.pPMFbfcs2_Cc12WEBp2CXp5pybkcqKmeupoUYSuMf2s', '2025-06-13 20:39:58', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0OTc3NTE5NywiZXhwIjoxNzQ5Nzc2NDA3fQ.U_0e0-U-crWiWAo_3HnSLWRvBNEcY9ySW2QKAL6C-xI', '2025-06-27 08:39:58', '2024-01-10 14:40:57');
+INSERT INTO `sys_user_token` VALUES (2, 2, 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYW5hIiwiaWF0IjoxNzQ5MTk1NTczLCJleHAiOjE3NDkxOTU2MTd9.b-4JMpvI6faDLkU5Pt5pQo9eQtuj-zbHn6VYrOBPbII', '2025-06-07 03:39:34', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYW5hIiwiaWF0IjoxNzQ5MTk1NTczLCJleHAiOjE3NDkxOTY3ODN9.AJszN-RFzfAKHOqpGmBLxEtG9ocWfLWs34jtTAe2XcI', '2025-06-20 15:39:34', '2024-01-10 15:38:18');
 
 SET FOREIGN_KEY_CHECKS = 1;
