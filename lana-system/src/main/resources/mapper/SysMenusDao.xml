@@ -72,11 +72,17 @@
 
 	</select>
     <select id="getRoleMenusList" resultType="java.lang.String">
-		select sm.name from sys_menus sm
-		LEFT JOIN sys_role_menu sym on sm.id = sym.menu_id
-		where sym.role_id = #{roleId}
-		AND sm.deleted = 0
-		and sm.pid is not null
+		SELECT sm.name
+		FROM sys_menus sm
+		LEFT JOIN sys_role_menu sym ON sm.id = sym.menu_id
+		WHERE sym.role_id = #{roleId}
+		  AND sm.deleted = 0
+		  AND NOT EXISTS (
+			SELECT 1
+			FROM sys_menus sm2
+			WHERE sm2.pid = sm.id
+			  AND sm2.deleted = 0
+		)
 	</select>
 
     <select id="getMenuIds" resultType="java.lang.Long">
