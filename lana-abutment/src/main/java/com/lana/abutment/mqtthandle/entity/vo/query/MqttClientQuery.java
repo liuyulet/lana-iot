@@ -16,4 +16,7 @@ import lombok.EqualsAndHashCode;
 @Schema(description = "客户端列表查询")
 public class MqttClientQuery extends LanaPageParams {
 
+    @Schema(description = "客户端类型")
+    private int operateType;
+
 }

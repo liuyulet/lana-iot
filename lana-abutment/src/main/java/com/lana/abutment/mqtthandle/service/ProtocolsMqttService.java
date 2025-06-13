@@ -31,6 +31,8 @@ public interface ProtocolsMqttService extends BaseService<ProtocolsMqttEntity> {
 
     List<RuleProtocolsMqttResult> getMqttGroupList(ProtocolsMqttQuery query);
 
+    ProtocolsMqttResult getMqttBroker();
+
 
     //void initializeTdengine(ProtocolsMqttProperties protocolsMqttProperties);
 }

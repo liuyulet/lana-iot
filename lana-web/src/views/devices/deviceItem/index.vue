@@ -47,7 +47,7 @@
 						<el-table-column label="设备描述" prop="remark" width="140"  ></el-table-column>
 						<el-table-column label="创建时间" prop="createTime" width="150"></el-table-column>
 						<el-table-column label="创建人员" prop="creatorName" width="150"></el-table-column>
-						<el-table-column label="操作" fixed="right" align="right" width="230">
+						<el-table-column label="操作" fixed="right" align="center" width="210">
 							<template #default="scope">
 								<el-button-group>
 									<el-button text type="primary" size="small"  @click="table_show(scope.row, scope.$index)">查看</el-button>
@@ -58,6 +58,8 @@
 										</template>
 									</el-popconfirm>
 									<el-button text type="primary" size="small" v-auth="'devices:deviceDetail:detail'" @click="device_detil(scope.row, scope.$index)">设备详情</el-button>
+									<!--v-auth="'devices:deviceDetail:history'"-->
+									<el-button text type="primary" size="small"  @click="history_detil(scope.row, scope.$index)">历史数据</el-button>
 								</el-button-group>
 							</template>
 						</el-table-column>
@@ -124,6 +126,8 @@
 					this.$refs.saveDialog.open('edit').setData(row)
 				})
 			},
+
+
 
 			//查看
 			table_show(row){
@@ -206,6 +210,12 @@
 				} else if (mode == 'edit') {
 					this.$refs.table.refresh()
 				}
+			},
+
+			//历史数据
+			history_detil(){
+				//row
+				this.$message.success("功能待开发中")
 			}
 		}
 	}

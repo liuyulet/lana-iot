@@ -32,7 +32,7 @@
 				<el-table-column label="创建人员" prop="creatorName" width="150"></el-table-column>
 				<el-table-column label="创建时间" prop="createTime" width="150"></el-table-column>
 				<el-table-column label="规则说明" prop="asRemark" min-width="220"></el-table-column>
-				<el-table-column label="操作" fixed="right" align="right" width="220">
+				<el-table-column label="操作" fixed="right" align="center" width="220">
 					<template #default="scope">
 						<el-button-group>
 							<el-button text type="primary" size="small" v-auth="'rules:rules:setRule'" @click="rulesSeting(scope.row, scope.$index)">规则设置</el-button>

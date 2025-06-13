@@ -44,7 +44,7 @@
 						</el-table-column>
 <!--						<el-table-column label="所属角色" prop="groupName" width="200" sortable='custom'></el-table-column>-->
 						<el-table-column label="加入时间" prop="createTime" width="150" sortable='custom'></el-table-column>
-						<el-table-column label="操作" fixed="right" align="right" width="250">
+						<el-table-column label="操作" fixed="right" align="center" width="250">
 							<template #default="scope">
 								<el-button-group>
 									<el-button text type="primary" size="small"  @click="table_show(scope.row, scope.$index)">查看</el-button>

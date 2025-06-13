@@ -35,6 +35,8 @@ public interface ProtocolsMqttDao extends BaseDao<ProtocolsMqttEntity> {
 
     List<RuleProtocolsMqttResult> getMqttGroupList(@Param("model") ProtocolsMqttQuery query);
 
+    ProtocolsMqttResult getMqttBroker();
+
 
 /*    @Slave
     void initializeTdengine(@Param("sql") String sql);*/

@@ -28,7 +28,7 @@
 				</el-table-column>
 				<el-table-column label="创建时间" prop="createTime" width="200"></el-table-column>
 				<el-table-column label="备注" prop="remark" min-width="220"></el-table-column>
-				<el-table-column label="操作" fixed="right" align="right" width="220">
+				<el-table-column label="操作" fixed="right" align="center" width="220">
 					<template #default="scope">
 						<el-button-group>
 							<el-button text type="primary" size="small" @click="table_show(scope.row, scope.$index)">查看</el-button>
