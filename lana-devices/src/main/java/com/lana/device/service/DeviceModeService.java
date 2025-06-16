@@ -2,6 +2,7 @@ package com.lana.device.service;
 
 import com.lana.base.mybatis.service.BaseService;
 import com.lana.device.entity.DeviceModeEntity;
+import com.lana.device.entity.vo.result.ColumnResult;
 import com.lana.device.entity.vo.result.DeviceModeResult;
 import com.lana.device.entity.vo.result.DeviceProductModeResult;
 import com.lana.device.entity.vo.save.DeviceItemModeSave;
@@ -26,4 +27,6 @@ public interface DeviceModeService extends BaseService<DeviceModeEntity> {
     List<DeviceModeResult> getDeviceContoleList(Long id);
 
     void saveContoleModel(DeviceModeUpdate updataVO);
+
+    List<ColumnResult> getDeviceModeMap(Long deviceId);
 }

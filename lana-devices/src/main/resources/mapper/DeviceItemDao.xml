@@ -89,4 +89,17 @@
         WHERE
             product_type_id = 2 and deleted = 0
     </select>
+    <select id="getHistoryData" resultType="java.util.Map">
+        SELECT
+            *
+        FROM
+            ${tableName}
+        WHERE
+            device_id = #{query.deviceId}
+          AND ts BETWEEN #{startTime} AND #{endTime}
+        ORDER BY
+            ts DESC
+    </select>
+
+
 </mapper>

@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lana.base.syshandle.page.LanaPageParams;
 import com.lana.base.mybatis.service.BaseService;
 
+import java.util.Map;
+
 /**
  * @auther liuyulet
  * @date 2024/3/16 14:22
@@ -19,6 +21,17 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, 
      */
     protected IPage<T> getPage(LanaPageParams query) {
         Page<T> page = new Page<>(query.getPage(), query.getPageSize());
+        return page;
+    }
+
+
+    /**
+     * 获取分页对象，方便Ipml层使用
+     *
+     * @param query 分页参数
+     */
+    protected IPage<Map<String, Object>> getPageMap(LanaPageParams query) {
+        Page<Map<String, Object>> page = new Page<>(query.getPage(), query.getPageSize());
         return page;
     }
 

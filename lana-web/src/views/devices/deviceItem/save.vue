@@ -98,7 +98,9 @@
 
 			async getproductTypeShow(){
 				var res = await this.$API.device.productType.list.get();
-				this.productTypeShows = res.data;
+				if(res.code == 200) {
+					this.productTypeShows = res.data;
+				}
 			},
 			//表单提交方法
 			submit(){

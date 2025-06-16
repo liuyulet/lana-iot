@@ -148,6 +148,13 @@ export default {
 			post: async function(data){
 				return await http.post(this.url, data, {});
 			}
+		},
+		getDeviceModeMap: {
+			url: `${config.API_URL}/devices/deviceMode/getDeviceModeMap`,
+			name: "获取设备物模型,json格式，用于动态拼接列表展示数据",
+			get: async function(params){
+				return await http.get(this.url, params);
+			}
 		}
 	},
 	/**
@@ -253,6 +260,17 @@ export default {
 			}
 		},
 
+	},
+	/**
+	 * 设备历史数据
+	 */
+	historyData: {
+		page: {
+			url: `${config.API_URL}/devices/deviceItem/historyData`,
+			name: "获取设备列表",
+			get: async function (params) {
+				return await http.get(this.url, params);
+			}
+		}
 	}
-
 }

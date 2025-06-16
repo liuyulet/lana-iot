@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lana.base.mybatis.dao.BaseDao;
 import com.lana.base.syshandle.page.LanaPage;
 import com.lana.device.entity.DeviceItemEntity;
+import com.lana.device.entity.vo.query.DeviceHistoryQuery;
 import com.lana.device.entity.vo.query.DeviceItemQuery;
 import com.lana.device.entity.vo.query.GroupDeviceItemQuery;
 import com.lana.device.entity.vo.result.DeviceItemGetResult;
@@ -14,6 +15,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -38,4 +40,6 @@ public interface DeviceItemDao extends BaseDao<DeviceItemEntity> {
     void createTdTable(String sql);
 
     long getByDeviceType(@Param("id") Long id);
+    @DS("tdengine")
+    IPage<Map<String, Object>> getHistoryData(@Param("page") IPage<Map<String, Object>> page,@Param("query") DeviceHistoryQuery query, @Param("tableName") String tableName);
 }

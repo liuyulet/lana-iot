@@ -59,7 +59,7 @@
 									</el-popconfirm>
 									<el-button text type="primary" size="small" v-auth="'devices:deviceDetail:detail'" @click="device_detil(scope.row, scope.$index)">设备详情</el-button>
 									<!--v-auth="'devices:deviceDetail:history'"-->
-									<el-button text type="primary" size="small"  @click="history_detil(scope.row, scope.$index)">历史数据</el-button>
+									<el-button text type="primary" size="small"  @click="history_detil(scope.row)">历史数据</el-button>
 								</el-button-group>
 							</template>
 						</el-table-column>
@@ -71,18 +71,22 @@
 
 	<save-dialog v-if="dialog.save" ref="saveDialog" @success="handleSuccess" @closed="dialog.save=false"></save-dialog>
 	<detail-dialog v-if="dialog.detail" ref="detailDialog" @success="deviceDetailSaveSuccess" @closed="dialog.detail=false"></detail-dialog>
+	<historyData-dialog ref="historyDataDialog" @success="handleSuccess"></historyData-dialog>
 
 </template>
 
 <script>
 	import saveDialog from './save.vue'
+
 	import detailDialog from './detail.vue'
+	import historyDataDialog from './historyData.vue'
 
 	export default {
 		name: 'user',
 		components: {
 			detailDialog,
-			saveDialog
+			saveDialog,
+			historyDataDialog
 		},
 		data() {
 			return {
@@ -213,9 +217,8 @@
 			},
 
 			//历史数据
-			history_detil(){
-				//row
-				this.$message.success("功能待开发中")
+			history_detil(row){
+				this.$refs.historyDataDialog.open('show').setData(row)
 			}
 		}
 	}

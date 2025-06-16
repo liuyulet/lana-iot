@@ -6,6 +6,7 @@ import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.lana.base.operatelog.annotations.OptLog;
 import com.lana.base.operatelog.enums.OperateTypeEnum;
 import com.lana.base.syshandle.result.LanaResult;
+import com.lana.device.entity.vo.result.ColumnResult;
 import com.lana.device.entity.vo.result.DeviceModeResult;
 import com.lana.device.entity.vo.save.DeviceItemModeSave;
 import com.lana.device.entity.vo.update.DeviceModeUpdate;
@@ -61,6 +62,13 @@ public class DeviceModeController {
     public LanaResult saveContoleModel(@RequestBody @Valid DeviceModeUpdate updataVO) {
         deviceModeService.saveContoleModel(updataVO);
         return LanaResult.ok();
+    }
+
+    @GetMapping("/getDeviceModeMap")
+    @Operation(summary = "保存")
+    @OptLog(type = OperateTypeEnum.UPDATE)
+    public LanaResult<List<ColumnResult>> getDeviceModeMap(@RequestParam("deviceId") Long deviceId) {
+        return LanaResult.ok(deviceModeService.getDeviceModeMap(deviceId));
     }
 
 

@@ -6,6 +6,7 @@ import com.lana.base.mybatis.service.impl.BaseServiceImpl;
 import com.lana.base.syshandle.enums.GeneralPrefixEnum;
 import com.lana.device.entity.DeviceModeEntity;
 import com.lana.device.dao.DeviceModeDao;
+import com.lana.device.entity.vo.result.ColumnResult;
 import com.lana.device.entity.vo.result.DeviceModeResult;
 import com.lana.device.entity.vo.result.DeviceProductModeResult;
 import com.lana.device.entity.vo.save.DeviceItemModeSave;
@@ -107,5 +108,21 @@ public class DeviceModeServiceImpl extends BaseServiceImpl<DeviceModeDao, Device
     @Override
     public void saveContoleModel(DeviceModeUpdate updataVO) {
         baseMapper.saveContoleModel(updataVO);
+    }
+
+    @Override
+    public List<ColumnResult> getDeviceModeMap(Long deviceId) {
+        List<DeviceModeResult> deviceModeList =baseMapper.getDeviceItemModeList(deviceId);
+        if(deviceModeList!=null){
+            List<ColumnResult> columnResults = new ArrayList<>();
+            for (DeviceModeResult deviceModeResult : deviceModeList) {
+                ColumnResult columnResult = new ColumnResult();
+                columnResult.setLabel(deviceModeResult.getModeName());
+                columnResult.setProp(deviceModeResult.getModeSigns());
+                columnResults.add(columnResult);
+            }
+            return columnResults;
+        }
+        return List.of();
     }
 }

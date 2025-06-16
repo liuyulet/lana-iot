@@ -75,7 +75,7 @@ export default {
 
 			apiObj: this.$API.abutment.mqttClient.getClients,
 			search: {
-				operateType: "1",
+				operateType: "0",
 			}
 		}
 	},

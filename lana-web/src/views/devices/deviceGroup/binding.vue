@@ -67,9 +67,9 @@ export default {
 			group: [],
 			apiData: [],
 			selection: [],
-			search: {
-				name: null
-			}
+				search: {
+					name: null
+				}
 
 		}
 	},
