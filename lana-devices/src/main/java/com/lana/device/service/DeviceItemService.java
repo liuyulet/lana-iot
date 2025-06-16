@@ -36,5 +36,5 @@ public interface DeviceItemService extends BaseService<DeviceItemEntity> {
 
     long getByDeviceType(Long id);
 
-    LanaPage<List<Map<String, Object>>> historyData(@Valid DeviceHistoryQuery query);
+    LanaPage<Map<String, Object>> historyData(@Valid DeviceHistoryQuery query);
 }

@@ -10,11 +10,9 @@
 			</el-header>
 
 			<el-main class="nopadding">
-				<template>
-					<sc-table ref="table" :data="apiData" stripe height="500"  :pagination="{ pageSize: 10 }" paginationLayout="">
-						<el-table-column v-for="column in columns" :key="column.prop" :label="column.label" :prop="column.prop"></el-table-column>
-					</sc-table>
-				</template>
+				<scTable ref="table" :apiObj="listApi" :params="listApiParams" row-key="id"  stripe height="500"  :paginationLayout="'prev, pager, next'" >
+					<el-table-column v-for="column in columns" :key="column.prop" :label="column.label" :prop="column.prop"></el-table-column>
+				</scTable>
 			</el-main>
 
 		</el-container>
@@ -38,7 +36,8 @@ export default {
 			dialog: {
 				save: false
 			},
-			apiData: [],
+			listApi: null,
+			listApiParams: {},
 			columns: [],
 			search: {
 				date: []
@@ -50,9 +49,9 @@ export default {
 		setData(data){
 			console.log(data)
 			//获取物模型
+			this.deviceId = data.id
 			this.gteDeviceMode(data.id)
-			//获取历史数据
-			this.gteHistoryData(data.id)
+
 		},
 		//显示
 		open(mode='show'){
@@ -60,23 +59,30 @@ export default {
 			this.visible = true;
 			return this
 		},
+		upsearch() {
+			var params = {
+				startTime: this.search.date[0],
+				endTime: this.search.date[1]
+			}
+			this.$refs.table.upData(params)
+		},
+		//查询历史数据
 		async gteDeviceMode(deviceId){
 			var res = await this.$API.device.deviceItem.getDeviceModeMap.get({'deviceId':deviceId});
 			if(res.code == 200) {
 				this.columns = res.data;
-			}else{
-				this.$alert(res.msg, "提示", {type: 'error'})
-			}
-		},
-		async gteHistoryData(deviceId){
-			var res = await this.$API.device.historyData.page.get({'deviceId':deviceId});
-			if(res.code == 200) {
-				this.apiData = res.data;
+				//this.$nextTick(()=>{
+				this.listApiParams = {
+					deviceId: deviceId,
+					startTime: this.search.date[0],
+					endTime: this.search.date[1]
+				}
+				this.listApi = this.$API.device.historyData.page.get();
+				//})
 			}else{
 				this.$alert(res.msg, "提示", {type: 'error'})
 			}
 		}
-
 	}
 }
 

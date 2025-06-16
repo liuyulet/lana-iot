@@ -1,12 +1,14 @@
 package com.lana.device.entity.vo.query;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.lana.base.syshandle.page.LanaPageParams;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * @author Liuyulet
@@ -22,13 +24,15 @@ public class DeviceHistoryQuery extends LanaPageParams {
     @Schema(description = "设备ID")
     private Long deviceId;
 
+
     @Schema(description = "开始时间")
-    @JSONField(format = "yyyy-MM-dd HH:mm:ss.SSS")
-    private LocalDate startTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
+    private Date startTime;
+
 
     @Schema(description = "结束时间")
-    @JSONField(format = "yyyy-MM-dd HH:mm:ss.SSS")
-    private LocalDate endTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
+    private Date endTime;
 
 
 }

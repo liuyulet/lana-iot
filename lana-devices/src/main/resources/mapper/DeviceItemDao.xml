@@ -94,11 +94,8 @@
             *
         FROM
             ${tableName}
-        WHERE
-            device_id = #{query.deviceId}
-          AND ts BETWEEN #{startTime} AND #{endTime}
-        ORDER BY
-            ts DESC
+        WHERE ts BETWEEN #{startTime} AND #{endTime}
+        ORDER BY ts DESC
     </select>
 
 

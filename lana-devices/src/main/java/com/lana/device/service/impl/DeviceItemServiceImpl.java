@@ -76,11 +76,12 @@ public class DeviceItemServiceImpl extends BaseServiceImpl<DeviceItemDao, Device
 
 
     @Override
-    public LanaPage<List<Map<String, Object>>> historyData(DeviceHistoryQuery query) {
+    public LanaPage<Map<String, Object>> historyData(DeviceHistoryQuery query) {
 
         IPage<Map<String, Object>> page = baseMapper.getHistoryData(getPageMap(query),query,GeneralPrefixEnum.TABLE_PREFIX.getValue()+query.getDeviceId());
+        //数据处理
+        return new LanaPage<>(page.getRecords(), page.getTotal(),page.getPages(),page.getSize());
 
-        return null;
     }
 
 

@@ -40,6 +40,7 @@ public interface DeviceItemDao extends BaseDao<DeviceItemEntity> {
     void createTdTable(String sql);
 
     long getByDeviceType(@Param("id") Long id);
+
     @DS("tdengine")
     IPage<Map<String, Object>> getHistoryData(@Param("page") IPage<Map<String, Object>> page,@Param("query") DeviceHistoryQuery query, @Param("tableName") String tableName);
 }
