@@ -27,11 +27,11 @@
 					</el-form-item>-->
 				</el-form>
 			</el-tab-pane>
-			<el-tab-pane label="控制台模块">
+<!--			<el-tab-pane label="控制台模块">
 				<div class="treeMain">
 					<el-tree ref="grid" node-key="key" :data="grid.list" :props="grid.props" :default-checked-keys="grid.checked" show-checkbox></el-tree>
 				</div>
-			</el-tab-pane>
+			</el-tab-pane>-->
 <!--			<el-tab-pane label="控制台">
 				<el-form label-width="100px" label-position="left">
 					<el-form-item label="控制台视图">
