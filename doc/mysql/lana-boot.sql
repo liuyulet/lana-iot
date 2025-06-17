@@ -11,7 +11,7 @@
  Target Server Version : 80033 (8.0.33)
  File Encoding         : 65001
 
- Date: 13/06/2025 10:30:28
+ Date: 17/06/2025 12:30:04
 */
 
 SET NAMES utf8mb4;
@@ -94,8 +94,7 @@ CREATE TABLE `QRTZ_FIRED_TRIGGERS`  (
 -- ----------------------------
 -- Records of QRTZ_FIRED_TRIGGERS
 -- ----------------------------
-INSERT INTO `QRTZ_FIRED_TRIGGERS` VALUES ('LanaScheduler', 'NON_CLUSTERED1749031833451', 'Trigger_device_deviceDataSave', '1748511457883', 'NON_CLUSTERED', 1749781821009, 1749781840000, 5, 'ACQUIRED', NULL, NULL, '0', '0');
-INSERT INTO `QRTZ_FIRED_TRIGGERS` VALUES ('LanaScheduler', 'NON_CLUSTERED1749781335060', 'Trigger_log_logsDataSave', '1748511357883', 'NON_CLUSTERED', 1749781620723, 1749781640000, 5, 'ACQUIRED', NULL, NULL, '0', '0');
+INSERT INTO `QRTZ_FIRED_TRIGGERS` VALUES ('LanaScheduler', 'NON_CLUSTERED1749784542262', 'Trigger_device_deviceDataSave', '1748511457883', 'NON_CLUSTERED', 1750134602023, 1750134620000, 5, 'ACQUIRED', NULL, NULL, '0', '0');
 
 -- ----------------------------
 -- Table structure for QRTZ_JOB_DETAILS
@@ -244,9 +243,9 @@ CREATE TABLE `QRTZ_TRIGGERS`  (
 -- ----------------------------
 -- Records of QRTZ_TRIGGERS
 -- ----------------------------
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_device_deviceDataSave', '1748511457883', 'deviceDataSave', '1748511457883', NULL, 1749781840000, 1749781820000, 5, 'ACQUIRED', 'CRON', 1748512626000, 0, NULL, 0, '');
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_log_logsDataSave', '1748511357883', 'logsDataSave', '1748511357883', NULL, 1749781640000, 1749781620000, 5, 'ACQUIRED', 'CRON', 1748512687000, 0, NULL, 0, '');
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_开始3', '1748512720741', '开始3', '1748512720741', NULL, 1749783600000, 1749780000000, 5, 'WAITING', 'CRON', 1748512721000, 0, NULL, 0, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_device_deviceDataSave', '1748511457883', 'deviceDataSave', '1748511457883', NULL, 1750134620000, 1750134600000, 5, 'ACQUIRED', 'CRON', 1748512626000, 0, NULL, 0, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_log_logsDataSave', '1748511357883', 'logsDataSave', '1748511357883', NULL, 1750134620000, 1750134600000, 5, 'WAITING', 'CRON', 1748512687000, 0, NULL, 0, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_开始3', '1748512720741', '开始3', '1748512720741', NULL, 1750136400000, 1750132800000, 5, 'WAITING', 'CRON', 1748512721000, 0, NULL, 0, '');
 
 -- ----------------------------
 -- Table structure for device_abutment
@@ -399,10 +398,10 @@ CREATE TABLE `device_item`  (
 -- ----------------------------
 -- Records of device_item
 -- ----------------------------
-INSERT INTO `device_item` VALUES (32, 'http://8.139.4.114:9000/dev/20250225/4a1afd2c8b934e24224e9cffd35eeea_63766.png', '空气检测设备', 'sd00001', 0, '测试', 1, '1', 0, 1, '2024-08-22 17:08:23', 1, '2025-06-04 17:48:03', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_item` VALUES (32, 'http://8.139.4.114:9000/dev/20250613/1749801180997_57196.jpg', '空气检测设备', 'sd00001', 0, '测试', 1, '1', 0, 1, '2024-08-22 17:08:23', 1, '2025-06-13 15:53:20', '[超级管理员:admin]', '[超级管理员:admin]');
 INSERT INTO `device_item` VALUES (36, 'http://8.139.4.114:9000/dev/20250604/DPlayer (1)_69598.png', '空气站', 'sadas', 1, '撒旦撒', 10, '1,10', 0, 1, '2024-09-14 16:19:36', 1, '2025-06-04 19:21:49', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_item` VALUES (37, 'http://121.5.79.252:9000/dev/20241024/1_54155.png', '加湿器', 'jiashiq', 1, '测试测试', 1, '1', 0, 1, '2024-10-24 15:02:54', 1, '2025-06-04 17:48:19', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_item` VALUES (38, 'http://121.5.79.252:9000/dev/20241025/2_57394.png', '灯光控制器', 'dg', 1, '边缘计算灯光控制器', 4, '4', 0, 1, '2024-10-25 15:57:15', 1, '2024-10-25 15:57:15', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_item` VALUES (37, 'http://8.139.4.114:9000/dev/20250613/1749801180997_57206.jpg', '加湿器', 'jiashiq', 1, '测试测试', 1, '1', 0, 1, '2024-10-24 15:02:54', 1, '2025-06-13 15:53:27', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_item` VALUES (38, 'http://8.139.4.114:9000/dev/20250613/1749801180997_57214.jpg', '灯光控制器', 'dg', 1, '边缘计算灯光控制器', 4, '4', 0, 1, '2024-10-25 15:57:15', 1, '2025-06-13 15:53:35', '[超级管理员:admin]', '[超级管理员:admin]');
 INSERT INTO `device_item` VALUES (39, 'http://121.5.79.252:9000/dev/20241122/1_49054.png', '1', '1', 1, '1', 7, '4,7', 1, 1, '2024-11-22 13:37:42', 1, '2024-11-22 13:37:50', '[超级管理员:admin]', '[超级管理员:admin]');
 INSERT INTO `device_item` VALUES (40, 'http://8.139.4.114:9000/dev/20250604/DPlayer_70059.png', '新空气站', 'sn90011', 1, '新空气站', 10, '1,10', 0, 1, '2025-06-04 19:29:28', NULL, NULL, '[超级管理员:admin]', NULL);
 
@@ -618,7 +617,7 @@ CREATE TABLE `protocols_mqtt`  (
 -- ----------------------------
 -- Records of protocols_mqtt
 -- ----------------------------
-INSERT INTO `protocols_mqtt` VALUES (1, '0.0.0.0', 'Mqtt-broker(测试环境不开放端口)', 1, '1883', '8083', 1, 'MqttNB!%#...', 'MqttNB!%#...', 1, 1, 'MqttNB!%#...', 'MqttNB!%#...', 0, '', '', 'none', '', '', 1, '0', 0, 1, '2025-06-13 10:22:16', 1, '2025-06-13 10:22:16', '系统初始化', '系统初始化');
+INSERT INTO `protocols_mqtt` VALUES (1, '0.0.0.0', 'Mqtt-broker(测试环境不开放端口)', 1, '1883', '8083', 1, 'MqttNB!%#...', 'MqttNB!%#...', 1, 1, 'MqttNB!%#...', 'MqttNB!%#...', 0, '', '', 'none', '', '', 1, '0', 0, 1, '2025-06-17 12:28:22', 1, '2025-06-17 12:28:22', '系统初始化', '系统初始化');
 INSERT INTO `protocols_mqtt` VALUES (2, '12am.cn', '其他emqx代理', 2, '1884', '8084', 1, 'admin', 'admin1234!@#$', 0, NULL, '', '', 0, '', '', 'NONE', '', '', 0, '0', 1, 1, '2024-12-03 16:51:28', 1, '2024-09-04 18:21:41', '[超级管理员:admin]', '[超级管理员:admin]');
 
 -- ----------------------------
@@ -945,7 +944,7 @@ CREATE TABLE `sys_menus`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `creator_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '创建人，格式：[姓名:账号]',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 264 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '菜单' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 265 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '菜单' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_menus
@@ -1040,6 +1039,7 @@ INSERT INTO `sys_menus` VALUES (260, 77, 'password.save', '', '', NULL, 'serve:p
 INSERT INTO `sys_menus` VALUES (261, 77, 'user.save', '', '', NULL, 'serve:user:save', 'serve/user/save', NULL, 1, '[超级管理员:admin]', 0, '保存账号信息', NULL, NULL, '', 'button', NULL, NULL, NULL, NULL, NULL, '2025-05-28 15:01:49', 1, '2025-05-28 15:06:25', '[超级管理员:admin]');
 INSERT INTO `sys_menus` VALUES (262, 77, 'user.show', '', '', NULL, 'serve:user:show', 'serve/user/show', NULL, 1, '[超级管理员:admin]', 0, '查看', NULL, NULL, '', 'button', NULL, NULL, NULL, NULL, NULL, '2025-05-28 15:04:19', 1, '2025-05-28 15:05:32', '[超级管理员:admin]');
 INSERT INTO `sys_menus` VALUES (263, 77, '1', '', '', NULL, 'qw', '', NULL, 1, '[超级管理员:admin]', 1, 'test', NULL, NULL, '', 'menu', NULL, NULL, NULL, NULL, NULL, '2025-05-28 15:06:41', 1, '2025-05-28 15:06:52', '[超级管理员:admin]');
+INSERT INTO `sys_menus` VALUES (264, 88, 'deviceItem.historyData', '', '', NULL, 'devices:deviceItem:historyData', '', NULL, 1, '[超级管理员:admin]', 0, '设备历史数据', NULL, NULL, '', 'button', NULL, NULL, NULL, NULL, NULL, '2025-06-17 11:19:31', 1, '2025-06-17 11:22:10', '[超级管理员:admin]');
 
 -- ----------------------------
 -- Table structure for sys_org
@@ -1118,52 +1118,55 @@ CREATE TABLE `sys_role_menu`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `idx_role_id`(`role_id` ASC) USING BTREE,
   INDEX `idx_menu_id`(`menu_id` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 871 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '角色菜单关系' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 915 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '角色菜单关系' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_role_menu
 -- ----------------------------
-INSERT INTO `sys_role_menu` VALUES (830, 10, 75);
-INSERT INTO `sys_role_menu` VALUES (831, 10, 76);
-INSERT INTO `sys_role_menu` VALUES (832, 10, 77);
-INSERT INTO `sys_role_menu` VALUES (833, 10, 78);
-INSERT INTO `sys_role_menu` VALUES (834, 10, 79);
-INSERT INTO `sys_role_menu` VALUES (835, 10, 80);
-INSERT INTO `sys_role_menu` VALUES (836, 10, 81);
-INSERT INTO `sys_role_menu` VALUES (837, 10, 82);
-INSERT INTO `sys_role_menu` VALUES (838, 10, 83);
-INSERT INTO `sys_role_menu` VALUES (839, 10, 85);
-INSERT INTO `sys_role_menu` VALUES (840, 10, 86);
-INSERT INTO `sys_role_menu` VALUES (841, 10, 88);
-INSERT INTO `sys_role_menu` VALUES (842, 10, 89);
-INSERT INTO `sys_role_menu` VALUES (843, 10, 90);
-INSERT INTO `sys_role_menu` VALUES (844, 10, 92);
-INSERT INTO `sys_role_menu` VALUES (845, 10, 94);
-INSERT INTO `sys_role_menu` VALUES (846, 10, 95);
-INSERT INTO `sys_role_menu` VALUES (847, 10, 96);
-INSERT INTO `sys_role_menu` VALUES (848, 10, 98);
-INSERT INTO `sys_role_menu` VALUES (849, 10, 99);
-INSERT INTO `sys_role_menu` VALUES (850, 10, 100);
-INSERT INTO `sys_role_menu` VALUES (851, 10, 101);
-INSERT INTO `sys_role_menu` VALUES (852, 10, 102);
-INSERT INTO `sys_role_menu` VALUES (853, 10, 103);
-INSERT INTO `sys_role_menu` VALUES (854, 10, 104);
-INSERT INTO `sys_role_menu` VALUES (855, 10, 203);
-INSERT INTO `sys_role_menu` VALUES (856, 10, 208);
-INSERT INTO `sys_role_menu` VALUES (857, 10, 212);
-INSERT INTO `sys_role_menu` VALUES (858, 10, 216);
-INSERT INTO `sys_role_menu` VALUES (859, 10, 217);
-INSERT INTO `sys_role_menu` VALUES (860, 10, 223);
-INSERT INTO `sys_role_menu` VALUES (861, 10, 224);
-INSERT INTO `sys_role_menu` VALUES (862, 10, 231);
-INSERT INTO `sys_role_menu` VALUES (863, 10, 232);
-INSERT INTO `sys_role_menu` VALUES (864, 10, 236);
-INSERT INTO `sys_role_menu` VALUES (865, 10, 243);
-INSERT INTO `sys_role_menu` VALUES (866, 10, 246);
-INSERT INTO `sys_role_menu` VALUES (867, 10, 250);
-INSERT INTO `sys_role_menu` VALUES (868, 10, 254);
-INSERT INTO `sys_role_menu` VALUES (869, 10, 258);
-INSERT INTO `sys_role_menu` VALUES (870, 10, 262);
+INSERT INTO `sys_role_menu` VALUES (871, 10, 75);
+INSERT INTO `sys_role_menu` VALUES (872, 10, 76);
+INSERT INTO `sys_role_menu` VALUES (873, 10, 77);
+INSERT INTO `sys_role_menu` VALUES (874, 10, 78);
+INSERT INTO `sys_role_menu` VALUES (875, 10, 79);
+INSERT INTO `sys_role_menu` VALUES (876, 10, 80);
+INSERT INTO `sys_role_menu` VALUES (877, 10, 81);
+INSERT INTO `sys_role_menu` VALUES (878, 10, 82);
+INSERT INTO `sys_role_menu` VALUES (879, 10, 83);
+INSERT INTO `sys_role_menu` VALUES (880, 10, 85);
+INSERT INTO `sys_role_menu` VALUES (881, 10, 86);
+INSERT INTO `sys_role_menu` VALUES (882, 10, 88);
+INSERT INTO `sys_role_menu` VALUES (883, 10, 89);
+INSERT INTO `sys_role_menu` VALUES (884, 10, 90);
+INSERT INTO `sys_role_menu` VALUES (885, 10, 92);
+INSERT INTO `sys_role_menu` VALUES (886, 10, 94);
+INSERT INTO `sys_role_menu` VALUES (887, 10, 95);
+INSERT INTO `sys_role_menu` VALUES (888, 10, 96);
+INSERT INTO `sys_role_menu` VALUES (889, 10, 98);
+INSERT INTO `sys_role_menu` VALUES (890, 10, 99);
+INSERT INTO `sys_role_menu` VALUES (891, 10, 100);
+INSERT INTO `sys_role_menu` VALUES (892, 10, 101);
+INSERT INTO `sys_role_menu` VALUES (893, 10, 102);
+INSERT INTO `sys_role_menu` VALUES (894, 10, 103);
+INSERT INTO `sys_role_menu` VALUES (895, 10, 104);
+INSERT INTO `sys_role_menu` VALUES (896, 10, 203);
+INSERT INTO `sys_role_menu` VALUES (897, 10, 208);
+INSERT INTO `sys_role_menu` VALUES (898, 10, 212);
+INSERT INTO `sys_role_menu` VALUES (899, 10, 216);
+INSERT INTO `sys_role_menu` VALUES (900, 10, 217);
+INSERT INTO `sys_role_menu` VALUES (901, 10, 219);
+INSERT INTO `sys_role_menu` VALUES (902, 10, 223);
+INSERT INTO `sys_role_menu` VALUES (903, 10, 224);
+INSERT INTO `sys_role_menu` VALUES (904, 10, 231);
+INSERT INTO `sys_role_menu` VALUES (905, 10, 232);
+INSERT INTO `sys_role_menu` VALUES (906, 10, 236);
+INSERT INTO `sys_role_menu` VALUES (907, 10, 243);
+INSERT INTO `sys_role_menu` VALUES (908, 10, 246);
+INSERT INTO `sys_role_menu` VALUES (909, 10, 250);
+INSERT INTO `sys_role_menu` VALUES (910, 10, 254);
+INSERT INTO `sys_role_menu` VALUES (911, 10, 258);
+INSERT INTO `sys_role_menu` VALUES (912, 10, 261);
+INSERT INTO `sys_role_menu` VALUES (913, 10, 262);
+INSERT INTO `sys_role_menu` VALUES (914, 10, 264);
 
 -- ----------------------------
 -- Table structure for sys_user
@@ -1255,7 +1258,7 @@ CREATE TABLE `sys_user_token`  (
 -- ----------------------------
 -- Records of sys_user_token
 -- ----------------------------
-INSERT INTO `sys_user_token` VALUES (1, 1, 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0OTc3NTE5NywiZXhwIjoxNzQ5Nzc1MjQwfQ.pPMFbfcs2_Cc12WEBp2CXp5pybkcqKmeupoUYSuMf2s', '2025-06-13 20:39:58', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0OTc3NTE5NywiZXhwIjoxNzQ5Nzc2NDA3fQ.U_0e0-U-crWiWAo_3HnSLWRvBNEcY9ySW2QKAL6C-xI', '2025-06-27 08:39:58', '2024-01-10 14:40:57');
-INSERT INTO `sys_user_token` VALUES (2, 2, 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYW5hIiwiaWF0IjoxNzQ5MTk1NTczLCJleHAiOjE3NDkxOTU2MTd9.b-4JMpvI6faDLkU5Pt5pQo9eQtuj-zbHn6VYrOBPbII', '2025-06-07 03:39:34', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYW5hIiwiaWF0IjoxNzQ5MTk1NTczLCJleHAiOjE3NDkxOTY3ODN9.AJszN-RFzfAKHOqpGmBLxEtG9ocWfLWs34jtTAe2XcI', '2025-06-20 15:39:34', '2024-01-10 15:38:18');
+INSERT INTO `sys_user_token` VALUES (1, 1, 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1MDEyMzE4OSwiZXhwIjoxNzUwMTIzMjMyfQ.IJGSiAhyG5ijRl4x71R6HTGmxIMb5M5vZUBhOcvjWE4', '2025-06-17 21:19:49', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1MDEyMzE4OSwiZXhwIjoxNzUwMTI0Mzk4fQ.mat7N1I5YvHzTpOXaDphuEICFV7w7yDjUW42FQ05g3k', '2025-07-01 09:19:49', '2024-01-10 14:40:57');
+INSERT INTO `sys_user_token` VALUES (2, 2, 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYW5hIiwiaWF0IjoxNzUwMTMwNzg4LCJleHAiOjE3NTAxMzA4MzF9.T3s5yIwa7DixXZ-pjKQOptsipqgVdIrwhxZlWqqhR0g', '2025-06-17 23:26:29', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYW5hIiwiaWF0IjoxNzUwMTMwNzg4LCJleHAiOjE3NTAxMzE5OTh9.AUKvmYyE9r16F-0kyfhjWgfVa1ARKBqJ1fVshXQYyWI', '2025-07-01 11:26:29', '2024-01-10 15:38:18');
 
 SET FOREIGN_KEY_CHECKS = 1;

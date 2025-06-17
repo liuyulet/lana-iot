@@ -57,7 +57,9 @@
         LEFT JOIN device_item_group g ON g.device_item_id = d.id
         WHERE d.deleted = 0
         AND (g.device_group_id IS NULL OR g.device_group_id != #{groupId})
-
+        <if test="deviceName !=null and deviceName != ''">
+            and d.name like concat('%', #{deviceName}, '%')
+        </if>
     </select>
 
 
@@ -94,7 +96,14 @@
             *
         FROM
             ${tableName}
-        WHERE ts BETWEEN #{startTime} AND #{endTime}
+        <where>
+            <if test="query.startTime !=null and query.startTime != ''">
+                and ts >= #{query.startTime}
+            </if>
+            <if test="query.endTime !=null and query.endTime != ''">
+                and ts  &lt; #{query.endTime}
+            </if>
+        </where>
         ORDER BY ts DESC
     </select>
 

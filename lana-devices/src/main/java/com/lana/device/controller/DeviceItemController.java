@@ -85,7 +85,7 @@ public class DeviceItemController {
     @GetMapping("/historyData")
     @Operation(summary = "历史数据查询")
     @OptLog(type = OperateTypeEnum.QUERY)
-    //@PreAuthorize("hasAuthority('devices:deviceItem:historyData')")
+    @PreAuthorize("hasAuthority('devices:deviceItem:historyData')")
     public LanaResult<LanaPage<Map<String, Object>>> historyData(@ParameterObject @Valid DeviceHistoryQuery query) {
         LanaPage<Map<String, Object>> lanaPage = deviceItemService.historyData(query);
         return LanaResult.ok(lanaPage);

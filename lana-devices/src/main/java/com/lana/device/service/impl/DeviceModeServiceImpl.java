@@ -121,6 +121,10 @@ public class DeviceModeServiceImpl extends BaseServiceImpl<DeviceModeDao, Device
                 columnResult.setProp(deviceModeResult.getModeSigns());
                 columnResults.add(columnResult);
             }
+            ColumnResult columnResult = new ColumnResult();
+            columnResult.setLabel("时间");
+            columnResult.setProp("ts");
+            columnResults.add(columnResult);
             return columnResults;
         }
         return List.of();

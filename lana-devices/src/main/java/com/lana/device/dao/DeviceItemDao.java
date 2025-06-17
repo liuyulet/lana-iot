@@ -34,7 +34,7 @@ public interface DeviceItemDao extends BaseDao<DeviceItemEntity> {
 
     IPage<GroupDeviceItemResult> groupDeviceItemPage(@Param("page") IPage<DeviceItemEntity> page, @Param("query") GroupDeviceItemQuery query, @Param("DataScopeIgnore") boolean b);
 
-    List<GroupDeviceItemResult> groupDeviceItemList(@Param("groupId") Long groupId);
+    List<GroupDeviceItemResult> groupDeviceItemList(@Param("groupId") Long groupId,@Param("deviceName")String deviceName);
 
     @DS("tdengine")
     void createTdTable(String sql);

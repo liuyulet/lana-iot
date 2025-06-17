@@ -165,8 +165,8 @@ public class DeviceItemServiceImpl extends BaseServiceImpl<DeviceItemDao, Device
     }
 
     @Override
-    public List<GroupDeviceItemResult> groupDeviceItemList(Long groupId) {
-        return  baseMapper.groupDeviceItemList(groupId);
+    public List<GroupDeviceItemResult> groupDeviceItemList(Long groupId,String deviceName) {
+        return  baseMapper.groupDeviceItemList(groupId,deviceName);
     }
 
     @Override

@@ -32,7 +32,7 @@ public interface DeviceItemService extends BaseService<DeviceItemEntity> {
 
     LanaPage<GroupDeviceItemResult> groupDeviceItemPage(GroupDeviceItemQuery query);
 
-    List<GroupDeviceItemResult> groupDeviceItemList(Long groupId);
+    List<GroupDeviceItemResult> groupDeviceItemList(Long groupId, String deviceName);
 
     long getByDeviceType(Long id);
 

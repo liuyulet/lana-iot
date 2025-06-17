@@ -59,7 +59,7 @@
 									</el-popconfirm>
 									<el-button text type="primary" size="small" v-auth="'devices:deviceDetail:detail'" @click="device_detil(scope.row, scope.$index)">设备详情</el-button>
 									<!--v-auth="'devices:deviceDetail:history'"-->
-									<el-button text type="primary" size="small"  @click="history_detil(scope.row)">历史数据</el-button>
+									<el-button text type="primary" size="small" v-auth="'devices:deviceItem:historyData'" @click="history_detil(scope.row)">历史数据</el-button>
 								</el-button-group>
 							</template>
 						</el-table-column>

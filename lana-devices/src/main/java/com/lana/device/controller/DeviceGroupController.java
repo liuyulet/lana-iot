@@ -78,11 +78,11 @@ public class DeviceGroupController {
     }
 
     @GetMapping("/groupDeviceItemList")
-    @Operation(summary = "所属分组分页查询")
+    @Operation(summary = "所属分组查询")
     @OptLog(type = OperateTypeEnum.QUERY)
     //@PreAuthorize("hasAuthority('devices:deviceItem:page')")
-    public LanaResult<List<GroupDeviceItemResult>> groupDeviceItemList(@RequestParam   Long groupId ) {
-        List<GroupDeviceItemResult> List = deviceItemService.groupDeviceItemList(groupId);
+    public LanaResult<List<GroupDeviceItemResult>> groupDeviceItemList(@RequestParam  Long groupId ,@RequestParam String deviceName) {
+        List<GroupDeviceItemResult> List = deviceItemService.groupDeviceItemList(groupId,deviceName);
         return LanaResult.ok(List);
     }
 

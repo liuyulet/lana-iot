@@ -67,9 +67,9 @@ export default {
 			group: [],
 			apiData: [],
 			selection: [],
-				search: {
-					name: null
-				}
+			search: {
+					name: ''
+			}
 
 		}
 	},
@@ -87,8 +87,10 @@ export default {
 		},
 		async gteDeviceItemGroupList(){
 			const params = {
-				groupId: this.groupId
+				groupId: this.groupId,
+				deviceName: this.search.name
 			};
+			console.log(params)
 			var res = await this.$API.device.deviceGroup.groupDeviceItemList.get(params);
 			if(res.code == 200){
 				this.apiData = res.data
@@ -97,6 +99,10 @@ export default {
 			}
 		},
 
+		//检索
+		upsearch(){
+			this.gteDeviceItemGroupList()
+		},
 		//保存数据
 		async submit(){
 			this.pamras = {
