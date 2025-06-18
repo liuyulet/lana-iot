@@ -22,12 +22,12 @@
 						<el-tag v-if="scope.row.deviceAbutmentType==3" type="success">边缘子设备</el-tag>
 					</template>
 				</el-table-column>
-				<el-table-column label="状态" prop="status" width="130">
+<!--				<el-table-column label="状态" prop="status" width="130">
 					<template #default="scope">
 						<el-tag v-if="scope.row.status==1" type="success">启用</el-tag>
 						<el-tag v-if="scope.row.status==0" type="danger">停用</el-tag>
 					</template>
-				</el-table-column>
+				</el-table-column>-->
 				<el-table-column label="备注" prop="remark" min-width="150"></el-table-column>
 				<el-table-column label="创建时间" prop="createTime" width="150"></el-table-column>
 				<el-table-column label="创建人" prop="creatorName" min-width="150"></el-table-column>

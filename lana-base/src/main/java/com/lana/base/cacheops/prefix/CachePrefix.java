@@ -59,6 +59,13 @@ public interface CachePrefix {
      */
     String RULESJOBPUSHDEVICE = "lana:rulesJobPushDevice:";
 
+
+    /**
+     * 规则类型缓存
+     */
+    String RULESTYPE = "lana:RulesType:";
+
+
     /**
      * 规则--动作信息
      */

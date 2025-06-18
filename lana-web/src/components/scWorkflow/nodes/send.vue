@@ -53,7 +53,7 @@
 						</el-form-item>
 
 						<el-divider v-if="form.pushDataFormat !=''"></el-divider>
-						<el-form-item label="推送的topic主题：" v-if="form.pushDataFormat !=''">
+						<el-form-item label="推送的topic主题(该主题为系统本身初始化的mqtt-broker中的主题，不要订阅错了哦)：" v-if="form.pushDataFormat !=''">
 							<el-input  v-model="form.pushTopic" placeholder="设备id"></el-input>
 						</el-form-item>
 						<el-form-item label="推送的数据内容（初版这里写什么就推送什么，不做任何相关的数据绑定）：" v-if="form.pushDataFormat !=''" >

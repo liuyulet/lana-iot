@@ -11,7 +11,7 @@
  Target Server Version : 80033 (8.0.33)
  File Encoding         : 65001
 
- Date: 17/06/2025 12:30:04
+ Date: 18/06/2025 16:45:13
 */
 
 SET NAMES utf8mb4;
@@ -68,6 +68,7 @@ CREATE TABLE `QRTZ_CRON_TRIGGERS`  (
 -- ----------------------------
 INSERT INTO `QRTZ_CRON_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_device_deviceDataSave', '1748511457883', '0/20 * * * * ?', 'Asia/Shanghai');
 INSERT INTO `QRTZ_CRON_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_log_logsDataSave', '1748511357883', '0/20 * * * * ?', 'Asia/Shanghai');
+INSERT INTO `QRTZ_CRON_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_开始16', '1750233254055', '0 0 * * * ?', 'Asia/Shanghai');
 INSERT INTO `QRTZ_CRON_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_开始3', '1748512720741', '0 0 * * * ?', 'Asia/Shanghai');
 
 -- ----------------------------
@@ -94,7 +95,8 @@ CREATE TABLE `QRTZ_FIRED_TRIGGERS`  (
 -- ----------------------------
 -- Records of QRTZ_FIRED_TRIGGERS
 -- ----------------------------
-INSERT INTO `QRTZ_FIRED_TRIGGERS` VALUES ('LanaScheduler', 'NON_CLUSTERED1749784542262', 'Trigger_device_deviceDataSave', '1748511457883', 'NON_CLUSTERED', 1750134602023, 1750134620000, 5, 'ACQUIRED', NULL, NULL, '0', '0');
+INSERT INTO `QRTZ_FIRED_TRIGGERS` VALUES ('LanaScheduler', 'NON_CLUSTERED1750135124173', 'Trigger_device_deviceDataSave', '1748511457883', 'NON_CLUSTERED', 1750236301058, 1750236320000, 5, 'ACQUIRED', NULL, NULL, '0', '0');
+INSERT INTO `QRTZ_FIRED_TRIGGERS` VALUES ('LanaScheduler', 'NON_CLUSTERED1750236214804', 'Trigger_log_logsDataSave', '1748511357883', 'NON_CLUSTERED', 1750236280764, 1750236300000, 5, 'ACQUIRED', NULL, NULL, '0', '0');
 
 -- ----------------------------
 -- Table structure for QRTZ_JOB_DETAILS
@@ -119,6 +121,7 @@ CREATE TABLE `QRTZ_JOB_DETAILS`  (
 -- ----------------------------
 INSERT INTO `QRTZ_JOB_DETAILS` VALUES ('LanaScheduler', 'deviceDataSave', '1748511457883', NULL, 'com.lana.device.job.DeviceDataJob', '0', '1', '0', '0', 0xACED0005737200156F72672E71756172747A2E4A6F62446174614D61709FB083E8BFA9B0CB020000787200266F72672E71756172747A2E7574696C732E537472696E674B65794469727479466C61674D61708208E8C3FBC55D280200015A0013616C6C6F77735472616E7369656E74446174617872001D6F72672E71756172747A2E7574696C732E4469727479466C61674D617013E62EAD28760ACE0200025A000564697274794C00036D617074000F4C6A6176612F7574696C2F4D61703B787000737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F40000000000010770800000010000000007800);
 INSERT INTO `QRTZ_JOB_DETAILS` VALUES ('LanaScheduler', 'logsDataSave', '1748511357883', NULL, 'com.lana.system.job.LogOperateJob', '0', '1', '0', '0', 0xACED0005737200156F72672E71756172747A2E4A6F62446174614D61709FB083E8BFA9B0CB020000787200266F72672E71756172747A2E7574696C732E537472696E674B65794469727479466C61674D61708208E8C3FBC55D280200015A0013616C6C6F77735472616E7369656E74446174617872001D6F72672E71756172747A2E7574696C732E4469727479466C61674D617013E62EAD28760ACE0200025A000564697274794C00036D617074000F4C6A6176612F7574696C2F4D61703B787000737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F40000000000010770800000010000000007800);
+INSERT INTO `QRTZ_JOB_DETAILS` VALUES ('LanaScheduler', '开始16', '1750233254055', NULL, 'com.lana.rules.executes.job.SchedulerJob', '0', '1', '0', '0', 0xACED0005737200156F72672E71756172747A2E4A6F62446174614D61709FB083E8BFA9B0CB020000787200266F72672E71756172747A2E7574696C732E537472696E674B65794469727479466C61674D61708208E8C3FBC55D280200015A0013616C6C6F77735472616E7369656E74446174617872001D6F72672E71756172747A2E7574696C732E4469727479466C61674D617013E62EAD28760ACE0200025A000564697274794C00036D617074000F4C6A6176612F7574696C2F4D61703B787000737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F40000000000010770800000010000000007800);
 INSERT INTO `QRTZ_JOB_DETAILS` VALUES ('LanaScheduler', '开始3', '1748512720741', NULL, 'com.lana.rules.executes.job.SchedulerJob', '0', '1', '0', '0', 0xACED0005737200156F72672E71756172747A2E4A6F62446174614D61709FB083E8BFA9B0CB020000787200266F72672E71756172747A2E7574696C732E537472696E674B65794469727479466C61674D61708208E8C3FBC55D280200015A0013616C6C6F77735472616E7369656E74446174617872001D6F72672E71756172747A2E7574696C732E4469727479466C61674D617013E62EAD28760ACE0200025A000564697274794C00036D617074000F4C6A6176612F7574696C2F4D61703B787000737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F40000000000010770800000010000000007800);
 
 -- ----------------------------
@@ -243,9 +246,10 @@ CREATE TABLE `QRTZ_TRIGGERS`  (
 -- ----------------------------
 -- Records of QRTZ_TRIGGERS
 -- ----------------------------
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_device_deviceDataSave', '1748511457883', 'deviceDataSave', '1748511457883', NULL, 1750134620000, 1750134600000, 5, 'ACQUIRED', 'CRON', 1748512626000, 0, NULL, 0, '');
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_log_logsDataSave', '1748511357883', 'logsDataSave', '1748511357883', NULL, 1750134620000, 1750134600000, 5, 'WAITING', 'CRON', 1748512687000, 0, NULL, 0, '');
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_开始3', '1748512720741', '开始3', '1748512720741', NULL, 1750136400000, 1750132800000, 5, 'WAITING', 'CRON', 1748512721000, 0, NULL, 0, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_device_deviceDataSave', '1748511457883', 'deviceDataSave', '1748511457883', NULL, 1750236320000, 1750236300000, 5, 'ACQUIRED', 'CRON', 1748512626000, 0, NULL, 0, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_log_logsDataSave', '1748511357883', 'logsDataSave', '1748511357883', NULL, 1750236300000, 1750236280000, 5, 'ACQUIRED', 'CRON', 1748512687000, 0, NULL, 0, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_开始16', '1750233254055', '开始16', '1750233254055', NULL, 1750237200000, 1750233600000, 5, 'WAITING', 'CRON', 1750233254000, 0, NULL, 0, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('LanaScheduler', 'Trigger_开始3', '1748512720741', '开始3', '1748512720741', NULL, 1750237200000, 1750233600000, 5, 'WAITING', 'CRON', 1748512721000, 0, NULL, 0, '');
 
 -- ----------------------------
 -- Table structure for device_abutment
@@ -258,15 +262,17 @@ CREATE TABLE `device_abutment`  (
   `device_type` int NULL DEFAULT NULL COMMENT '设备接入的方式，1直链设备，2边缘计算设备，3边缘计算子设备',
   `edge_id` bigint NULL DEFAULT NULL COMMENT '如果是边缘子设备，则这里就是关联的边缘计算产品实例的id；如果是边缘计算，这里就是边缘计算的id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 52 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '接入管理' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 59 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '接入管理' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of device_abutment
 -- ----------------------------
-INSERT INTO `device_abutment` VALUES (46, 1, 2, 3, 1);
-INSERT INTO `device_abutment` VALUES (47, 1, 3, 1, NULL);
-INSERT INTO `device_abutment` VALUES (50, 1, 1, 2, 10);
-INSERT INTO `device_abutment` VALUES (51, 1, 10, 1, NULL);
+INSERT INTO `device_abutment` VALUES (52, 1, 12, 1, NULL);
+INSERT INTO `device_abutment` VALUES (53, 1, 13, 1, NULL);
+INSERT INTO `device_abutment` VALUES (54, NULL, 15, 1, NULL);
+INSERT INTO `device_abutment` VALUES (56, 1, 16, 1, NULL);
+INSERT INTO `device_abutment` VALUES (57, 1, 18, 1, NULL);
+INSERT INTO `device_abutment` VALUES (58, 1, 20, 1, NULL);
 
 -- ----------------------------
 -- Table structure for device_control_data
@@ -290,27 +296,28 @@ CREATE TABLE `device_control_data`  (
   `creator_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '创建人，格式：[姓名:账号]',
   `updater_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '修改人，格式：[姓名:账号]',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备功能表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 44 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备功能表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of device_control_data
 -- ----------------------------
-INSERT INTO `device_control_data` VALUES (9, 32, 1, '控制功能', '开启', 'disjunctor', 'int', '整数', '1', 0, 1, '2024-11-20 17:37:46', 1, '2025-04-15 17:39:04', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_control_data` VALUES (12, 32, 1, '控制功能', '关闭', 'disjunctor', 'int', '整数', '2', 0, 1, '2024-11-21 09:59:35', 1, '2025-04-15 17:39:13', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_control_data` VALUES (13, 32, 2, '采集功能', '采集数据', 'getDeviceData', 'int', '整数', '3', 0, 1, '2024-11-21 09:59:59', 1, '2025-04-15 17:39:22', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_control_data` VALUES (14, 32, 1, '控制功能', '测试', 'we', 'int', '整数', '4', 1, 1, '2024-11-21 10:08:57', 1, '2024-11-21 10:08:57', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_control_data` VALUES (15, 36, 1, '控制功能', '开启', 'disjunctor', 'int', '整数', '1', 0, 1, '2025-04-15 17:40:19', 1, '2025-05-12 17:16:56', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_control_data` VALUES (16, 36, 1, '控制功能', '关闭', 'disjunctor', 'int', '整数', '0', 0, 1, '2025-05-12 17:17:09', NULL, NULL, '[超级管理员:admin]', NULL);
-INSERT INTO `device_control_data` VALUES (17, 36, 2, '采集功能', '采集数据', 'getDeviceData', 'int', '整数', '1', 0, 1, '2025-05-12 17:17:36', NULL, NULL, '[超级管理员:admin]', NULL);
-INSERT INTO `device_control_data` VALUES (18, 38, 1, '控制功能', '开', 'disjunctor', 'int', '整数', '1', 0, 1, '2025-05-12 17:18:58', NULL, NULL, '[超级管理员:admin]', NULL);
-INSERT INTO `device_control_data` VALUES (19, 38, 1, '控制功能', '关', 'disjunctor', 'int', '整数', '0', 0, 1, '2025-05-12 17:19:08', NULL, NULL, '[超级管理员:admin]', NULL);
-INSERT INTO `device_control_data` VALUES (20, 38, 2, '采集功能', '采集', 'getDeviceData', 'int', '整数', '1', 0, 1, '2025-05-12 17:19:43', NULL, NULL, '[超级管理员:admin]', NULL);
-INSERT INTO `device_control_data` VALUES (21, 37, 2, '采集功能', '采集', 'getDeviceData ', 'int', '整数', '1', 0, 1, '2025-05-12 17:20:40', NULL, NULL, '[超级管理员:admin]', NULL);
-INSERT INTO `device_control_data` VALUES (22, 37, 1, '控制功能', '开', 'disjunctor', 'int', '整数', '1', 0, 1, '2025-05-12 17:21:05', NULL, NULL, '[超级管理员:admin]', NULL);
-INSERT INTO `device_control_data` VALUES (23, 37, 1, '控制功能', '关', 'disjunctor', 'int', '整数', '0', 0, 1, '2025-05-12 17:21:14', NULL, NULL, '[超级管理员:admin]', NULL);
-INSERT INTO `device_control_data` VALUES (24, 40, 2, '采集功能', '采集数据', 'check', 'int', '整数', '1', 0, 1, '2025-06-04 21:07:02', NULL, NULL, '[超级管理员:admin]', NULL);
-INSERT INTO `device_control_data` VALUES (25, 40, 1, '控制功能', '开启设备', 'onoff', 'int', '整数', '1', 0, 1, '2025-06-04 21:07:22', NULL, NULL, '[超级管理员:admin]', NULL);
-INSERT INTO `device_control_data` VALUES (26, 40, 1, '控制功能', '关闭设备', 'onoff', 'int', '整数', '0', 0, 1, '2025-06-04 21:08:10', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (27, 41, 1, '控制功能', '开启', 'switch', 'int', '整数', '1', 0, 1, '2025-06-18 14:45:51', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (28, 41, 1, '控制功能', '关闭', 'switch', 'int', '整数', '0', 0, 1, '2025-06-18 14:46:09', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (29, 42, 1, '控制功能', '开启', 'switch', 'int', '整数', '1', 0, 1, '2025-06-18 14:54:18', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (30, 42, 1, '控制功能', '关闭', 'switch', 'int', '整数', '0', 0, 1, '2025-06-18 14:54:29', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (31, 42, 2, '采集功能', '采集', 'gather', 'int', '整数', '1', 0, 1, '2025-06-18 14:54:47', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (32, 43, 1, '控制功能', '开启', 'switch', 'int', '整数', '1', 0, 1, '2025-06-18 15:05:00', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (33, 43, 1, '控制功能', '关闭', 'switch', 'int', '整数', '0', 0, 1, '2025-06-18 15:05:15', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (34, 43, 2, '采集功能', '采集', 'gather', 'int', '整数', '1', 0, 1, '2025-06-18 15:05:26', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (35, 44, 1, '控制功能', '开启', 'switch', 'int', '整数', '1', 0, 1, '2025-06-18 15:07:52', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (36, 44, 1, '控制功能', '关闭', 'switch', 'int', '整数', '0', 0, 1, '2025-06-18 15:08:01', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (37, 44, 1, '控制功能', '除湿', 'dehumidify', 'int', '整数', '1', 0, 1, '2025-06-18 15:08:17', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (38, 44, 1, '控制功能', '热风', 'hot', 'int', '整数', '1', 0, 1, '2025-06-18 15:08:36', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (39, 44, 1, '控制功能', '冷风', '冷风', 'int', '整数', '1', 0, 1, '2025-06-18 15:08:50', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (40, 45, 1, '控制功能', '开启', 'switch', 'int', '整数', '1', 0, 1, '2025-06-18 15:11:33', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (41, 45, 1, '控制功能', '关闭', 'switch', 'int', '整数', '0', 0, 1, '2025-06-18 15:11:43', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (42, 46, 1, '控制功能', '开启窗户', 'switch', 'int', '整数', '1', 0, 1, '2025-06-18 15:13:57', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_control_data` VALUES (43, 46, 1, '控制功能', '关闭窗户', 'switch', 'int', '整数', '0', 0, 1, '2025-06-18 15:14:08', NULL, NULL, '[超级管理员:admin]', NULL);
 
 -- ----------------------------
 -- Table structure for device_edges_item
@@ -339,9 +346,6 @@ CREATE TABLE `device_edges_item`  (
 -- ----------------------------
 -- Records of device_edges_item
 -- ----------------------------
-INSERT INTO `device_edges_item` VALUES (7, 'zhgd', '智慧工地边缘计算设备', NULL, 'miyaokey', 'miyaoid', '12', '12', '1', 1, 1, '2024-11-12 20:17:27', 1, '2024-11-12 20:17:27', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_edges_item` VALUES (9, 'zhgd', '智慧工地边缘计算设备', NULL, 'miyaokey', 'miyaoid', '12', '12', '1', 1, 1, '2024-11-12 20:51:44', 1, '2024-11-12 20:51:44', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_edges_item` VALUES (10, 'q', 'q', NULL, 'q', '1', '1', '1', '1', 0, 1, '2025-05-27 16:32:59', NULL, NULL, '[超级管理员:admin]', NULL);
 
 -- ----------------------------
 -- Table structure for device_group
@@ -361,16 +365,13 @@ CREATE TABLE `device_group`  (
   `creator_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '创建人，格式：[姓名:账号]',
   `updater_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '修改人，格式：[姓名:账号]',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备分组表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备分组表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of device_group
 -- ----------------------------
-INSERT INTO `device_group` VALUES (2, '下班回家组', 1, 1, '下班后，打开灯光', 0, 1, '2024-08-02 15:29:52', 1, '2024-11-12 22:08:26', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_group` VALUES (3, '上班离家组', 2, 1, '上班出门，关闭灯光', 0, 1, '2024-08-07 10:03:00', 1, '2024-11-12 22:08:31', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_group` VALUES (4, '上班离家组', 1, 1, '上班出门', 1, 1, '2024-08-07 10:03:01', 1, '2024-08-07 10:03:01', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_group` VALUES (5, '周末休息组', 3, 1, '周末休闲娱乐组', 1, 1, '2024-08-07 10:04:19', 1, '2024-10-19 21:41:36', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_group` VALUES (6, '温度过高组', 3, 1, '温度过高', 0, 1, '2025-06-04 21:24:51', 1, '2025-06-04 21:25:24', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_group` VALUES (7, '上班离家组', 1, 1, '上班，关窗户，关灯', 0, 1, '2025-06-18 15:20:37', 1, '2025-06-18 15:20:56', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_group` VALUES (8, '下班回家组', 1, 1, '下班，开窗户啊', 0, 1, '2025-06-18 15:21:14', NULL, NULL, '[超级管理员:admin]', NULL);
 
 -- ----------------------------
 -- Table structure for device_item
@@ -393,17 +394,17 @@ CREATE TABLE `device_item`  (
   `creator_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '创建人，格式：[姓名:账号]',
   `updater_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '修改人，格式：[姓名:账号]',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 41 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 47 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of device_item
 -- ----------------------------
-INSERT INTO `device_item` VALUES (32, 'http://8.139.4.114:9000/dev/20250613/1749801180997_57196.jpg', '空气检测设备', 'sd00001', 0, '测试', 1, '1', 0, 1, '2024-08-22 17:08:23', 1, '2025-06-13 15:53:20', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_item` VALUES (36, 'http://8.139.4.114:9000/dev/20250604/DPlayer (1)_69598.png', '空气站', 'sadas', 1, '撒旦撒', 10, '1,10', 0, 1, '2024-09-14 16:19:36', 1, '2025-06-04 19:21:49', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_item` VALUES (37, 'http://8.139.4.114:9000/dev/20250613/1749801180997_57206.jpg', '加湿器', 'jiashiq', 1, '测试测试', 1, '1', 0, 1, '2024-10-24 15:02:54', 1, '2025-06-13 15:53:27', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_item` VALUES (38, 'http://8.139.4.114:9000/dev/20250613/1749801180997_57214.jpg', '灯光控制器', 'dg', 1, '边缘计算灯光控制器', 4, '4', 0, 1, '2024-10-25 15:57:15', 1, '2025-06-13 15:53:35', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_item` VALUES (39, 'http://121.5.79.252:9000/dev/20241122/1_49054.png', '1', '1', 1, '1', 7, '4,7', 1, 1, '2024-11-22 13:37:42', 1, '2024-11-22 13:37:50', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_item` VALUES (40, 'http://8.139.4.114:9000/dev/20250604/DPlayer_70059.png', '新空气站', 'sn90011', 1, '新空气站', 10, '1,10', 0, 1, '2025-06-04 19:29:28', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_item` VALUES (41, 'http://8.139.4.114:9000/dev/20250618/1749801180997_52998.jpg', '客厅粉色的加湿器', 'sn9000000000001', 1, '放在客厅的，粉色的加湿器', 15, '14,15', 0, 1, '2025-06-18 14:44:43', 1, '2025-06-18 15:10:14', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_item` VALUES (42, 'http://8.139.4.114:9000/dev/20250618/1749801180997_53396.jpg', '粉色的室内空气检测器', 'sn666666666', 1, '品牌暂不好说', 12, '11,12', 0, 1, '2025-06-18 14:51:24', 1, '2025-06-18 15:10:03', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_item` VALUES (43, 'http://8.139.4.114:9000/dev/20250618/1749801180997_54215.jpg', '烤漆的室外空气检测器', 'sn3421513423', 0, '放在室外，烤漆的', 13, '11,13', 0, 1, '2025-06-18 15:04:09', 1, '2025-06-18 15:09:56', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_item` VALUES (44, 'http://8.139.4.114:9000/dev/20250618/1749801180997_54380.jpg', '客厅白色的立式空调', 'snlllllllll666', 1, '大白', 16, '14,16', 0, 1, '2025-06-18 15:07:08', 1, '2025-06-18 15:10:21', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_item` VALUES (45, 'http://8.139.4.114:9000/dev/20250618/1749801180997_54637.jpg', '阳台窗帘控制器', 'snyt', 1, '三层的窗帘哦，', 18, '17,18', 0, 1, '2025-06-18 15:11:14', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_item` VALUES (46, 'http://8.139.4.114:9000/dev/20250618/1749801180997_54785.jpg', '客厅窗户', 'snctrollerWindows', 1, '我的窗户听我的', 20, '19,20', 0, 1, '2025-06-18 15:13:36', NULL, NULL, '[超级管理员:admin]', NULL);
 
 -- ----------------------------
 -- Table structure for device_item_group
@@ -414,15 +415,15 @@ CREATE TABLE `device_item_group`  (
   `device_group_id` bigint NULL DEFAULT NULL COMMENT '设备分组表id',
   `device_item_id` bigint NULL DEFAULT NULL COMMENT '设备实例表id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备分组关联表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 44 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备分组关联表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of device_item_group
 -- ----------------------------
-INSERT INTO `device_item_group` VALUES (36, 2, 32);
-INSERT INTO `device_item_group` VALUES (37, 3, 36);
-INSERT INTO `device_item_group` VALUES (38, 6, 40);
-INSERT INTO `device_item_group` VALUES (39, 6, 38);
+INSERT INTO `device_item_group` VALUES (40, 7, 46);
+INSERT INTO `device_item_group` VALUES (41, 7, 45);
+INSERT INTO `device_item_group` VALUES (42, 8, 45);
+INSERT INTO `device_item_group` VALUES (43, 8, 46);
 
 -- ----------------------------
 -- Table structure for device_mode
@@ -439,33 +440,30 @@ CREATE TABLE `device_mode`  (
   `device_item_id` bigint NULL DEFAULT NULL COMMENT '设备id',
   `defult_value` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '冗余字段，预留给后面的功能',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 357 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备物模型' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 386 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备物模型' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of device_mode
 -- ----------------------------
-INSERT INTO `device_mode` VALUES (331, '温度', 'wd', 'float', 1, NULL, '°C', 32, NULL);
-INSERT INTO `device_mode` VALUES (332, '湿度', 'sd', 'float', 1, NULL, '%rh', 32, NULL);
-INSERT INTO `device_mode` VALUES (333, 'PM25', 'pm25', 'float', 1, NULL, 'mg/m³', 32, NULL);
-INSERT INTO `device_mode` VALUES (334, 'PM100', 'pm100', 'float', 0, NULL, 'mg/m³', 32, NULL);
-INSERT INTO `device_mode` VALUES (335, '开关', 'disjunctor', 'int', 0, NULL, NULL, 32, NULL);
-INSERT INTO `device_mode` VALUES (336, '温度', 'wd', 'float', 1, NULL, '温度', 36, NULL);
-INSERT INTO `device_mode` VALUES (337, '湿度', 'sd', 'float', 1, NULL, '湿度', 36, NULL);
-INSERT INTO `device_mode` VALUES (338, 'PM25', 'pm25', 'float', 1, NULL, '灰尘', 36, NULL);
-INSERT INTO `device_mode` VALUES (339, '开关', 'disjunctor', 'int', 0, NULL, NULL, 36, NULL);
-INSERT INTO `device_mode` VALUES (340, '湿度', 'sd', 'float', 0, NULL, '湿度', 38, NULL);
-INSERT INTO `device_mode` VALUES (341, '温度', 'wd', 'float', 0, NULL, '温度', 38, NULL);
-INSERT INTO `device_mode` VALUES (342, '开关', 'disjunctor', 'int', 0, NULL, NULL, 38, NULL);
-INSERT INTO `device_mode` VALUES (343, '温度', 'wd', 'float', 1, NULL, '温度', 37, NULL);
-INSERT INTO `device_mode` VALUES (344, '湿度', 'sd', 'float', 1, NULL, '湿度', 37, NULL);
-INSERT INTO `device_mode` VALUES (345, 'PM2.0', 'pm25', 'float', 1, NULL, '灰尘', 37, NULL);
-INSERT INTO `device_mode` VALUES (346, '开关', 'disjunctor', 'int', 0, NULL, NULL, 37, NULL);
-INSERT INTO `device_mode` VALUES (351, 'pm2.5', 'pm25', 'float', 1, 0, 'μm', 40, NULL);
-INSERT INTO `device_mode` VALUES (352, 'pm100', 'pm100', 'float', 1, 0, 'μm', 40, NULL);
-INSERT INTO `device_mode` VALUES (353, '湿度', 'humidity', 'float', 1, 0, '%RH', 40, NULL);
-INSERT INTO `device_mode` VALUES (354, '温度', 'temperature', 'float', 1, 0, '°C', 40, NULL);
-INSERT INTO `device_mode` VALUES (355, '检测', 'check', 'int', 0, NULL, NULL, 40, NULL);
-INSERT INTO `device_mode` VALUES (356, '开关', 'onoff', 'int', 0, NULL, NULL, 40, NULL);
+INSERT INTO `device_mode` VALUES (357, '开关', 'switch', 'int', 1, 0, NULL, 41, NULL);
+INSERT INTO `device_mode` VALUES (363, 'PM2.5', 'pm25', 'float', 1, 0, 'μg/m³', 42, NULL);
+INSERT INTO `device_mode` VALUES (364, 'PM10', 'pm10', 'float', 1, 0, 'μg/m³', 42, NULL);
+INSERT INTO `device_mode` VALUES (365, '温度', 'temperature', 'float', 1, 0, '°C', 42, NULL);
+INSERT INTO `device_mode` VALUES (366, '湿度', 'humidity', 'float', 1, 0, '%rh', 42, NULL);
+INSERT INTO `device_mode` VALUES (367, '开关', 'switch', 'int', 1, 0, NULL, 42, NULL);
+INSERT INTO `device_mode` VALUES (368, '采集', 'gather', 'int', 0, NULL, NULL, 42, NULL);
+INSERT INTO `device_mode` VALUES (374, 'PM2.5', 'pm25', 'float', 1, 0, 'μg/m³', 43, NULL);
+INSERT INTO `device_mode` VALUES (375, 'PM10', 'pm10', 'float', 1, 0, 'μg/m³', 43, NULL);
+INSERT INTO `device_mode` VALUES (376, '温度', 'temperature', 'float', 1, 0, '°C', 43, NULL);
+INSERT INTO `device_mode` VALUES (377, '湿度', 'humidity', 'float', 1, 0, '%rh', 43, NULL);
+INSERT INTO `device_mode` VALUES (378, '开关', 'switch', 'int', 1, 0, NULL, 43, NULL);
+INSERT INTO `device_mode` VALUES (379, '采集', 'gather', 'int', 0, NULL, NULL, 43, NULL);
+INSERT INTO `device_mode` VALUES (380, '开关', 'switch', 'int', 1, 0, NULL, 44, NULL);
+INSERT INTO `device_mode` VALUES (381, '除湿', 'dehumidify', 'int', 1, 0, NULL, 44, NULL);
+INSERT INTO `device_mode` VALUES (382, '热风', 'hot', 'int', 1, 0, NULL, 44, NULL);
+INSERT INTO `device_mode` VALUES (383, '冷风', 'cold', 'int', 1, 0, NULL, 44, NULL);
+INSERT INTO `device_mode` VALUES (384, '开关', 'switch', 'int', 1, 0, NULL, 45, NULL);
+INSERT INTO `device_mode` VALUES (385, '开关', 'switch', 'int', 1, 0, NULL, 46, NULL);
 
 -- ----------------------------
 -- Table structure for device_product_mode
@@ -479,20 +477,28 @@ CREATE TABLE `device_product_mode`  (
   `mode_remark` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '补充说明',
   `product_type_id` bigint NULL DEFAULT NULL COMMENT '产品类型id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '产品物模型' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 31 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '产品物模型' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of device_product_mode
 -- ----------------------------
-INSERT INTO `device_product_mode` VALUES (4, '测试属性', 'test', 'string', '测试使用', 1);
-INSERT INTO `device_product_mode` VALUES (5, '测试属性2', 'test2', 'double', '测试使用2', 1);
-INSERT INTO `device_product_mode` VALUES (6, '温度', 'wd', 'float', '温度', 2);
-INSERT INTO `device_product_mode` VALUES (7, '湿度', 'sd', 'float', '湿度', 2);
-INSERT INTO `device_product_mode` VALUES (8, 'PM2.0', 'pm2', 'float', '灰尘', 2);
-INSERT INTO `device_product_mode` VALUES (9, 'pm2.5', 'pm25', 'float', 'μm', 10);
-INSERT INTO `device_product_mode` VALUES (10, 'pm100', 'pm100', 'float', 'μm', 10);
-INSERT INTO `device_product_mode` VALUES (11, '湿度', 'humidity', 'float', '%RH', 10);
-INSERT INTO `device_product_mode` VALUES (12, '温度', 'temperature', 'float', '°C', 10);
+INSERT INTO `device_product_mode` VALUES (13, 'PM2.5', 'pm25', 'float', 'μg/m³', 12);
+INSERT INTO `device_product_mode` VALUES (14, 'PM10', 'pm10', 'float', 'μg/m³', 12);
+INSERT INTO `device_product_mode` VALUES (15, '温度', 'temperature', 'float', '°C', 12);
+INSERT INTO `device_product_mode` VALUES (16, '湿度', 'humidity', 'float', '%rh', 12);
+INSERT INTO `device_product_mode` VALUES (17, '开关', 'switch', 'int', NULL, 12);
+INSERT INTO `device_product_mode` VALUES (18, 'PM2.5', 'pm25', 'float', 'μg/m³', 13);
+INSERT INTO `device_product_mode` VALUES (19, 'PM10', 'pm10', 'float', 'μg/m³', 13);
+INSERT INTO `device_product_mode` VALUES (20, '温度', 'temperature', 'float', '°C', 13);
+INSERT INTO `device_product_mode` VALUES (21, '湿度', 'humidity', 'float', '%rh', 13);
+INSERT INTO `device_product_mode` VALUES (22, '开关', 'switch', 'int', NULL, 13);
+INSERT INTO `device_product_mode` VALUES (23, '开关', 'switch', 'int', NULL, 15);
+INSERT INTO `device_product_mode` VALUES (25, '开关', 'switch', 'int', NULL, 16);
+INSERT INTO `device_product_mode` VALUES (26, '除湿', 'dehumidify', 'int', NULL, 16);
+INSERT INTO `device_product_mode` VALUES (27, '热风', 'hot', 'int', NULL, 16);
+INSERT INTO `device_product_mode` VALUES (28, '冷风', 'cold', 'int', NULL, 16);
+INSERT INTO `device_product_mode` VALUES (29, '开关', 'switch', 'int', NULL, 18);
+INSERT INTO `device_product_mode` VALUES (30, '开关', 'switch', 'int', NULL, 20);
 
 -- ----------------------------
 -- Table structure for device_product_type
@@ -513,21 +519,21 @@ CREATE TABLE `device_product_type`  (
   `creator_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '创建人，格式：[姓名:账号]',
   `updater_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '修改人，格式：[姓名:账号]',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '产品管理' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '产品管理' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of device_product_type
 -- ----------------------------
-INSERT INTO `device_product_type` VALUES (1, NULL, '智慧工地', 1, 1, '智慧工地总控制柜', 0, 1, '2024-07-31 11:45:53', 1, '2024-10-25 15:33:19', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_product_type` VALUES (2, 1, '智慧塔吊', 1, 1, '塔吊设备', 0, 1, '2024-07-31 11:46:35', 1, '2024-10-25 15:33:01', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_product_type` VALUES (3, 1, '智能雾炮', 1, 1, '雾炮设备', 0, 1, '2024-07-31 11:47:18', 1, '2024-10-25 15:32:54', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_product_type` VALUES (4, NULL, '灯光控制器', 1, 1, '', 0, 1, '2024-10-25 15:36:49', 1, '2024-10-25 15:37:12', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_product_type` VALUES (5, 4, '塔吊灯', 1, 1, '', 0, 1, '2024-10-25 15:37:05', 1, '2024-10-25 15:37:05', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_product_type` VALUES (6, 4, '路灯', 1, 1, '', 0, 1, '2024-10-25 15:37:23', 1, '2024-10-25 15:37:23', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_product_type` VALUES (7, 4, '警示灯', 1, 1, '', 0, 1, '2024-10-25 15:37:36', 1, '2024-10-25 15:37:36', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `device_product_type` VALUES (8, NULL, '智慧农业', 1, 1, NULL, 0, 1, '2025-05-16 21:57:37', NULL, NULL, '[超级管理员:admin]', NULL);
-INSERT INTO `device_product_type` VALUES (9, 8, '自动灌溉设备', 1, 1, NULL, 0, 1, '2025-05-16 21:57:59', NULL, NULL, '[超级管理员:admin]', NULL);
-INSERT INTO `device_product_type` VALUES (10, 1, '空气检测', 1, 1, NULL, 0, 1, '2025-06-04 17:49:15', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_product_type` VALUES (11, NULL, '空气检测', 1, NULL, '空气检测大类', 0, 1, '2025-06-18 14:00:42', 1, '2025-06-18 14:06:48', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_product_type` VALUES (12, 11, '室内空气检测器', 1, NULL, '空气检测下面的室内空气检测器', 0, 1, '2025-06-18 14:01:06', 1, '2025-06-18 14:06:27', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_product_type` VALUES (13, 11, '室外空气检测器', 2, NULL, '空气检测下面的室外空气检测器', 0, 1, '2025-06-18 14:01:21', 1, '2025-06-18 14:06:33', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_product_type` VALUES (14, NULL, '气体净化器', NULL, NULL, '这个是气体净化器大类', 0, 1, '2025-06-18 14:05:05', 1, '2025-06-18 14:07:32', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_product_type` VALUES (15, 14, '室内加湿器', NULL, NULL, '这是一个非常漂亮的加湿器哦！', 0, 1, '2025-06-18 14:11:11', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_product_type` VALUES (16, 14, '室内空调', NULL, NULL, '室内台式大空调', 0, 1, '2025-06-18 14:12:46', 1, '2025-06-18 14:33:14', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_product_type` VALUES (17, NULL, '窗帘', NULL, NULL, '非常漂亮的一个窗帘', 0, 1, '2025-06-18 14:14:37', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_product_type` VALUES (18, 17, '客厅窗帘控制器', NULL, NULL, '客厅紫色花纹的窗帘的控制器', 0, 1, '2025-06-18 14:15:33', 1, '2025-06-18 14:15:46', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `device_product_type` VALUES (19, NULL, '窗户', NULL, NULL, '玻璃窗户', 0, 1, '2025-06-18 14:38:49', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `device_product_type` VALUES (20, 19, '客厅窗户', NULL, NULL, '客厅的窗户', 0, 1, '2025-06-18 14:39:13', NULL, NULL, '[超级管理员:admin]', NULL);
 
 -- ----------------------------
 -- Table structure for protocols_http
@@ -617,7 +623,7 @@ CREATE TABLE `protocols_mqtt`  (
 -- ----------------------------
 -- Records of protocols_mqtt
 -- ----------------------------
-INSERT INTO `protocols_mqtt` VALUES (1, '0.0.0.0', 'Mqtt-broker(测试环境不开放端口)', 1, '1883', '8083', 1, 'MqttNB!%#...', 'MqttNB!%#...', 1, 1, 'MqttNB!%#...', 'MqttNB!%#...', 0, '', '', 'none', '', '', 1, '0', 0, 1, '2025-06-17 12:28:22', 1, '2025-06-17 12:28:22', '系统初始化', '系统初始化');
+INSERT INTO `protocols_mqtt` VALUES (1, '0.0.0.0', 'Mqtt-broker(测试环境不开放端口)', 1, '1883', '8083', 1, 'MqttNB!%#...', 'MqttNB!%#...', 1, 1, 'MqttNB!%#...', 'MqttNB!%#...', 0, '', '', 'none', '', '', 1, '0', 0, 1, '2025-06-18 16:43:36', 1, '2025-06-18 16:43:36', '系统初始化', '系统初始化');
 INSERT INTO `protocols_mqtt` VALUES (2, '12am.cn', '其他emqx代理', 2, '1884', '8084', 1, 'admin', 'admin1234!@#$', 0, NULL, '', '', 0, '', '', 'NONE', '', '', 0, '0', 1, 1, '2024-12-03 16:51:28', 1, '2024-09-04 18:21:41', '[超级管理员:admin]', '[超级管理员:admin]');
 
 -- ----------------------------
@@ -630,16 +636,15 @@ CREATE TABLE `rules_action_instanc`  (
   `ac_instancing` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '动作内容',
   `rule_id` bigint NULL DEFAULT NULL COMMENT '规则id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 239 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '规则引擎--动作内容实例化存储（一般使用是存在redis中）' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 243 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '规则引擎--动作内容实例化存储（一般使用是存在redis中）' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of rules_action_instanc
 -- ----------------------------
-INSERT INTO `rules_action_instanc` VALUES (218, 'actionMap1748413869626', '{\"@type\":\"java.util.HashMap\",\"nodeName\":\"数据流转\",\"timeoutExecution\":0,\"seqExecute\":1,\"pushPlatformInformation\":[{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"name\":\"Lana-Mqtt-Server\",\"id\":1}],\"pushTopic\":\"1744968415820\",\"controlActionType\":3,\"userName\":\"[超级管理员:admin]\",\"userId\":1L,\"actionType\":1,\"controlType\":1,\"pushData\":\"哈哈哈哈\",\"deviceList\":[{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"controlDeviceAbilityLabel\":[\"开\"],\"controlType\":1,\"isSet\":false,\"name\":\"加湿器\",\"controlDataTypeLabel\":[\"控制功能\"],\"controlAbility\":22,\"id\":37},{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"controlDeviceAbilityLabel\":[\"开启\"],\"controlType\":1,\"isSet\":false,\"name\":\"空气站\",\"controlDataTypeLabel\":[\"控制功能\"],\"controlAbility\":15,\"id\":36}],\"sendType\":2,\"controlGroupId\":[]}', 1);
-INSERT INTO `rules_action_instanc` VALUES (219, 'actionMap1748413869758', '{\"@type\":\"java.util.HashMap\",\"nodeName\":\"数据流转\",\"pushPlatformInformation\":[{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"name\":\"Lana-Mqtt-Server\",\"id\":1}],\"pushData\":\"你好你好你好你好\",\"pushTopic\":\"1737208800901\",\"sendType\":1,\"userName\":\"[超级管理员:admin]\",\"userId\":1L}', 1);
-INSERT INTO `rules_action_instanc` VALUES (222, 'actionMap1748413879742', '{\"@type\":\"java.util.HashMap\",\"nodeName\":\"数据流转\",\"timeoutExecution\":1,\"seqExecute\":1,\"pushPlatformInformation\":[{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"name\":\"Lana-Mqtt-Server\",\"id\":1}],\"pushTopic\":\"1748233295012\",\"controlActionType\":3,\"userName\":\"[超级管理员:admin]\",\"userId\":1L,\"actionType\":1,\"controlType\":1,\"pushData\":\"空气检测设备预警了\",\"deviceList\":[{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"controlDeviceAbilityLabel\":[\"开启\"],\"controlType\":1,\"isSet\":true,\"name\":\"空气检测设备\",\"controlDataTypeLabel\":[\"控制功能\"],\"controlAbility\":9,\"id\":32}],\"sendType\":1,\"controlGroupId\":[]}', 14);
-INSERT INTO `rules_action_instanc` VALUES (237, 'actionMap1748512722383', '{\"@type\":\"java.util.HashMap\",\"nodeName\":\"数据流转\",\"pushPlatformInformation\":[{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"name\":\"Lana-Mqtt-Server\",\"id\":1}],\"pushData\":\"预警预警预警\",\"pushTopic\":\"123456\",\"sendType\":1,\"userName\":\"[超级管理员:admin]\",\"userId\":1L}', 3);
-INSERT INTO `rules_action_instanc` VALUES (238, 'actionMap1748512722787', '{\"@type\":\"java.util.HashMap\",\"nodeName\":\"数据流转\",\"timeoutExecution\":0,\"seqExecute\":1,\"pushPlatformInformation\":[{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"name\":\"Lana-Mqtt-Server\",\"id\":1}],\"pushTopic\":\"1747041922896\",\"controlActionType\":3,\"userName\":\"[超级管理员:admin]\",\"userId\":1L,\"actionType\":1,\"controlType\":1,\"pushData\":\"解除解除解除\",\"deviceList\":[{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"controlDeviceAbilityLabel\":[\"开启\"],\"controlType\":1,\"isSet\":false,\"name\":\"空气检测设备\",\"controlDataTypeLabel\":[\"控制功能\"],\"controlAbility\":9,\"id\":32},{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"controlDeviceAbilityLabel\":[\"关\"],\"controlType\":1,\"isSet\":false,\"name\":\"加湿器\",\"controlDataTypeLabel\":[\"控制功能\"],\"controlAbility\":23,\"id\":37}],\"sendType\":2,\"controlGroupId\":[]}', 3);
+INSERT INTO `rules_action_instanc` VALUES (239, 'actionMap1750232665622', '{\"@type\":\"java.util.HashMap\",\"nodeName\":\"数据流转\",\"timeoutExecution\":1,\"seqExecute\":1,\"pushPlatformInformation\":[{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"name\":\"Mqtt-broker(测试环境不开放端口)\",\"id\":1}],\"pushTopic\":\"1750232528537\",\"controlActionType\":3,\"userName\":\"[超级管理员:admin]\",\"userId\":1L,\"actionType\":1,\"controlType\":1,\"pushData\":\"温度大于35、湿度大于50，开启空调冷风，开启加湿器！\",\"deviceList\":[{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"controlDeviceAbilityLabel\":[\"开启\"],\"controlType\":1,\"isSet\":false,\"name\":\"客厅粉色的加湿器\",\"controlDataTypeLabel\":[\"控制功能\"],\"controlAbility\":27,\"id\":41},{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"controlDeviceAbilityLabel\":[\"冷风\"],\"controlType\":1,\"isSet\":false,\"name\":\"客厅白色的立式空调\",\"controlDataTypeLabel\":[\"控制功能\"],\"controlAbility\":39,\"id\":44}],\"sendType\":1,\"controlGroupId\":[]}', 15);
+INSERT INTO `rules_action_instanc` VALUES (240, 'actionMap1750232665733', '{\"@type\":\"java.util.HashMap\",\"nodeName\":\"数据流转\",\"timeoutExecution\":1,\"seqExecute\":1,\"pushPlatformInformation\":[{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"name\":\"Mqtt-broker(测试环境不开放端口)\",\"id\":1}],\"pushTopic\":\"1750232631469\",\"controlActionType\":3,\"userName\":\"[超级管理员:admin]\",\"userId\":1L,\"actionType\":1,\"controlType\":1,\"pushData\":\"温度小于35、湿度小于50，关闭空调冷风，关闭加湿器！\",\"deviceList\":[{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"controlDeviceAbilityLabel\":[\"关闭\"],\"controlType\":1,\"isSet\":false,\"name\":\"客厅粉色的加湿器\",\"controlDataTypeLabel\":[\"控制功能\"],\"controlAbility\":28,\"id\":41},{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"controlDeviceAbilityLabel\":[\"关闭\"],\"controlType\":1,\"isSet\":false,\"name\":\"客厅白色的立式空调\",\"controlDataTypeLabel\":[\"控制功能\"],\"controlAbility\":36,\"id\":44}],\"sendType\":2,\"controlGroupId\":[]}', 15);
+INSERT INTO `rules_action_instanc` VALUES (241, 'actionMap1750233254803', '{\"@type\":\"java.util.HashMap\",\"nodeName\":\"数据流转\",\"timeoutExecution\":1,\"seqExecute\":1,\"pushPlatformInformation\":[{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"name\":\"Mqtt-broker(测试环境不开放端口)\",\"id\":1}],\"pushTopic\":\"1750233172301\",\"controlActionType\":3,\"userName\":\"[超级管理员:admin]\",\"userId\":1L,\"actionType\":1,\"controlType\":1,\"pushData\":\"温度过高\",\"deviceList\":[{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"controlDeviceAbilityLabel\":[\"关闭窗户\"],\"controlType\":1,\"isSet\":false,\"name\":\"客厅窗户\",\"controlDataTypeLabel\":[\"控制功能\"],\"controlAbility\":43,\"id\":46},{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"controlDeviceAbilityLabel\":[\"关闭\"],\"controlType\":1,\"isSet\":false,\"name\":\"阳台窗帘控制器\",\"controlDataTypeLabel\":[\"控制功能\"],\"controlAbility\":41,\"id\":45}],\"sendType\":1,\"controlGroupId\":[]}', 16);
+INSERT INTO `rules_action_instanc` VALUES (242, 'actionMap1750233255128', '{\"@type\":\"java.util.HashMap\",\"nodeName\":\"数据流转\",\"timeoutExecution\":1,\"seqExecute\":1,\"pushPlatformInformation\":[{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"name\":\"Mqtt-broker(测试环境不开放端口)\",\"id\":1}],\"pushTopic\":\"1750233187251\",\"controlActionType\":3,\"userName\":\"[超级管理员:admin]\",\"userId\":1L,\"actionType\":1,\"controlType\":1,\"pushData\":\"温度降下来了\",\"deviceList\":[{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"controlDeviceAbilityLabel\":[\"开启窗户\"],\"controlType\":1,\"isSet\":false,\"name\":\"客厅窗户\",\"controlDataTypeLabel\":[\"控制功能\"],\"controlAbility\":42,\"id\":46},{\"@type\":\"com.alibaba.fastjson.JSONObject\",\"controlDeviceAbilityLabel\":[\"开启\"],\"controlType\":1,\"isSet\":false,\"name\":\"阳台窗帘控制器\",\"controlDataTypeLabel\":[\"控制功能\"],\"controlAbility\":40,\"id\":45}],\"sendType\":2,\"controlGroupId\":[]}', 16);
 
 -- ----------------------------
 -- Table structure for rules_item
@@ -662,14 +667,13 @@ CREATE TABLE `rules_item`  (
   `creator_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '创建人，格式：[姓名:账号]',
   `updater_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '修改人，格式：[姓名:账号]',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '规则实例' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '规则实例' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of rules_item
 -- ----------------------------
-INSERT INTO `rules_item` VALUES (1, '测试监听', 3, 'let m = seq.list();\r\nif ((deviceId == 36 && wd > 46) && (deviceId == 36 && sd > 54)) {\r\nlet hit = seq.map();\r\nseq.put(hit, \"actionMap\", \"actionMap1748413869626\");\r\nseq.put(hit, \"message\", \"命中条件：空气站 的 温度 > 46 与 空气站 的 湿度 > 54\");\r\nseq.add(m, hit);\r\n}\r\nif(deviceId == 36){\r\n    if(pm25 < 33){\r\n    let hit = seq.map();\r\n    seq.put(hit, \"actionMap\", \"actionMap1748413869758\");\r\n    seq.put(hit, \"message\", \"命中条件：空气站 的 PM25 < 33\");\r\n    seq.add(m, hit);\r\n    }\r\n}\r\nif(deviceId == 36){\r\n    if(sd < 37){\r\n    let hit = seq.map();\r\n    seq.put(hit, \"actionMap\", \"actionMap1748413869758\");\r\n    seq.put(hit, \"message\", \"命中条件：空气站 的 湿度 < 37\");\r\n    seq.add(m, hit);\r\n    }\r\n}\r\nreturn m;\r\n', NULL, '规则规则规则', 1, 4, 0, 1, '2024-09-24 14:46:53', 1, '2025-05-08 13:33:22', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `rules_item` VALUES (3, '测试定时', 3, 'let m = seq.list();\r\nif ((deviceId == 32 && wd > 45) && (deviceId == 32 && sd > 55)) {\r\nlet hit = seq.map();\r\nseq.put(hit, \"actionMap\", \"actionMap1748512722383\");\r\nseq.put(hit, \"message\", \"命中条件：空气检测设备 的 温度 > 45 与 空气检测设备 的 湿度 > 55\");\r\nseq.add(m, hit);\r\n}\r\nif(deviceId == 36){\r\n    if(wd == 34){\r\n    let hit = seq.map();\r\n    seq.put(hit, \"actionMap\", \"actionMap1748512722787\");\r\n    seq.put(hit, \"message\", \"命中条件：空气站 的 温度 == 34\");\r\n    seq.add(m, hit);\r\n    }\r\n}\r\nif(deviceId == 36){\r\n    if(sd > 43){\r\n    let hit = seq.map();\r\n    seq.put(hit, \"actionMap\", \"actionMap1748512722787\");\r\n    seq.put(hit, \"message\", \"命中条件：空气站 的 湿度 > 43\");\r\n    seq.add(m, hit);\r\n    }\r\n}\r\nreturn m;\r\n', NULL, '规则规则规则', 1, 4, 0, 1, '2024-09-25 14:46:30', 1, '2025-05-08 13:33:29', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `rules_item` VALUES (14, '测试动作', 3, 'let m = seq.list();\r\nreturn m;\r\n', NULL, '直接触发动作', 1, 1, 0, 1, '2025-05-24 14:50:05', 1, '2025-05-24 14:50:24', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `rules_item` VALUES (15, '测试规则', 3, 'let m = seq.list();\r\nif ((deviceId == 42 && temperature > 35) && (deviceId == 42 && humidity > 50)) {\r\nlet hit = seq.map();\r\nseq.put(hit, \"actionMap\", \"actionMap1750232665622\");\r\nseq.put(hit, \"message\", \"命中条件：粉色的室内空气检测器 的 温度 > 35 与 粉色的室内空气检测器 的 湿度 > 50\");\r\nseq.add(m, hit);\r\n}\r\nif(deviceId == 42){\r\n    if(temperature < 35){\r\n    let hit = seq.map();\r\n    seq.put(hit, \"actionMap\", \"actionMap1750232665733\");\r\n    seq.put(hit, \"message\", \"命中条件：粉色的室内空气检测器 的 温度 < 35\");\r\n    seq.add(m, hit);\r\n    }\r\n}\r\nif(deviceId == 42){\r\n    if(humidity < 30){\r\n    let hit = seq.map();\r\n    seq.put(hit, \"actionMap\", \"actionMap1750232665733\");\r\n    seq.put(hit, \"message\", \"命中条件：粉色的室内空气检测器 的 湿度 < 30\");\r\n    seq.add(m, hit);\r\n    }\r\n}\r\nreturn m;\r\n', NULL, '当温度大于35，开启空调，开启窗帘，开启窗户！', 1, 4, 0, 1, '2025-06-18 15:37:41', 1, '2025-06-18 15:44:26', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `rules_item` VALUES (16, '定时测试规则', 3, 'let m = seq.list();\r\nif ((deviceId == 43 && temperature > 40) && (deviceId == 43 && temperature > 70)) {\r\nlet hit = seq.map();\r\nseq.put(hit, \"actionMap\", \"actionMap1750233254803\");\r\nseq.put(hit, \"message\", \"命中条件：烤漆的室外空气检测器 的 温度 > 40 与 烤漆的室外空气检测器 的 温度 > 70\");\r\nseq.add(m, hit);\r\n}\r\nif ((deviceId == 43 &&  temperature < 40) && (deviceId == 43 &&  humidity < 70)) {\r\nlet hit = seq.map();\r\nseq.put(hit, \"actionMap\", \"actionMap1750233255128\");\r\nseq.put(hit, \"message\", \"命中条件： 烤漆的室外空气检测器 的 温度 < 40 与  烤漆的室外空气检测器 的 湿度 < 70\");\r\nseq.add(m, hit);\r\n}\r\nreturn m;\r\n', NULL, '定时监测规则', 1, 4, 0, 1, '2025-06-18 15:45:50', 1, '2025-06-18 15:54:15', '[超级管理员:admin]', '[超级管理员:admin]');
 
 -- ----------------------------
 -- Table structure for rules_item_node
@@ -688,15 +692,13 @@ CREATE TABLE `rules_item_node`  (
   `creator_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '创建人，格式：[姓名:账号]',
   `updater_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '修改人，格式：[姓名:账号]',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 41 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '规则节点信息' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 43 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '规则节点信息' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of rules_item_node
 -- ----------------------------
-INSERT INTO `rules_item_node` VALUES (13, 1, '', '{\"cron\": \"\", \"type\": 0, \"setType\": 1, \"nodeName\": \"开始\", \"childNode\": {\"type\": 4, \"nodeName\": \"条件路由\", \"conditionNodes\": [{\"type\": 3, \"nodeName\": \"条件1\", \"childNode\": {\"term\": 4, \"type\": 1, \"setType\": 1, \"nodeName\": \"设备控制\", \"termAuto\": true, \"termMode\": 0, \"childNode\": {\"type\": 2, \"nodeName\": \"数据流转\", \"pushData\": \"哈哈哈哈\", \"sendType\": 2, \"pushTopic\": \"1744968415820\", \"pushDataFormat\": true, \"pushPlatformInformation\": [{\"id\": 1, \"name\": \"Lana-Mqtt-Server\"}]}, \"actionType\": 3, \"selectMode\": 1, \"examineMode\": 2, \"nodeGroupList\": [], \"nodeDeviceList\": [{\"id\": 37, \"name\": \"加湿器\", \"isSet\": false, \"controlType\": 1, \"controlAbility\": 22, \"controlDataTypeLabel\": [\"控制功能\"], \"controlDeviceAbilityLabel\": [\"开\"]}, {\"id\": 36, \"name\": \"空气站\", \"isSet\": false, \"controlType\": 1, \"controlAbility\": 15, \"controlDataTypeLabel\": [\"控制功能\"], \"controlDeviceAbilityLabel\": [\"开启\"]}]}, \"conditionList\": [{\"id\": 36, \"label\": \"空气站\", \"value\": \"46\", \"unicode\": \"1737208715980\", \"operator\": \"1\", \"modeSigns\": \"wd\", \"modeSignsName\": \"温度\"}, {\"id\": 36, \"label\": \"空气站\", \"value\": \"54\", \"unicode\": \"1737208737110\", \"operator\": \"1\", \"modeSigns\": \"sd\", \"modeSignsName\": \"湿度\"}], \"conditionMode\": 1, \"priorityLevel\": 1, \"nodeDeviceList\": []}, {\"type\": 3, \"nodeName\": \"条件2\", \"childNode\": {\"type\": 2, \"nodeName\": \"数据流转\", \"pushData\": \"你好你好你好你好\", \"sendType\": 1, \"pushTopic\": \"1737208800901\", \"pushDataFormat\": true, \"pushPlatformInformation\": [{\"id\": 1, \"name\": \"Lana-Mqtt-Server\"}]}, \"conditionList\": [{\"id\": 36, \"label\": \"空气站\", \"value\": \"33\", \"unicode\": \"1737208757463\", \"operator\": \"2\", \"modeSigns\": \"pm25\", \"modeSignsName\": \"PM25\"}, {\"id\": 36, \"label\": \"空气站\", \"value\": \"37\", \"unicode\": \"1737208770864\", \"operator\": \"2\", \"modeSigns\": \"sd\", \"modeSignsName\": \"湿度\"}], \"conditionMode\": 2, \"priorityLevel\": 2, \"nodeDeviceList\": []}]}, \"nodeDeviceList\": [{\"id\": 32, \"name\": \"空气检测设备\"}, {\"id\": 36, \"name\": \"空气站\"}]}', 0, NULL, NULL, 1, '2024-12-21 16:40:33', NULL, '[超级管理员:admin]');
-INSERT INTO `rules_item_node` VALUES (14, 3, '', '{\"cron\": \"0 0 * * * ?\", \"type\": 0, \"setType\": 2, \"nodeName\": \"开始\", \"childNode\": {\"type\": 4, \"nodeName\": \"条件路由\", \"conditionNodes\": [{\"type\": 3, \"nodeName\": \"条件1\", \"childNode\": {\"type\": 2, \"nodeName\": \"数据流转\", \"pushData\": \"预警预警预警\", \"sendType\": 1, \"pushTopic\": \"123456\", \"pushDataFormat\": true, \"pushPlatformInformation\": [{\"id\": 1, \"name\": \"Lana-Mqtt-Server\"}]}, \"conditionList\": [{\"id\": 32, \"label\": \"空气检测设备\", \"value\": \"45\", \"unicode\": \"1737210295515\", \"operator\": \"1\", \"modeSigns\": \"wd\", \"modeSignsName\": \"温度\"}, {\"id\": 32, \"label\": \"空气检测设备\", \"value\": \"55\", \"unicode\": \"1737210308685\", \"operator\": \"1\", \"modeSigns\": \"sd\", \"modeSignsName\": \"湿度\"}], \"conditionMode\": 1, \"priorityLevel\": 1, \"nodeDeviceList\": []}, {\"type\": 3, \"nodeName\": \"条件2\", \"childNode\": {\"term\": 0, \"type\": 1, \"setType\": 1, \"nodeName\": \"设备控制\", \"termAuto\": true, \"termMode\": 0, \"childNode\": {\"type\": 2, \"nodeName\": \"数据流转\", \"pushData\": \"解除解除解除\", \"sendType\": 2, \"pushTopic\": \"1747041922896\", \"pushDataFormat\": true, \"pushPlatformInformation\": [{\"id\": 1, \"name\": \"Lana-Mqtt-Server\"}]}, \"actionType\": 3, \"selectMode\": 1, \"examineMode\": 2, \"nodeGroupList\": [], \"nodeDeviceList\": [{\"id\": 32, \"name\": \"空气检测设备\", \"isSet\": false, \"controlType\": 1, \"controlAbility\": 9, \"controlDataTypeLabel\": [\"控制功能\"], \"controlDeviceAbilityLabel\": [\"开启\"]}, {\"id\": 37, \"name\": \"加湿器\", \"isSet\": false, \"controlType\": 1, \"controlAbility\": 23, \"controlDataTypeLabel\": [\"控制功能\"], \"controlDeviceAbilityLabel\": [\"关\"]}]}, \"conditionList\": [{\"id\": 36, \"label\": \"空气站\", \"value\": \"34\", \"unicode\": \"1737210329622\", \"operator\": \"0\", \"modeSigns\": \"wd\", \"modeSignsName\": \"温度\"}, {\"id\": 36, \"label\": \"空气站\", \"value\": \"43\", \"unicode\": \"1737210341120\", \"operator\": \"1\", \"modeSigns\": \"sd\", \"modeSignsName\": \"湿度\"}], \"conditionMode\": 2, \"priorityLevel\": 2, \"nodeDeviceList\": []}]}, \"nodeDeviceList\": []}', 0, NULL, NULL, 1, '2024-12-20 17:50:21', NULL, '[超级管理员:admin]');
-INSERT INTO `rules_item_node` VALUES (33, 11, '', '{\"cron\": \"\", \"type\": 0, \"setType\": 1, \"nodeName\": \"开始\", \"childNode\": {\"term\": 0, \"type\": 1, \"setType\": 1, \"nodeName\": \"设备控制\", \"termAuto\": true, \"termMode\": 0, \"childNode\": {\"type\": 2, \"nodeName\": \"数据流转\", \"sendType\": 1, \"pushTopic\": \"1741588778059\", \"pushDataFormat\": true, \"pushPlatformInformation\": [{\"id\": 1, \"name\": \"Lana-Mqtt-Server\"}]}, \"actionType\": 1, \"selectMode\": 1, \"examineMode\": 1, \"nodeGroupList\": [], \"nodeDeviceList\": [{\"id\": 32, \"name\": \"空气检测设备\"}, {\"id\": 36, \"name\": \"空气站\"}, {\"id\": 37, \"name\": \"加湿器\"}, {\"id\": 38, \"name\": \"灯光控制器\"}]}, \"nodeDeviceList\": [{\"id\": 32, \"name\": \"空气检测设备\"}, {\"id\": 36, \"name\": \"空气站\"}]}', 1, 1, '2025-03-10 14:48:24', 1, '2025-03-10 15:03:28', '[超级管理员:admin]', '[超级管理员:admin]');
-INSERT INTO `rules_item_node` VALUES (40, 14, '', '{\"cron\": \"0 * * * * ?\", \"type\": 0, \"setType\": 2, \"nodeName\": \"开始\", \"childNode\": {\"term\": 0, \"type\": 1, \"setType\": 1, \"nodeName\": \"设备控制\", \"termAuto\": false, \"termMode\": 1, \"childNode\": {\"type\": 2, \"nodeName\": \"数据流转\", \"pushData\": \"空气检测设备预警了\", \"sendType\": 1, \"pushTopic\": \"1748233295012\", \"pushDataFormat\": true, \"pushPlatformInformation\": [{\"id\": 1, \"name\": \"Lana-Mqtt-Server\"}]}, \"actionType\": 3, \"selectMode\": 1, \"examineMode\": 2, \"nodeGroupList\": [], \"nodeDeviceList\": [{\"id\": 32, \"name\": \"空气检测设备\", \"isSet\": true, \"controlType\": 1, \"controlAbility\": 9, \"controlDataTypeLabel\": [\"控制功能\"], \"controlDeviceAbilityLabel\": [\"开启\"]}]}, \"nodeDeviceList\": []}', 0, 1, '2025-05-24 15:44:48', 1, '2025-05-24 15:55:13', '[超级管理员:admin]', '[超级管理员:admin]');
+INSERT INTO `rules_item_node` VALUES (41, 15, '', '{\"cron\": \"\", \"type\": 0, \"setType\": 1, \"nodeName\": \"设备监听\", \"childNode\": {\"type\": 4, \"nodeName\": \"条件路由\", \"conditionNodes\": [{\"type\": 3, \"nodeName\": \"温度、湿度判断\", \"childNode\": {\"term\": 0, \"type\": 1, \"setType\": 1, \"nodeName\": \"设备控制\", \"termAuto\": false, \"termMode\": 1, \"childNode\": {\"type\": 2, \"nodeName\": \"数据流转\", \"pushData\": \"温度大于35、湿度大于50，开启空调冷风，开启加湿器！\", \"sendType\": 1, \"pushTopic\": \"1750232528537\", \"pushDataFormat\": true, \"pushPlatformInformation\": [{\"id\": 1, \"name\": \"Mqtt-broker(测试环境不开放端口)\"}]}, \"actionType\": 3, \"selectMode\": 1, \"examineMode\": 2, \"nodeGroupList\": [], \"nodeDeviceList\": [{\"id\": 41, \"name\": \"客厅粉色的加湿器\", \"isSet\": false, \"controlType\": 1, \"controlAbility\": 27, \"controlDataTypeLabel\": [\"控制功能\"], \"controlDeviceAbilityLabel\": [\"开启\"]}, {\"id\": 44, \"name\": \"客厅白色的立式空调\", \"isSet\": false, \"controlType\": 1, \"controlAbility\": 39, \"controlDataTypeLabel\": [\"控制功能\"], \"controlDeviceAbilityLabel\": [\"冷风\"]}]}, \"conditionList\": [{\"id\": 42, \"label\": \"粉色的室内空气检测器\", \"value\": \"35\", \"unicode\": \"1750232331955\", \"operator\": \"1\", \"modeSigns\": \"temperature\", \"modeSignsName\": \"温度\"}, {\"id\": 42, \"label\": \"粉色的室内空气检测器\", \"value\": \"50\", \"unicode\": \"1750232357619\", \"operator\": \"1\", \"modeSigns\": \"humidity\", \"modeSignsName\": \"湿度\"}], \"conditionMode\": 1, \"priorityLevel\": 1, \"nodeDeviceList\": []}, {\"type\": 3, \"nodeName\": \"条件2\", \"childNode\": {\"term\": 0, \"type\": 1, \"setType\": 1, \"nodeName\": \"设备控制\", \"termAuto\": false, \"termMode\": 1, \"childNode\": {\"type\": 2, \"nodeName\": \"数据流转\", \"pushData\": \"温度小于35、湿度小于50，关闭空调冷风，关闭加湿器！\", \"sendType\": 2, \"pushTopic\": \"1750232631469\", \"pushDataFormat\": true, \"pushPlatformInformation\": [{\"id\": 1, \"name\": \"Mqtt-broker(测试环境不开放端口)\"}]}, \"actionType\": 3, \"selectMode\": 1, \"examineMode\": 2, \"nodeGroupList\": [], \"nodeDeviceList\": [{\"id\": 41, \"name\": \"客厅粉色的加湿器\", \"isSet\": false, \"controlType\": 1, \"controlAbility\": 28, \"controlDataTypeLabel\": [\"控制功能\"], \"controlDeviceAbilityLabel\": [\"关闭\"]}, {\"id\": 44, \"name\": \"客厅白色的立式空调\", \"isSet\": false, \"controlType\": 1, \"controlAbility\": 36, \"controlDataTypeLabel\": [\"控制功能\"], \"controlDeviceAbilityLabel\": [\"关闭\"]}]}, \"conditionList\": [{\"id\": 42, \"label\": \"粉色的室内空气检测器\", \"value\": \"35\", \"unicode\": \"1750232391234\", \"operator\": \"2\", \"modeSigns\": \"temperature\", \"modeSignsName\": \"温度\"}, {\"id\": 42, \"label\": \"粉色的室内空气检测器\", \"value\": \"30\", \"unicode\": \"1750232417234\", \"operator\": \"2\", \"modeSigns\": \"humidity\", \"modeSignsName\": \"湿度\"}], \"conditionMode\": 2, \"priorityLevel\": 2, \"nodeDeviceList\": []}]}, \"nodeDeviceList\": [{\"id\": 42, \"name\": \"粉色的室内空气检测器\"}]}', 0, 1, '2025-06-18 15:44:25', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `rules_item_node` VALUES (42, 16, '', '{\"cron\": \"0 0 * * * ?\", \"type\": 0, \"setType\": 2, \"nodeName\": \"开始\", \"childNode\": {\"type\": 4, \"nodeName\": \"条件路由\", \"conditionNodes\": [{\"type\": 3, \"nodeName\": \"条件1\", \"childNode\": {\"term\": 0, \"type\": 1, \"setType\": 1, \"nodeName\": \"设备控制\", \"termAuto\": false, \"termMode\": 1, \"childNode\": {\"type\": 2, \"nodeName\": \"数据流转\", \"pushData\": \"温度过高\", \"sendType\": 1, \"pushTopic\": \"1750233172301\", \"pushDataFormat\": true, \"pushPlatformInformation\": [{\"id\": 1, \"name\": \"Mqtt-broker(测试环境不开放端口)\"}]}, \"actionType\": 3, \"selectMode\": 1, \"examineMode\": 2, \"nodeGroupList\": [], \"nodeDeviceList\": [{\"id\": 46, \"name\": \"客厅窗户\", \"isSet\": false, \"controlType\": 1, \"controlAbility\": 43, \"controlDataTypeLabel\": [\"控制功能\"], \"controlDeviceAbilityLabel\": [\"关闭窗户\"]}, {\"id\": 45, \"name\": \"阳台窗帘控制器\", \"isSet\": false, \"controlType\": 1, \"controlAbility\": 41, \"controlDataTypeLabel\": [\"控制功能\"], \"controlDeviceAbilityLabel\": [\"关闭\"]}]}, \"conditionList\": [{\"id\": 43, \"label\": \"烤漆的室外空气检测器\", \"value\": \"40\", \"unicode\": \"1750232933771\", \"operator\": \"1\", \"modeSigns\": \"temperature\", \"modeSignsName\": \"温度\"}, {\"id\": 43, \"label\": \"烤漆的室外空气检测器\", \"value\": \"70\", \"unicode\": \"1750232957528\", \"operator\": \"1\", \"modeSigns\": \"temperature\", \"modeSignsName\": \"温度\"}], \"conditionMode\": 1, \"priorityLevel\": 1, \"nodeDeviceList\": []}, {\"type\": 3, \"nodeName\": \"条件2\", \"childNode\": {\"term\": 0, \"type\": 1, \"setType\": 1, \"nodeName\": \"设备控制\", \"termAuto\": false, \"termMode\": 1, \"childNode\": {\"type\": 2, \"nodeName\": \"数据流转\", \"pushData\": \"温度降下来了\", \"sendType\": 2, \"pushTopic\": \"1750233187251\", \"pushDataFormat\": true, \"pushPlatformInformation\": [{\"id\": 1, \"name\": \"Mqtt-broker(测试环境不开放端口)\"}]}, \"actionType\": 3, \"selectMode\": 1, \"examineMode\": 2, \"nodeGroupList\": [], \"nodeDeviceList\": [{\"id\": 46, \"name\": \"客厅窗户\", \"isSet\": false, \"controlType\": 1, \"controlAbility\": 42, \"controlDataTypeLabel\": [\"控制功能\"], \"controlDeviceAbilityLabel\": [\"开启窗户\"]}, {\"id\": 45, \"name\": \"阳台窗帘控制器\", \"isSet\": false, \"controlType\": 1, \"controlAbility\": 40, \"controlDataTypeLabel\": [\"控制功能\"], \"controlDeviceAbilityLabel\": [\"开启\"]}]}, \"conditionList\": [{\"id\": 43, \"label\": \"烤漆的室外空气检测器\", \"value\": \"40\", \"unicode\": \"1750233008596\", \"operator\": \"2\", \"modeSigns\": \"temperature\", \"modeSignsName\": \"温度\"}, {\"id\": 43, \"label\": \"烤漆的室外空气检测器\", \"value\": \"70\", \"unicode\": \"1750233023687\", \"operator\": \"2\", \"modeSigns\": \"humidity\", \"modeSignsName\": \"湿度\"}], \"conditionMode\": 1, \"priorityLevel\": 2, \"nodeDeviceList\": []}]}, \"nodeDeviceList\": []}', 0, 1, '2025-06-18 15:54:14', NULL, NULL, '[超级管理员:admin]', NULL);
 
 -- ----------------------------
 -- Table structure for rules_item_quratz
@@ -718,12 +720,12 @@ CREATE TABLE `rules_item_quratz`  (
   `updater_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '修改人，格式：[姓名:账号]',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `unique_rules_id`(`rules_id` ASC, `trigger_name` ASC) USING BTREE COMMENT '每个规则只能有一个对应的关联关系'
-) ENGINE = InnoDB AUTO_INCREMENT = 76 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '规则-任务调度关联表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 77 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '规则-任务调度关联表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of rules_item_quratz
 -- ----------------------------
-INSERT INTO `rules_item_quratz` VALUES (75, 3, '0 0 * * * ?', '1748512720741', 'Trigger_开始3', '1748512720741', 0, 1, '2025-05-29 17:58:42', NULL, NULL, '[超级管理员:admin]', NULL);
+INSERT INTO `rules_item_quratz` VALUES (76, 16, '0 0 * * * ?', '1750233254055', 'Trigger_开始16', '1750233254055', 0, 1, '2025-06-18 15:54:14', NULL, NULL, '[超级管理员:admin]', NULL);
 
 -- ----------------------------
 -- Table structure for rules_job_device_id
@@ -734,13 +736,13 @@ CREATE TABLE `rules_job_device_id`  (
   `device_id` bigint NULL DEFAULT NULL COMMENT '定时任务中的设备id',
   `rule_id` bigint NULL DEFAULT NULL COMMENT '规则id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 49 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '定时规则中每个设备对应的规则信息，用于规则执行的时候的检索' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '定时规则中每个设备对应的规则信息，用于规则执行的时候的检索' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of rules_job_device_id
 -- ----------------------------
-INSERT INTO `rules_job_device_id` VALUES (47, 32, 3);
-INSERT INTO `rules_job_device_id` VALUES (48, 36, 3);
+INSERT INTO `rules_job_device_id` VALUES (49, 43, 16);
+INSERT INTO `rules_job_device_id` VALUES (50, 43, 16);
 
 -- ----------------------------
 -- Table structure for rules_job_push_device
@@ -751,13 +753,13 @@ CREATE TABLE `rules_job_push_device`  (
   `device_ids` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '定时任务中，会存在多少',
   `rule_id` bigint NULL DEFAULT NULL COMMENT '规则id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 50 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '定时任务中，要主动发起采集指令的设备列表信息' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 52 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '定时任务中，要主动发起采集指令的设备列表信息' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of rules_job_push_device
 -- ----------------------------
-INSERT INTO `rules_job_push_device` VALUES (48, '32', 3);
-INSERT INTO `rules_job_push_device` VALUES (49, '36', 3);
+INSERT INTO `rules_job_push_device` VALUES (50, '43', 16);
+INSERT INTO `rules_job_push_device` VALUES (51, '43', 16);
 
 -- ----------------------------
 -- Table structure for rules_listen_device_id
@@ -768,15 +770,12 @@ CREATE TABLE `rules_listen_device_id`  (
   `device_id` bigint NULL DEFAULT NULL COMMENT '监听任务中的设备id',
   `rule_id` bigint NULL DEFAULT NULL COMMENT '规则id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 33 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '监听规则中，设备与规则的对应关系' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '监听规则中，设备与规则的对应关系' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of rules_listen_device_id
 -- ----------------------------
-INSERT INTO `rules_listen_device_id` VALUES (21, 32, 14);
-INSERT INTO `rules_listen_device_id` VALUES (22, 36, 14);
-INSERT INTO `rules_listen_device_id` VALUES (31, 32, 1);
-INSERT INTO `rules_listen_device_id` VALUES (32, 36, 1);
+INSERT INTO `rules_listen_device_id` VALUES (33, 42, 15);
 
 -- ----------------------------
 -- Table structure for sys_dict_data
@@ -1258,7 +1257,7 @@ CREATE TABLE `sys_user_token`  (
 -- ----------------------------
 -- Records of sys_user_token
 -- ----------------------------
-INSERT INTO `sys_user_token` VALUES (1, 1, 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1MDEyMzE4OSwiZXhwIjoxNzUwMTIzMjMyfQ.IJGSiAhyG5ijRl4x71R6HTGmxIMb5M5vZUBhOcvjWE4', '2025-06-17 21:19:49', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1MDEyMzE4OSwiZXhwIjoxNzUwMTI0Mzk4fQ.mat7N1I5YvHzTpOXaDphuEICFV7w7yDjUW42FQ05g3k', '2025-07-01 09:19:49', '2024-01-10 14:40:57');
-INSERT INTO `sys_user_token` VALUES (2, 2, 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYW5hIiwiaWF0IjoxNzUwMTMwNzg4LCJleHAiOjE3NTAxMzA4MzF9.T3s5yIwa7DixXZ-pjKQOptsipqgVdIrwhxZlWqqhR0g', '2025-06-17 23:26:29', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYW5hIiwiaWF0IjoxNzUwMTMwNzg4LCJleHAiOjE3NTAxMzE5OTh9.AUKvmYyE9r16F-0kyfhjWgfVa1ARKBqJ1fVshXQYyWI', '2025-07-01 11:26:29', '2024-01-10 15:38:18');
+INSERT INTO `sys_user_token` VALUES (1, 1, 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1MDIzMTc4NiwiZXhwIjoxNzUwMjMxODI5fQ.wdmM1Y3CKgKbc-l6mNRpvkHDcWml_SOZX4N0jkX6E94', '2025-06-19 03:29:46', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1MDIzMTc4NiwiZXhwIjoxNzUwMjMyOTk2fQ.tKaS7ds5jWbxFU7PxWwxGfPfe6grHzDXUFsBo67cHsM', '2025-07-02 15:29:46', '2024-01-10 14:40:57');
+INSERT INTO `sys_user_token` VALUES (2, 2, 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYW5hIiwiaWF0IjoxNzUwMTUzMjY4LCJleHAiOjE3NTAxNTMzMTJ9.d-LsYH3JBN_NCrCPEsfiKtw30j_U5Iq3VE3Ptz1z5Xw', '2025-06-18 05:41:09', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsYW5hIiwiaWF0IjoxNzUwMTUzMjY4LCJleHAiOjE3NTAxNTQ0Nzh9.LVwGfF7TesbgMkrnsDZAYQdY4ndFDmsK5VkFu9kJrr4', '2025-07-01 17:41:09', '2024-01-10 15:38:18');
 
 SET FOREIGN_KEY_CHECKS = 1;

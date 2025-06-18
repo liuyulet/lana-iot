@@ -1,6 +1,7 @@
 package com.lana.rules.controller;
 
 import com.github.xiaoymin.knife4j.annotations.ApiSupport;
+import com.lana.base.cacheops.CaffeineCacheManager;
 import com.lana.base.operatelog.annotations.OptLog;
 import com.lana.base.operatelog.enums.OperateTypeEnum;
 import com.lana.base.syshandle.page.LanaPage;

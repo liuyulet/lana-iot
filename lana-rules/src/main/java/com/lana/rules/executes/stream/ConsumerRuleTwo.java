@@ -77,68 +77,78 @@ public class ConsumerRuleTwo implements StreamListener<String, MapRecord<String,
         //如果没有对应的规则，则直接入库。
         if(ruleId!=null){
             //检查是什么类型的。
-            int RulesType = CaffeineCacheManager.get("RulesType",ruleId);
-            //type==4(数据上报====>条件过滤====>动作触发[设备控制、数据转发])
-            if(RulesType == RuleValueEnum.NODECONDITIONAL.getValue()){
-                //拿到设备数据之后，开始匹配规则，查看是否有对应的规则匹配，如果有则进行规则处理，并将数据存入redis队列中，进行数据存储
-                jsonObject.put("ruleId",ruleId);
-                jsonObject.put("deviceId",Long.valueOf(deviceId));
-                //从本地缓存中获取脚本
-                Expression compiledExpression = CaffeineCacheManager.get("AviatorScript",ruleId + GeneralPrefixEnum.AVIATORSCRIPT_SUFFIX.getValue());
-                //
-                if(compiledExpression!=null) {
-                    //执行逻辑
-                    try {
-                        Object result = compiledExpression.execute(jsonObject);
-                        List<Map<String, Object>> resultList = (List<Map<String, Object>>) result;
+            //检查是什么类型的。
+            Integer rulesType = null;
+            String RulesListenKey = CacheKeyBuilder.rulesType(ruleId.toString());
+            Object rulesTypeData = redisCacheOps.get(RulesListenKey);
+            if (rulesTypeData != null) {
+                rulesType = (Integer) rulesTypeData;
+            }
+            //Integer RulesType = CaffeineCacheManager.get("RulesType",ruleId);
+            if (rulesType != null) {
+                //type==4(数据上报====>条件过滤====>动作触发[设备控制、数据转发])
+                if(rulesType == RuleValueEnum.NODECONDITIONAL.getValue()){
+                    //拿到设备数据之后，开始匹配规则，查看是否有对应的规则匹配，如果有则进行规则处理，并将数据存入redis队列中，进行数据存储
+                    jsonObject.put("ruleId",ruleId);
+                    jsonObject.put("deviceId",Long.valueOf(deviceId));
+                    //从本地缓存中获取脚本
+                    Expression compiledExpression = CaffeineCacheManager.get("AviatorScript",ruleId + GeneralPrefixEnum.AVIATORSCRIPT_SUFFIX.getValue());
+                    //
+                    if(compiledExpression!=null) {
+                        //执行逻辑
+                        try {
+                            Object result = compiledExpression.execute(jsonObject);
+                            List<Map<String, Object>> resultList = (List<Map<String, Object>>) result;
 
-                        for (Map<String, Object> actionMap : resultList) {
-                            // 提交异步任务
-                            actionDispatcher.dispatch(() -> {
-                                try {
-                                    //动作执行
-                                    rulesActionHandler.handle(actionMap);
-                                } catch (Exception e) {
-                                    System.err.println("规则动作执行失败: " + e.getMessage());
-                                }
-                            });
+                            for (Map<String, Object> actionMap : resultList) {
+                                // 提交异步任务
+                                actionDispatcher.dispatch(() -> {
+                                    try {
+                                        //动作执行
+                                        rulesActionHandler.handle(actionMap);
+                                    } catch (Exception e) {
+                                        System.err.println("规则动作执行失败: " + e.getMessage());
+                                    }
+                                });
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
                     }
                 }
+                // type==1(数据上报====>动作触发[设备控制、数据转发])
+                if(rulesType == RuleValueEnum.NODEDEVICECONTROL.getValue()){
+                    String RulesActionMap = CaffeineCacheManager.get("RulesActionMap",ruleId);
+                    HashMap<String, Object> actionMap = new HashMap<>();
+                    actionMap.put("message","[设备控制、数据转发]规则");
+                    actionMap.put("actionMap",RulesActionMap);
+                    actionDispatcher.dispatch(() -> {
+                        try {
+                            //动作执行
+                            rulesActionHandler.handle(actionMap);
+                        } catch (Exception e) {
+                            System.err.println("规则动作执行失败: " + e.getMessage());
+                        }
+                    });
+                }
+                // type==2(数据上报====>动作触发[数据转发])
+                if(rulesType == RuleValueEnum.NODEDEVICECONTROL.getValue()){
+                    String RulesActionMap = CaffeineCacheManager.get("RulesActionMap",ruleId);
+                    HashMap<String, Object> actionMap = new HashMap<>();
+                    actionMap.put("message","[数据转发]规则");
+                    actionMap.put("actionMap",RulesActionMap);
+                    actionDispatcher.dispatch(() -> {
+                        try {
+                            //动作执行
+                            rulesActionHandler.handle(actionMap);
+                        } catch (Exception e) {
+                            System.err.println("规则动作执行失败: " + e.getMessage());
+                        }
+                    });
+                }
             }
-            // type==1(数据上报====>动作触发[设备控制、数据转发])
-            if(RulesType == RuleValueEnum.NODEDEVICECONTROL.getValue()){
-                String RulesActionMap = CaffeineCacheManager.get("RulesActionMap",ruleId);
-                HashMap<String, Object> actionMap = new HashMap<>();
-                actionMap.put("message","[设备控制、数据转发]规则");
-                actionMap.put("actionMap",RulesActionMap);
-                actionDispatcher.dispatch(() -> {
-                    try {
-                        //动作执行
-                        rulesActionHandler.handle(actionMap);
-                    } catch (Exception e) {
-                        System.err.println("规则动作执行失败: " + e.getMessage());
-                    }
-                });
-            }
-            // type==2(数据上报====>动作触发[数据转发])
-            if(RulesType == RuleValueEnum.NODEDEVICECONTROL.getValue()){
-                String RulesActionMap = CaffeineCacheManager.get("RulesActionMap",ruleId);
-                HashMap<String, Object> actionMap = new HashMap<>();
-                actionMap.put("message","[数据转发]规则");
-                actionMap.put("actionMap",RulesActionMap);
-                actionDispatcher.dispatch(() -> {
-                    try {
-                        //动作执行
-                        rulesActionHandler.handle(actionMap);
-                    } catch (Exception e) {
-                        System.err.println("规则动作执行失败: " + e.getMessage());
-                    }
-                });
-            }
+
         }
         //加入到数据存储队列中
         String queueKey = CacheKeyBuilder.mqttScript();

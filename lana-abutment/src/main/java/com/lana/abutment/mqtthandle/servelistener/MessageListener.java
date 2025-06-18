@@ -2,6 +2,7 @@ package com.lana.abutment.mqtthandle.servelistener;
 
 import com.alibaba.fastjson.JSONObject;
 import com.lana.base.cacheops.CacheKeyBuilder;
+import com.lana.base.cacheops.CaffeineCacheManager;
 import com.lana.base.cacheops.RedisCacheOps;
 import com.lana.base.cacheops.stream.RedisStreamConfigProperties;
 import com.lana.base.utils.JsonUtils;
@@ -52,6 +53,7 @@ public class MessageListener implements IMqttMessageListener {
         //log.info("clientId:{} message:{} payload:{}", clientId, message, new String(message.getPayload(), StandardCharsets.UTF_8));
         //发送数据
         mqttMessageExecutor.submit(() -> {
+
             try {
                 // todo redis队列会有丢失的问题，所以这里也需要支持kafka
                 if ("REDIS".equalsIgnoreCase(queueType)) {

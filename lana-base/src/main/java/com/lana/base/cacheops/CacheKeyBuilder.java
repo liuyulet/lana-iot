@@ -104,6 +104,14 @@ public class CacheKeyBuilder {
 
 
     /**
+     * 缓存设备类型
+     */
+    public static String rulesType(String ruleId) {
+
+        return CachePrefix.RULESTYPE+ruleId;
+    }
+
+    /**
      * 设备--定时规则关联关系（采集规则）
      */
     public static String actionMap(Long actionMapNub) {

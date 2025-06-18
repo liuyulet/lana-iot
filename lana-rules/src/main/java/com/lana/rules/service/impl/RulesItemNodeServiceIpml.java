@@ -326,8 +326,12 @@ public class RulesItemNodeServiceIpml extends BaseServiceImpl<RulesItemNodeDao, 
         if (!childNodeData.isEmpty()) {
 
             // 缓存规则类型，用于后期的规则判断
-            CaffeineCacheManager.deleteKey("RulesType",  rulesId);
-            CaffeineCacheManager.set("RulesType",  rulesId, childNodeData.getInteger("type"), 0, TimeUnit.MINUTES);
+            //CaffeineCacheManager.deleteKey("RulesType",  rulesId);
+            //CaffeineCacheManager.set("RulesType",  rulesId, childNodeData.getInteger("type"), 0, TimeUnit.MINUTES);
+
+            String RulesListenKey = CacheKeyBuilder.rulesType(String.valueOf(rulesId));
+            redisCacheOps.set(RulesListenKey, childNodeData.getInteger("type"));
+
 
 
             //type==4条件

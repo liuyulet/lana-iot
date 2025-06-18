@@ -106,11 +106,11 @@
 						value: "double"
 					},
 					{
-						label: "JSON",
+						label: "JSON(初版不支持)",
 						value: "json"
 					},
 					{
-						label: "自定义指令",
+						label: "自定义指令(初版不支持)",
 						value: "customize"
 					}
 				],

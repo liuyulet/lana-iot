@@ -245,7 +245,15 @@ public class AbutmentInitializer {
         List<RulesItemEntity> rulesItemEntity = rulesItemDao.selectList(new QueryWrapper<RulesItemEntity>().eq("deleted",0));
         try {
             for (RulesItemEntity rulesItemEntity1 : rulesItemEntity) {
-                CaffeineCacheManager.set("RulesType",  rulesItemEntity1.getId(), rulesItemEntity1.getRuleType(), 0, TimeUnit.MINUTES);
+
+                String RulesListenKey = CacheKeyBuilder.rulesType(rulesItemEntity1.getId().toString());
+                Object RulesListenData = redisCacheOps.get(RulesListenKey);
+                if (RulesListenData != null) {
+                    //System.out.println("deviceIdRule已经存在，不进行更新");
+                } else {
+                    redisCacheOps.set(RulesListenKey, rulesItemEntity1.getRuleType());
+                }
+                //CaffeineCacheManager.set("RulesType",  rulesItemEntity1.getId(), rulesItemEntity1.getRuleType(), 0, TimeUnit.MINUTES);
                 log.info("CaffeineCache:{},缓存成功", rulesItemEntity1.getId());
                 if (rulesItemEntity1.getAsPath() != null && !rulesItemEntity1.getAsPath().isEmpty()) {
                     Path pathFile = Paths.get(rulesItemEntity1.getAsPath());
@@ -268,6 +276,7 @@ public class AbutmentInitializer {
                 }else {
                     addFile(rulesItemEntity1);
                 }
+
             }
         } catch (Exception e) {
             throw new LanaException("文件创建或写入失败");

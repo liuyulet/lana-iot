@@ -50,7 +50,6 @@ public class MqttClientController {
         return LanaResult.ok(ClientInfoPage);
     }
 
-
     @GetMapping("/getSubscriptions")
     @Operation(summary = "获取客户端的订阅信息")
     @OptLog(type = OperateTypeEnum.COMMAND)

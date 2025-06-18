@@ -40,8 +40,8 @@
 						<el-table-column label="设备编码" prop="deviceNumber" width="110" ></el-table-column>
 						<el-table-column label="设备状态" prop="status" width="100">
 							<template #default="scope">
-								<el-tag v-if="scope.row.status==1" type="success">正常</el-tag>
-								<el-tag v-if="scope.row.status==0" type="danger">停用</el-tag>
+								<el-tag v-if="scope.row.status==1" type="success">在线</el-tag>
+								<el-tag v-if="scope.row.status==0" type="danger">离线</el-tag>
 							</template>
 						</el-table-column>
 						<el-table-column label="设备描述" prop="remark" width="140"  ></el-table-column>
