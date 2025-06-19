@@ -34,7 +34,7 @@
 						<el-table-column label="设备名称" prop="name" width="150" ></el-table-column>
 						<el-table-column label="设备主题"  width="150" >
 							<template #default="scope">
-								<el-text >SB{{scope.row.id}}</el-text>
+								<el-text >/SB{{scope.row.id}}</el-text>
 							</template>
 						</el-table-column>
 						<el-table-column label="设备编码" prop="deviceNumber" width="110" ></el-table-column>
