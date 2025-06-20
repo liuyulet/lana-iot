@@ -17,7 +17,6 @@
             <artifactId>lana-abutment</artifactId>
             <version>${revision}</version>
         </dependency>
-
     </dependencies>
 
 </project>

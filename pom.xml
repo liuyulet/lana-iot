@@ -25,6 +25,7 @@
         <module>lana-devices</module>
         <module>lana-abutment</module>
         <module>lana-rules</module>
+        <module>lana-camera</module>
     </modules>
 
 
