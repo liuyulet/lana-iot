@@ -34,7 +34,13 @@
             <groupId>org.dromara.mica-mqtt</groupId>
             <artifactId>mica-mqtt-server-spring-boot-starter</artifactId>
         </dependency>
-
+        <!-- Groovy -->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>3.0.21</version> <!-- 使用最新的Groovy版本 -->
+            <type>pom</type>
+        </dependency>
 
 
 <!--        <dependency>
