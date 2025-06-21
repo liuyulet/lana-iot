@@ -67,7 +67,6 @@ public class ConsumerRuleOne implements StreamListener<String, MapRecord<String,
         RecordId id = message.getId();
         // 获取消息的内容
         Map<String, String> map = message.getValue();
-        // 打印接收到的消息信息
         String deviceId = map.get("deviceId").replaceAll("^\"|\"$", "");
         String key = CacheKeyBuilder.deviceIdRule(GeneralPrefixEnum.TABLE_PREFIX.getValue()+deviceId);
         Integer ruleId = (Integer) redisCacheOps.get(key);
@@ -81,6 +80,7 @@ public class ConsumerRuleOne implements StreamListener<String, MapRecord<String,
             if (rulesTypeData != null) {
                 rulesType = (Integer) rulesTypeData;
             }
+            //后期考虑走本地缓存
             //Integer rulesType = CaffeineCacheManager.get("RulesType",ruleId);
             if (rulesType != null) {
                 //type==4(数据上报====>条件过滤====>动作触发[设备控制、数据转发])
@@ -88,27 +88,21 @@ public class ConsumerRuleOne implements StreamListener<String, MapRecord<String,
                     //拿到设备数据之后，开始匹配规则，查看是否有对应的规则匹配，如果有则进行规则处理，并将数据存入redis队列中，进行数据存储
                     jsonObject.put("ruleId",ruleId);
                     jsonObject.put("deviceId",Long.valueOf(deviceId));
-                    //从本地缓存中获取脚本
                     Expression compiledExpression = CaffeineCacheManager.get("AviatorScript",ruleId + GeneralPrefixEnum.AVIATORSCRIPT_SUFFIX.getValue());
-                    //
                     if(compiledExpression!=null) {
-                        //执行逻辑
                         try {
                             Object result = compiledExpression.execute(jsonObject);
                             List<Map<String, Object>> resultList = (List<Map<String, Object>>) result;
-
                             for (Map<String, Object> actionMap : resultList) {
                                 // 提交异步任务
                                 actionDispatcher.dispatch(() -> {
                                     try {
-                                        //动作执行
                                         rulesActionHandler.handle(actionMap);
                                     } catch (Exception e) {
                                         System.err.println("规则动作执行失败: " + e.getMessage());
                                     }
                                 });
                             }
-
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -122,7 +116,6 @@ public class ConsumerRuleOne implements StreamListener<String, MapRecord<String,
                     actionMap.put("actionMap",RulesActionMap);
                     actionDispatcher.dispatch(() -> {
                         try {
-                            //动作执行
                             rulesActionHandler.handle(actionMap);
                         } catch (Exception e) {
                             System.err.println("规则动作执行失败: " + e.getMessage());
@@ -137,7 +130,6 @@ public class ConsumerRuleOne implements StreamListener<String, MapRecord<String,
                     actionMap.put("actionMap",RulesActionMap);
                     actionDispatcher.dispatch(() -> {
                         try {
-                            //动作执行
                             rulesActionHandler.handle(actionMap);
                         } catch (Exception e) {
                             System.err.println("规则动作执行失败: " + e.getMessage());
@@ -146,9 +138,8 @@ public class ConsumerRuleOne implements StreamListener<String, MapRecord<String,
                 }
             }
         }
-        //加入到数据存储队列中
+        //入库
         String queueKey = CacheKeyBuilder.mqttScript();
-        // 走redis缓存队列，缓存数据
         jsonObject.put("deviceId",deviceId);
         redisCacheOps.leftPush(queueKey, jsonObject);
 

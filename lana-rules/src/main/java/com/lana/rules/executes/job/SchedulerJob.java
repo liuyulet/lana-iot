@@ -75,6 +75,7 @@ public class SchedulerJob implements Job {
                 "规则引擎，定时操作设备规则"
                 );*/
         //todo 考虑将定时任务对应的规则id中，要推送的设备id缓存进入redis，然后再使用的时候根据context.getTrigger().getKey().getName()进行查询
+        // 目前进行使用数据库查询
         Long ruleId = rulesItemQuratzService.getRuleJobPushDevice(context.getTrigger().getKey().getName());
 
         //检查规则类型，[设备控制、数据转发、条件规则]
@@ -111,7 +112,6 @@ public class SchedulerJob implements Job {
         // type==4(数据上报====>动作触发[设备控制、数据转发])
         if(RulesType == RuleValueEnum.NODECONDITIONAL.getValue()){
             //根据规则id查询规则缓存中的设备id，拼接对应的采集指令，进行采集数据
-
             String rulesJobPushDeviceKey = CacheKeyBuilder.rulesJobPushDevice(GeneralPrefixEnum.RULE_PREFIX.getValue() + ruleId);
             Object rulesJobPushDeviceData = redisCacheOps.get(rulesJobPushDeviceKey);
             JSONObject pushData = new JSONObject();

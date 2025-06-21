@@ -73,26 +73,20 @@ public class ConsumerRuleJob implements StreamListener<String, MapRecord<String,
         JSONObject jsonObject = JsonUtils.parseObject(map.get("data"),  JSONObject.class);
         //如果没有对应的规则，则直接入库。
         if(ruleId!=null){
-
             //检查是什么类型的。
             int RulesType = CaffeineCacheManager.get("RulesType",ruleId);
             //拿到设备数据之后，开始匹配规则，查看是否有对应的规则匹配，如果有则进行规则处理，并将数据存入redis队列中，进行数据存储
             jsonObject.put("ruleId",ruleId);
             jsonObject.put("deviceId",Long.valueOf(deviceId));
-            //从本地缓存中获取脚本
             Expression compiledExpression = CaffeineCacheManager.get("AviatorScript",ruleId + GeneralPrefixEnum.AVIATORSCRIPT_SUFFIX.getValue());
-            //
             if(compiledExpression!=null) {
-                //执行逻辑
                 try {
                     Object result = compiledExpression.execute(jsonObject);
                     List<Map<String, Object>> resultList = (List<Map<String, Object>>) result;
-
                     for (Map<String, Object> actionMap : resultList) {
                         // 提交异步任务
                         actionDispatcher.dispatch(() -> {
                             try {
-                                //动作执行
                                 rulesActionHandler.handle(actionMap);
                             } catch (Exception e) {
                                 System.err.println("规则动作执行失败: " + e.getMessage());
@@ -105,9 +99,7 @@ public class ConsumerRuleJob implements StreamListener<String, MapRecord<String,
                 }
             }
         }
-        //加入到数据存储队列中
         String queueKey = CacheKeyBuilder.mqttScript();
-        // 走redis缓存队列，缓存数据
         jsonObject.put("deviceId",deviceId);
         redisCacheOps.leftPush(queueKey, jsonObject);
 

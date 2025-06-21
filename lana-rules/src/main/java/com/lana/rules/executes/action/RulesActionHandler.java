@@ -41,10 +41,6 @@ public class RulesActionHandler {
     @Resource
     private DeviceControlHandler deviceControlHandler;
 
-    //mqtt数据转发，一般是基于topic进行转发，包括设备的控制，也会基于mqtt下发指令
-    @Resource
-    private MqttMessageForwarder mqttMessageForwarder;
-
     @Resource
     private DataAnalysisService dataAnalysisService;
     @Resource
@@ -53,7 +49,7 @@ public class RulesActionHandler {
 
 
     /**
-     * todo 后续这里要进行全方面的优化，目前以满足需求为主
+     *
      * 动作处理
      * @param actionMap
      *

@@ -96,7 +96,7 @@ public class RulesItemNodeServiceIpml extends BaseServiceImpl<RulesItemNodeDao, 
     /**
      * 新增或者修改规则
      *
-     * @param saveRulesItemNodeSaveVO todo 待完善： 处理定时任务/监听设备的规则中，在不添加条件的情况下直接控制动作或者数据转发。
+     * @param saveRulesItemNodeSaveVO
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
@@ -108,21 +108,17 @@ public class RulesItemNodeServiceIpml extends BaseServiceImpl<RulesItemNodeDao, 
             //查询是否已经有规则了
             RulesItemNodeEntity rulesItemNodeEntity = baseMapper.selectOne(new QueryWrapper<RulesItemNodeEntity>().eq("rules_id", saveRulesItemNodeSaveVO.getRulesId()).eq("deleted",0));
             if(rulesItemNodeEntity!=null){
-                //修改规则
                 rulesItemNodeEntity.setNodeConfig(saveRulesItemNodeSaveVO.getNodeConfig());
                 rulesItemNodeEntity.setName(saveRulesItemNodeSaveVO.getName());
                 baseMapper.updateById(rulesItemNodeEntity);
-                //开始处理每一个规则要做的动作
                 JSONObject jsonObject = JSONObject.parseObject(saveRulesItemNodeSaveVO.getNodeConfig());
                 if (jsonObject!=null) {
                     //开始处理每一个规则要做的动作
                     HandleRulesNode(jsonObject, saveRulesItemNodeSaveVO.getRulesId(),HandleTypeEnum.MODIFICATION.getValue());
                 }
             }else {
-                //新增规则
                 RulesItemNodeEntity rulesItemNode = RulesItemNodeConvert.INSTANCE.convert(saveRulesItemNodeSaveVO);
                 baseMapper.insert(rulesItemNode);
-                //开始处理每一个规则要做的动作
                 JSONObject jsonObject = JSONObject.parseObject(saveRulesItemNodeSaveVO.getNodeConfig());
                 if (jsonObject!=null) {
                     //开始处理每一个规则要做的动作
@@ -174,10 +170,8 @@ public class RulesItemNodeServiceIpml extends BaseServiceImpl<RulesItemNodeDao, 
                 }
                 //修改规则
             } else if (HandleType==HandleTypeEnum.MODIFICATION.getValue()) {
-                // todo 删除规则
                 //监听设备
                 if (jsonObject.getInteger("setType") == RuleValueEnum.TRIGGERLISTENINGDEVICES.getValue()) {
-                    // 处理规则
                     GenerateRulesScript(jsonObject,rulesId);
                     //定时任务
                 } else if (jsonObject.getInteger("setType") == RuleValueEnum.TRIGGERSCHEDULEDTASKS.getValue()) {
@@ -279,7 +273,6 @@ public class RulesItemNodeServiceIpml extends BaseServiceImpl<RulesItemNodeDao, 
             if (!jsonObject.getJSONObject("childNode").isEmpty()) {
                 JSONObject childNodeData = jsonObject.getJSONObject("childNode");
                 ruleDataList = HandleConditionNodesList(childNodeData,rulesId,RuleValueEnum.TRIGGERSCHEDULEDTASKS.getValue());
-                //定时任务要存储定时采集的设备信息（每个要对比的条件，就是要采集的设备）
             }
         }
 
