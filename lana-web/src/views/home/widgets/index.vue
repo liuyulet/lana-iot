@@ -135,12 +135,9 @@ export default {
 					{
 						name: '设备数量统计',
 						type: 'pie',
-						radius: ['40%', '70%'],
-						center: ['50%', '60%'],
 						label: false,
 						data: [
-							{value: 1, name: '停止使用'},
-							{value: 4, name: '正常使用'}
+
 						]
 					}
 				]
@@ -234,6 +231,27 @@ export default {
 				}]
 			}
 		}
+	},
+	mounted() {
+		this.devicesPin()
+	},
+	methods: {
+		async devicesPin(){
+			var res = await this.$API.device.deviceItem.deviceHomeDataController.get();
+			if(res.code == 200){
+				//这里选择刷新整个表格 OR 插入/编辑现有表格数据
+				const formattedData = res.data.map(item => ({
+					value: item.value,
+					name: item.name
+				}));
+				this.option3.series[0].data = formattedData;
+				//this.$message.success("删除成功")
+
+			}else{
+				this.$alert(res.msg, "提示", {type: 'error'})
+			}
+		}
+
 	}
 }
 </script>
