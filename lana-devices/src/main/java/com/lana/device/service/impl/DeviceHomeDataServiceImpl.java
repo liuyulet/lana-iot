@@ -1,21 +1,10 @@
 package com.lana.device.service.impl;
 
-import com.lana.base.cacheops.CacheKeyBuilder;
-import com.lana.base.cacheops.RedisCacheOps;
-import com.lana.base.mybatis.service.impl.BaseServiceImpl;
-import com.lana.base.syshandle.entity.DeviceControl;
-import com.lana.base.syshandle.exception.LanaException;
-import com.lana.device.convert.DeviceControlDataConvert;
-import com.lana.device.dao.DeviceControlDataDao;
 import com.lana.device.dao.DeviceHomeDataDao;
-import com.lana.device.entity.DeviceControlDataEntity;
 import com.lana.device.entity.DevicesPinEntity;
-import com.lana.device.entity.vo.query.DeviceControlDataQuery;
-import com.lana.device.entity.vo.result.DeviceControlDataResult;
+import com.lana.device.entity.LogCountEntity;
 import com.lana.device.entity.vo.result.DevicesPinResult;
-import com.lana.device.entity.vo.save.DeviceControlDataSave;
-import com.lana.device.entity.vo.update.DeviceControlDataUpdate;
-import com.lana.device.service.DeviceControlDataService;
+import com.lana.device.entity.vo.result.LogCountResult;
 import com.lana.device.service.DeviceHomeDataService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
@@ -40,6 +29,7 @@ public class DeviceHomeDataServiceImpl implements DeviceHomeDataService {
 
     @Override
     public List<DevicesPinResult> getDeviceStatusList() {
+        // 这个检索，没有数据权限，展示的是平台所有的。
         DevicesPinEntity devicesPinEntity = deviceHomeDataDao.getDeviceStatusList();
         if (devicesPinEntity == null) {
             log.warn("No device status data found in database.");
@@ -50,5 +40,37 @@ public class DeviceHomeDataServiceImpl implements DeviceHomeDataService {
         results.add(new DevicesPinResult("在线设备",devicesPinEntity.getOnStatus()));
         results.add(new DevicesPinResult("离线设备",devicesPinEntity.getOffStatus()));
         return results;
+    }
+
+    @Override
+    public LogCountResult getLogData() {
+        // 这个检索，没有数据权限，展示的是平台所有的。
+/*        long systemLog = deviceHomeDataDao.systemLog();
+        long deviceActionLog = deviceHomeDataDao.systemLog();
+        long deviceAlarmsLog = deviceHomeDataDao.deviceAlarmsLog();
+        long deviceAlarm = deviceHomeDataDao.deviceAlarm();
+        long scenarioModeLog = deviceHomeDataDao.scenarioModeLog();
+        LogCountResult result = new LogCountResult();
+        result.setSystemLog(systemLog);
+        result.setDeviceActionLog(deviceActionLog);
+        result.setDeviceAlarmsLog(deviceAlarmsLog);
+        result.setDeviceAlarm(deviceAlarm);
+        result.setScenarioModeLog(scenarioModeLog);*/
+
+        List<LogCountEntity> logCounts = deviceHomeDataDao.getLogCounts();
+
+        log.info("logCounts:{}",logCounts);
+        LogCountResult result = new LogCountResult();
+
+        for (LogCountEntity item : logCounts) {
+            switch (item.getLogType()) {
+                case "systemLog" -> result.setSystemLog(item.getCountValue());
+                case "deviceActionLog" -> result.setDeviceActionLog(item.getCountValue());
+                case "deviceAlarmsLog" -> result.setDeviceAlarmsLog(item.getCountValue());
+                case "deviceAlarm" -> result.setDeviceAlarm(item.getCountValue());
+                case "scenarioModeLog" -> result.setScenarioModeLog(item.getCountValue());
+            }
+        }
+        return result;
     }
 }

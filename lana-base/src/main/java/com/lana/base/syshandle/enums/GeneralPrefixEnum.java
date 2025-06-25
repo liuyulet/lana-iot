@@ -12,15 +12,12 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum GeneralPrefixEnum {
 
-    /**
-     * 设备前缀
-     */
-    DEVICE_PREFIX("SB"),
 
     /**
-     * 表名前缀
+     * 表名前缀,客户端id前缀，缓存相关前缀
      */
     TABLE_PREFIX("sb"),
+
 
     /**
      * 规则前缀

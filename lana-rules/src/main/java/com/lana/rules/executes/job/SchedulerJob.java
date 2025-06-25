@@ -79,8 +79,15 @@ public class SchedulerJob implements Job {
         Long ruleId = rulesItemQuratzService.getRuleJobPushDevice(context.getTrigger().getKey().getName());
 
         //检查规则类型，[设备控制、数据转发、条件规则]
-        int RulesType = CaffeineCacheManager.get("RulesType",ruleId);
-        if(RulesType == RuleValueEnum.NODEDEVICECONTROL.getValue()){
+        //int RulesType = CaffeineCacheManager.get("RulesType",ruleId);
+        Integer rulesType = null;
+        //检查是什么类型的。
+        String RulesListenKey = CacheKeyBuilder.rulesType(ruleId.toString());
+        Object rulesTypeData = redisCacheOps.get(RulesListenKey);
+        if (rulesTypeData != null) {
+            rulesType = (Integer) rulesTypeData;
+        }
+        if(rulesType == RuleValueEnum.NODEDEVICECONTROL.getValue()){
             String RulesActionMap = CaffeineCacheManager.get("RulesActionMap",ruleId);
             HashMap<String, Object> actionMap = new HashMap<>();
             actionMap.put("message","[设备控制、数据转发]规则");
@@ -95,7 +102,7 @@ public class SchedulerJob implements Job {
             });
         }
         // type==2(数据上报====>动作触发[数据转发])
-        if(RulesType == RuleValueEnum.NODEDATAPORTERING.getValue()){
+        if(rulesType == RuleValueEnum.NODEDATAPORTERING.getValue()){
             String RulesActionMap = CaffeineCacheManager.get("RulesActionMap",ruleId);
             HashMap<String, Object> actionMap = new HashMap<>();
             actionMap.put("message","[数据转发]规则");
@@ -110,7 +117,7 @@ public class SchedulerJob implements Job {
             });
         }
         // type==4(数据上报====>动作触发[设备控制、数据转发])
-        if(RulesType == RuleValueEnum.NODECONDITIONAL.getValue()){
+        if(rulesType == RuleValueEnum.NODECONDITIONAL.getValue()){
             //根据规则id查询规则缓存中的设备id，拼接对应的采集指令，进行采集数据
             String rulesJobPushDeviceKey = CacheKeyBuilder.rulesJobPushDevice(GeneralPrefixEnum.RULE_PREFIX.getValue() + ruleId);
             Object rulesJobPushDeviceData = redisCacheOps.get(rulesJobPushDeviceKey);

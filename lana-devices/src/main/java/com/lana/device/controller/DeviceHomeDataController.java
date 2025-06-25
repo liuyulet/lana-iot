@@ -3,6 +3,7 @@ package com.lana.device.controller;
 import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.lana.base.syshandle.result.LanaResult;
 import com.lana.device.entity.vo.result.DevicesPinResult;
+import com.lana.device.entity.vo.result.LogCountResult;
 import com.lana.device.service.DeviceControlDataService;
 import com.lana.device.service.DeviceHomeDataService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -18,7 +19,7 @@ import java.util.List;
  * @create 2025/6/23 15:54
  */
 @RestController
-@RequestMapping("/devices/deviceHomeDataController")
+@RequestMapping("/devices/deviceHomeData")
 @Tag(name = "设备列在线情况查询")
 @ApiSupport(author = "liuyulet")
 public class DeviceHomeDataController {
@@ -29,6 +30,12 @@ public class DeviceHomeDataController {
     @GetMapping("/devicesPin")
     public LanaResult<List<DevicesPinResult>> devicesPin() {
         return LanaResult.ok(deviceHomeDataService.getDeviceStatusList());
+    }
+
+
+    @GetMapping("/getLogData")
+    public LanaResult<LogCountResult> getLogData() {
+        return LanaResult.ok(deviceHomeDataService.getLogData());
     }
 
 

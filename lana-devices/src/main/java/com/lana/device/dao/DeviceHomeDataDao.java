@@ -1,12 +1,9 @@
 package com.lana.device.dao;
 
-import com.lana.base.mybatis.dao.BaseDao;
-import com.lana.device.entity.DeviceControlDataEntity;
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.lana.device.entity.DevicesPinEntity;
-import com.lana.device.entity.vo.query.DeviceControlDataQuery;
-import com.lana.device.entity.vo.result.DeviceControlDataResult;
+import com.lana.device.entity.LogCountEntity;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -20,4 +17,23 @@ import java.util.List;
 public interface DeviceHomeDataDao {
 
     DevicesPinEntity getDeviceStatusList();
+
+
+    @DS("tdengine")
+    long systemLog();
+
+    @DS("tdengine")
+    long deviceActionLog();
+
+    @DS("tdengine")
+    long deviceAlarmsLog();
+
+    @DS("tdengine")
+    long deviceAlarm();
+
+    @DS("tdengine")
+    long scenarioModeLog();
+
+    @DS("tdengine")
+    List<LogCountEntity> getLogCounts();
 }

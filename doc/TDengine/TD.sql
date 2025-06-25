@@ -22,5 +22,5 @@ CREATE STABLE sys_log_operate (ts timestamp,
     operate_type INT,
     status INT,
     real_name NCHAR(50)
-    ) TAGS (user_id BIGINT);
+    ) TAGS (creator BIGINT);
 

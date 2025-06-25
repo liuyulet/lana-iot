@@ -1,6 +1,7 @@
 package com.lana.device.service;
 
 import com.lana.device.entity.vo.result.DevicesPinResult;
+import com.lana.device.entity.vo.result.LogCountResult;
 
 import java.util.List;
 
@@ -14,4 +15,6 @@ public interface DeviceHomeDataService {
 
 
     List<DevicesPinResult> getDeviceStatusList();
+
+    LogCountResult getLogData();
 }
