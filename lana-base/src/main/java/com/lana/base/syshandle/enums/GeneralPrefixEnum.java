@@ -17,8 +17,6 @@ public enum GeneralPrefixEnum {
      * 表名前缀,客户端id前缀，缓存相关前缀
      */
     TABLE_PREFIX("sb"),
-
-
     /**
      * 规则前缀
      */

@@ -49,7 +49,7 @@
         <mqtt.version>2.4.4</mqtt.version>
         <aviator.version>5.4.3</aviator.version>
         <caffeine.version>3.1.8</caffeine.version>
-        <commons-version>2.7.0</commons-version>
+        <!--<commons-version>2.7.0</commons-version>-->
         <mybatis.spring.version>3.0.3</mybatis.spring.version>
         <taosdata.version>3.2.5</taosdata.version>
         <transmittable.thread.local.version>2.14.2</transmittable.thread.local.version>
@@ -127,11 +127,11 @@
                 <version>${taosdata.version}</version>
             </dependency>
 
-            <dependency>
+<!--            <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-pool2</artifactId>
                 <version>${commons-version}</version>
-            </dependency>
+            </dependency>-->
 
             <dependency>
                 <groupId>com.github.ben-manes.caffeine</groupId>

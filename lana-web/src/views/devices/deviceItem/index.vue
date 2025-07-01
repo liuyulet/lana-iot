@@ -32,13 +32,9 @@
 							</template>
 						</el-table-column>
 						<el-table-column label="设备名称" prop="name" width="150" ></el-table-column>
-						<el-table-column label="设备主题"  width="150" >
-							<template #default="scope">
-								<el-text >/SB{{scope.row.id}}</el-text>
-							</template>
-						</el-table-column>
-						<el-table-column label="设备编码" prop="deviceNumber" width="110" ></el-table-column>
-						<el-table-column label="设备状态" prop="status" width="100">
+						<el-table-column label="设备主题"  prop="topicName" width="150" ></el-table-column>
+						<el-table-column label="设备编码" prop="deviceNumber" width="150" ></el-table-column>
+						<el-table-column label="设备状态" prop="status" width="80">
 							<template #default="scope">
 								<el-tag v-if="scope.row.status==1" type="success">在线</el-tag>
 								<el-tag v-if="scope.row.status==0" type="danger">离线</el-tag>

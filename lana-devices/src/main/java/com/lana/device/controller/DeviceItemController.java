@@ -46,10 +46,11 @@ public class DeviceItemController {
     @OptLog(type = OperateTypeEnum.QUERY)
     //@PreAuthorize("hasAuthority('devices:deviceItem:page')")
     public LanaResult<LanaPage<DeviceItemResult>> getDeviceItemPage(@ParameterObject @Valid DeviceItemQuery query) {
-
         LanaPage<DeviceItemResult> lanaPage = deviceItemService.getDeviceItemPage(query);
         return LanaResult.ok(lanaPage);
     }
+
+
 
 
     // todo 项目启动的时候，需要将物模型的数据初始化在redis中

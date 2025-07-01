@@ -46,10 +46,11 @@ public class DeviceItemServiceImpl extends BaseServiceImpl<DeviceItemDao, Device
 
     @Override
     public LanaPage<DeviceItemResult> getDeviceItemPage(DeviceItemQuery query) {
-
+        String prefixs = GeneralPrefixEnum.DEVICE_TOPIC_PREFIX.getValue();
         IPage<DeviceItemGetResult> page = baseMapper.getDeviceItemPage(getPage(query),query,true);
         List<DeviceItemResult> deviceItemResults = page.getRecords().stream()
                 .map(dto -> {
+
                     DeviceItemResult result = new DeviceItemResult();
                     // 复制基本属性...
                     result.setId(dto.getId());
@@ -63,6 +64,7 @@ public class DeviceItemServiceImpl extends BaseServiceImpl<DeviceItemDao, Device
                     result.setUpdateTime(dto.getUpdateTime());
                     result.setCreatorName(dto.getCreatorName());
                     result.setUpdaterName(dto.getUpdaterName());
+                    result.setTopicName(prefixs+dto.getId());
                     result.setProductTypeShow(StringUtils.isNotBlank(dto.getProductTypeShow())
                             ? Arrays.stream(dto.getProductTypeShow().split(","))
                             .map(Long::valueOf)

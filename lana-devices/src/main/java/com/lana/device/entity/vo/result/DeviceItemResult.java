@@ -62,6 +62,11 @@ public class DeviceItemResult{
     @Schema(description = "产品编辑回显内容")
     private List<Long> productTypeShow;
 
+    /**
+     * 设备主题
+     */
+    @Schema(description = "设备主题")
+    private String topicName;
 
     /**
      * 创建时间

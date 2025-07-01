@@ -10,7 +10,6 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("sys_menus_api")
 public class SysMenusApiEntity extends BaseEntity {
     private Long menuId;
     private String code;

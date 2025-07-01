@@ -14,8 +14,6 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface SysLogOperateDao extends BaseDao<SysLogOperateEntity> {
 
-    // 目前启用该版本的日志
-    IPage<SysLogOperateResult> getLists(@Param("page")IPage<SysLogOperateEntity> page, @Param("query")SysLogOperateQuery model);
 
     @DS("tdengine")
     void insertTd(@Param("sql")String sql);
