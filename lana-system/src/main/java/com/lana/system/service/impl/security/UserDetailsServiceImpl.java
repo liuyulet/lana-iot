@@ -1,6 +1,6 @@
 package com.lana.system.service.impl.security;
 
-import com.lana.system.convert.UserCovertBasic;
+import com.lana.system.convert.UserCovert;
 import com.lana.system.dao.SysUserDao;
 import com.lana.system.entity.SysUserEntity;
 import com.lana.system.service.SysUserDetailsService;
@@ -38,6 +38,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
 
         //查询用户权限信息
-        return sysUserDetailsService.getUserDetails(UserCovertBasic.INSTANCE.convertDetail(userEntity));
+        return sysUserDetailsService.getUserDetails(UserCovert.INSTANCE.convertDetail(userEntity));
     }
 }

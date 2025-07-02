@@ -11,13 +11,12 @@ public enum UserStatusEnum {
     /**
      * 停用
      */
-    DISABLE(0, "停用"),
+    DISABLE(0),
     /**
      * 正常
      */
-    ENABLED(1, "正常");
+    ENABLED(1);
 
     private final int value;
-    private final String name;
 
 }

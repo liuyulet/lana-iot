@@ -69,7 +69,7 @@ lana:
     refresh-token-expire: 1209600
     #jwt配置
     secretKey: $qwertyuiopasdfghjklZXCVBNdsfdsfdsMOIUYTREWQdsjkfhdsklfhjsdSADSADSADsdfdsSADASDSAD #密钥
-    aseSecretKey: lanaBootIsVeryNB
+    aesSecretKey: lanaBootIsVeryNB
   xss:
     enabled: true
 

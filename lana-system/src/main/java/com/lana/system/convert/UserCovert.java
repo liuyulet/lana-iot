@@ -7,8 +7,8 @@ import org.mapstruct.factory.Mappers;
 
 
 @Mapper
-public interface UserCovertBasic {
-    UserCovertBasic INSTANCE = Mappers.getMapper(UserCovertBasic.class);
+public interface UserCovert {
+    UserCovert INSTANCE = Mappers.getMapper(UserCovert.class);
 
 
     UserDetail convertDetail(SysUserEntity entity);

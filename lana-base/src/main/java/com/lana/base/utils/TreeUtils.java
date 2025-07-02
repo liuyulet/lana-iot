@@ -1,5 +1,6 @@
 package com.lana.base.utils;
 
+import com.lana.base.syshandle.exception.LanaException;
 import com.lana.base.syshandle.tree.HandleTree;
 
 import java.util.ArrayList;
@@ -17,14 +18,18 @@ public class TreeUtils {
      */
     public static <T extends HandleTree<T>> List<T> build(List<T> treeNodes, Long pid) {
         // pid不能为空
-        EmptyUtils.isNull(pid, "pid");
-
         List<T> treeList = new ArrayList<>();
-        for (T treeNode : treeNodes) {
-            if (pid.equals(treeNode.getPid())) {
-                treeList.add(findChildren(treeNodes, treeNode));
+
+        if(pid!=null){
+            for (T treeNode : treeNodes) {
+                if (pid.equals(treeNode.getPid())) {
+                    treeList.add(findChildren(treeNodes, treeNode));
+                }
             }
+        }else {
+            throw new LanaException("pid不能为空");
         }
+
 
         return treeList;
     }

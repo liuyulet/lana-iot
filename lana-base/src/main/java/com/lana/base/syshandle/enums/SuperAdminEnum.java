@@ -12,13 +12,13 @@ public enum SuperAdminEnum {
     /**
      * 是
      */
-    YES(1, "是"),
+    YES(1),
     /**
      * 否
      */
-    NO(0, "否");
+    NO(0);
 
     private final Integer value;
-    private final String name;
+
 
 }

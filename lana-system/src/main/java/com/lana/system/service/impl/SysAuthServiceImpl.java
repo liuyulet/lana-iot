@@ -42,8 +42,8 @@ public class SysAuthServiceImpl implements SysAuthService {
 
     @Value("${spring.captchaEnabled}")
     private Boolean captchaEnabled;
-    @Value("${lana.security.aseSecretKey}")
-    private String aseSecretKey;
+    @Value("${lana.security.aesSecretKey}")
+    private String aesSecretKey;
     @Value("${lana.version}")
     private String version;
 
